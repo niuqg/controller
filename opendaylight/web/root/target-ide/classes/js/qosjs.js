@@ -127,14 +127,8 @@ function addgroup(){
 		alert("延迟不能为空");
 	}else if(packetLoss==""){
 		alert("丢包率不能为空");
-	}else if(validateGroup()==false){
-		return ;
-	}
-	else{
-		if(confirm("确认操作?")){
-			addhostgroup.action="addhostgroup";
-			addhostgroup.submit();	
-		}
+	}else{
+	    validateGroup();
 	}
 }
 
@@ -143,19 +137,19 @@ function validateGroup(){
 	 var bandwidth=$('#g_bandwidth').val();
 	 $.ajax({
 		 type:"POST",
-		 url:"<spring:url value='/validategroup' />",
+		 url:"/validategroup",
 		 data:"priority="+priority+"&bandwidth="+bandwidth,
 		  success: function(data){       
-			    if(data=="hehe"){     
-			     alert("主机分组已经存在"+data);
-			     return false;
+			    if(data=="false"){     
+			     alert("主机分组已经存在");
 			    }else{     
-			     alert("主机分组可用"+data); 
-			     return false;
+			         if(confirm("确认操作?")){
+			             addhostgroup.action="addhostgroup";
+			             addhostgroup.submit();
+			         }
 			    }     
 			  } 
 	 });
-	 alert("validate done");
 }
 
 function deletehostgroup(){

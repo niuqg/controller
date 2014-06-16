@@ -16,27 +16,31 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.google.gson.Gson;
 
-import edu.ustc.qos.databasemanager.AppGroup;
-import edu.ustc.qos.databasemanager.AppQos;
-import edu.ustc.qos.databasemanager.HostGroup;
-import edu.ustc.qos.databasemanager.HostQos;
-import edu.ustc.qos.databasemanager.Idatabasemanager;
-import edu.ustc.qos.databasemanager.Logger;
-import edu.ustc.qos.databasemanager.ResultPair;
-import edu.ustc.qos.databasemanager.Status;
+import edu.ustc.qos.dao.AQ_Group_Dao;
+import edu.ustc.qos.dao.App_Qos_Dao;
+import edu.ustc.qos.dao.HQ_Group_Dao;
+import edu.ustc.qos.dao.Host_QoS_Dao;
+import edu.ustc.qos.dao.LoggerDao;
+import edu.ustc.qos.databasemanager.Host_QoS;
+import edu.ustc.qos.databasemanager.App_QoS;
+import edu.ustc.qos.databasemanager.HQ_Group;
+import edu.ustc.qos.databasemanager.System_Logger;
 import edu.ustc.qos.databasemanager.User;
-
+import edu.ustc.qos.databasemanager.AQ_Group;
 @Controller
 @RequestMapping("/")
 public class QosWeb_qos {
     User user;
-    Idatabasemanager databasemanager;
-    ResultPair re = new ResultPair();
-    ResultPair re1 = new ResultPair();
-    List<HostQos> hostqoslist;
-    List<HostGroup> grouplist;
-    List<AppQos> appqoslist;
-    List<AppGroup> appgrouplist;
+    Host_QoS_Dao hqDao=new Host_QoS_Dao();
+    HQ_Group_Dao hqgDao = new HQ_Group_Dao();
+    App_Qos_Dao aqDao = new App_Qos_Dao();
+    AQ_Group_Dao aqgDao= new AQ_Group_Dao();
+    LoggerDao logDao = new LoggerDao();
+    List<Host_QoS> hostqoslist;
+    List<HQ_Group> grouplist;
+    List<App_QoS> App_QoSlist;
+    List<AQ_Group> AQ_Grouplist;
+    System_Logger log =new System_Logger();
     Gson gson=new Gson();
 
     @SuppressWarnings("unchecked")
@@ -46,30 +50,20 @@ public class QosWeb_qos {
         HttpSession session = request.getSession();
         user = (User) session.getAttribute("user");
         String hglist,hlist;
-        databasemanager = (Idatabasemanager) ServiceHelper.getGlobalInstance(
-                Idatabasemanager.class, this);
-        re = databasemanager.getHostQos();
-        re1 = databasemanager.getHostGroups();
-        if(re.status!=Status.SUCCESS||re1.status!=Status.SUCCESS){
-            System.out.println("getHostQos状态："+re.status);
-            System.out.println("getHostGroups状态："+re1.status);
-            return "qoserror";
-        }
-        System.out.println("host_list:" + re.status + re.object + "\n\n");
-        System.out.println("host_list:" + re1.status + re1.object + "\n\n");
         try {
-            hostqoslist = (List<HostQos>) re.object;
-            grouplist = (List<HostGroup>) re1.object;
-            System.out.println("hostqoslist:"+hostqoslist);
+            hostqoslist = hqDao.getHQList();
+            grouplist = hqgDao.getHQGList();
+            if(hostqoslist==null||grouplist==null){
+                return "qoserror";
+            }
         } catch (Exception e) {
-            System.out.println("error");
+            e.printStackTrace();
         }
-        System.out.println(user + " " + user.getUserLevelID());
         hlist=gson.toJson(hostqoslist);
         hglist=gson.toJson(grouplist);
         hglist=hglist.replace('\"', '\'');
         hlist=hlist.replace('\"', '\'');
-        if (user.getUserLevelID() == 1) {
+        if (user.getRole_ID() == 1) {
             request.setAttribute("hostlist", hlist);
             request.setAttribute("grouplist", hglist);
             System.out.println(hlist+"\n\n"+hglist);
@@ -83,18 +77,14 @@ public class QosWeb_qos {
 
     public String GetHostQos(){
         String hlist;
-        databasemanager = (Idatabasemanager) ServiceHelper.getGlobalInstance(
-                Idatabasemanager.class, this);
-        re = databasemanager.getHostQos();
-        if(re.status!=Status.SUCCESS){
-            System.out.println("getHostQos状态："+re.status);
-            return "qoserror";
-        }
+
         try {
-            hostqoslist = (List<HostQos>) re.object;
-            System.out.println("hostqoslist:"+hostqoslist);
+            hostqoslist = hqDao.getHQList();
+            if(hostqoslist==null){
+                return "qoserror";
+            }
         } catch (Exception e) {
-            System.out.println("error");
+            e.printStackTrace();
             return "qoserror";
         }
         hlist=gson.toJson(hostqoslist);
@@ -104,20 +94,16 @@ public class QosWeb_qos {
 
     public String GetHostQosGroups(){
         String hglist;
-        databasemanager = (Idatabasemanager) ServiceHelper.getGlobalInstance(
-                Idatabasemanager.class, this);
-        re1 = databasemanager.getHostGroups();
-        if(re1.status!=Status.SUCCESS){
-            System.out.println("getHostGroups状态："+re1.status);
-            return "qoserror";
-        }
         try {
-            grouplist = (List<HostGroup>) re1.object;
+            grouplist = hqgDao.getHQGList();
+            if(grouplist==null){
+                return "qoserror";
+            }
         } catch (Exception e) {
-            System.out.println("error");
+        	e.printStackTrace();
             return "qoserror";
         }
-        System.out.println(user + " " + user.getUserLevelID());
+        System.out.println(user + " " + user.getRole_ID());
         hglist=gson.toJson(grouplist);
         hglist=hglist.replace('\"', '\'');
         return hglist;
@@ -128,119 +114,108 @@ public class QosWeb_qos {
         String aglist="",alist="";
         HttpSession session = request.getSession();
         user = (User) session.getAttribute("user");
-        System.out.println(user + " " + user.getUserLevelID());
-        databasemanager = (Idatabasemanager) ServiceHelper.getGlobalInstance(
-                Idatabasemanager.class, this);
-        re = databasemanager.getAppQos();
-        re1 = databasemanager.getAppGroups();
-        if (re.status != Status.SUCCESS) {
-            return "qoserror";
-        }
+
         try {
-            appgrouplist = (List<AppGroup>) re1.object;
-            appqoslist = (List<AppQos>) re.object;
+            AQ_Grouplist = aqgDao.getAQGList();
+            App_QoSlist = aqDao.getAQList();
+            if (AQ_Grouplist==null||App_QoSlist==null) {
+                return "qoserror";
+            }
             /*添加部分*/
-            aglist=gson.toJson(appgrouplist);
-            alist=gson.toJson(appqoslist);
+            aglist=gson.toJson(AQ_Grouplist);
+            alist=gson.toJson(App_QoSlist);
             aglist=aglist.replace('\"', '\'');
             alist=alist.replace('\"', '\'');
             /*添加部分*/
         } catch (Exception e) {
             System.out.println("error");
         }
-        if (user.getUserLevelID() == 1) {
+        if (user.getRole_ID() == 1) {
             /*添加部分*/
-            System.out.println(aglist+"\n\n"+alist);
-            request.setAttribute("appgrouplist", aglist);
-            request.setAttribute("appqoslist", alist);
+            request.setAttribute("AQ_Grouplist", aglist);
+            request.setAttribute("App_QoSlist", alist);
             /*添加部分*/
-            System.out.println(hostqoslist);
             return "qosapp_admin";
         } else {
             /*添加部分*/
-            request.setAttribute("appgrouplist", aglist);
-            request.setAttribute("appqoslist", alist);
+            request.setAttribute("AQ_Grouplist", aglist);
+            request.setAttribute("App_QoSlist", alist);
             /*添加部分*/
             return "qosapp";
         }
     }
 
-    public String GetAppQos(){
+    public String GetApp_QoS(){
         String alist="";
-        databasemanager = (Idatabasemanager) ServiceHelper.getGlobalInstance(
-                Idatabasemanager.class, this);
-        re = databasemanager.getAppQos();
-        if (re.status != Status.SUCCESS) {
-            return "qoserror";
-        }
+
         try {
-            appqoslist = (List<AppQos>) re.object;
-            alist=gson.toJson(appqoslist);
+            App_QoSlist = aqDao.getAQList();
+            if (App_QoSlist==null) {
+                return "qoserror";
+            }
+            alist=gson.toJson(App_QoSlist);
             alist=alist.replace('\"', '\'');
         } catch (Exception e) {
-            System.out.println("error");
+            e.printStackTrace();
             return "qoserror";
         }
        return alist;
     }
-    public String GetAppQosGroups(){
+    public String GetApp_QoSGroups(){
         String aglist="";
-        databasemanager = (Idatabasemanager) ServiceHelper.getGlobalInstance(
-                Idatabasemanager.class, this);
-        re1 = databasemanager.getAppGroups();
-        if (re1.status != Status.SUCCESS) {
-            return "qoserror";
-        }
         try {
-            appgrouplist = (List<AppGroup>) re1.object;
-            aglist=gson.toJson(appgrouplist);
+            AQ_Grouplist = aqgDao.getAQGList();
+            if (AQ_Grouplist==null) {
+                return "qoserror";
+            }
+            aglist=gson.toJson(AQ_Grouplist);
             aglist=aglist.replace('\"', '\'');
         } catch (Exception e) {
-            System.out.println("error");
+            e.printStackTrace();
             return "qoserror";
         }
        return aglist;
     }
 
-    @RequestMapping(value = "/addhostgroup")
+    @RequestMapping(value = "/addHQ_Group")
     public String AddHostQosGroup(Model model,
             final HttpServletRequest request, final HttpServletResponse response) {
-        int bandwidth, delay, packetLoss;
-        int priority = Integer.parseInt(request.getParameter("priority"));
-        String bd = request.getParameter("bandwidth");
+        int upbandwidth, dbandwidth, packetLoss;
+        int priority = Integer.parseInt(request.getParameter("HQ_Priority"));
+        String bd = request.getParameter("HQ_Up_Bandwidth");
         if (bd == "") {
-            bandwidth = 0;
+        	upbandwidth = -1;
         } else {
-            bandwidth = Integer.parseInt(bd);
+        	upbandwidth = Integer.parseInt(bd);
         }
-        String de = request.getParameter("delay");
-        if (de == "") {
-            delay = 0;
+        bd = request.getParameter("HQ_Down_Bandwidth");
+        if (bd == "") {
+        	dbandwidth = -1;
         } else {
-            delay = Integer.parseInt(de);
+        	dbandwidth = Integer.parseInt(bd);
         }
-        String pl = request.getParameter("packetLoss");
-        if (pl == "") {
-            packetLoss = 0;
-        } else {
-            packetLoss = Integer.parseInt(pl);
-        }
-        HostGroup hg = new HostGroup();
-        hg.setPriority(priority);
-        hg.setDelay(delay);
-        hg.setBandwidth(bandwidth);
-        hg.setPacketLoss(packetLoss);
-        databasemanager = (Idatabasemanager) ServiceHelper.getGlobalInstance(
-                Idatabasemanager.class, this);
-        Status state = databasemanager.addHostGroup(hg);
-        if (state == Status.SUCCESS) {
-            Logger log =new Logger();
-            Timestamp timestamp =new Timestamp(System.currentTimeMillis());
-            log.setTimestamp(timestamp);
-            log.setDescription("增加主机分组成功");
-            log.setUserID(user.getUserID());
-            log.setUserName(user.getUserName());
-            databasemanager.addLogger(log);
+        HQ_Group hg = new HQ_Group();
+        hg.setHQ_Priority(priority);
+        hg.setHQ_Down_Bandwidth(dbandwidth);
+        hg.setHQ_Up_Bandwidth(upbandwidth);
+        int flag=1;
+		try {
+			flag = hqgDao.addHQG(hg);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        if (flag == 0) {
+            System_Logger log =new System_Logger();
+            log.setOperation_Description("增加主机分组成功");
+            log.setUser_ID(user.getUser_ID());
+            log.setUser_Name(user.getUser_Name());
+            try {
+				logDao.addLog(log);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
             String hostqoslist=GetHostQos();
             String hosqosGrouplist=GetHostQosGroups();
             if(hostqoslist=="qoserror"||hosqosGrouplist=="qoserror"){
@@ -250,14 +225,16 @@ public class QosWeb_qos {
             request.setAttribute("grouplist", hosqosGrouplist);
             return "qoshost_admin";
         } else {
-            System.out.println("增加host_qos_group失败,reason:" + state);
-            Logger log =new Logger();
-            Timestamp timestamp =new Timestamp(System.currentTimeMillis());
-            log.setTimestamp(timestamp);
-            log.setDescription("增加主机分组失败");
-            log.setUserID(user.getUserID());
-            log.setUserName(user.getUserName());
-            databasemanager.addLogger(log);
+            System_Logger log =new System_Logger();
+            log.setOperation_Description("增加主机分组失败");
+            log.setUser_ID(user.getUser_ID());
+            log.setUser_Name(user.getUser_Name());
+            try {
+				logDao.addLog(log);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
             return "qoserror";
         }
     }
@@ -265,11 +242,11 @@ public class QosWeb_qos {
     @RequestMapping(value="/validategroup")
     public void validadteGroup(Model model,
             final HttpServletRequest request, final HttpServletResponse response) throws IOException{
-        System.out.println("validate start!!");
         response.setContentType("text/html");
-        String priority=request.getParameter("priority").toString();
-        String bandwidth=request.getParameter("bandwidth").toString();
-        if(priority.equals("1")&&bandwidth.equals("1"))
+        String priority=request.getParameter("HQ_Priority").toString();
+        String ubandwidth=request.getParameter("HQ_Up_Bandwidth").toString();
+        String dbandwidth=request.getParameter("HQ_Down_Bandwidth").toString();
+        if(priority.equals("1")&&ubandwidth.equals("1")&&dbandwidth.equals("1"))
         {
             response.getWriter().write("false");
         }
@@ -278,28 +255,22 @@ public class QosWeb_qos {
         }
     }
 
-    @RequestMapping(value = "/deletehostgroup")
-    public String deleteHostGroup(Model model,
+    @RequestMapping(value = "/deleteHQ_Group")
+    public String deleteHQ_Group(Model model,
             final HttpServletRequest request, final HttpServletResponse response) {
         String groupInfo = request.getParameter("deletegroup");
         String info[] = groupInfo.split(",");
         int groupId = Integer.parseInt(info[0]);
-        HostGroup hg = new HostGroup();
-        hg.setHostGroupID(groupId);
-        List<HostGroup> list = new ArrayList<HostGroup>();
-        list.add(hg);
-        databasemanager = (Idatabasemanager) ServiceHelper.getGlobalInstance(
-                Idatabasemanager.class, this);
-        Status state = databasemanager.deleteHostGroups(list);
-        if (state == Status.SUCCESS) {
-            System.out.println("删除host_qos_group成功");
-            Logger log =new Logger();
-            Timestamp timestamp =new Timestamp(System.currentTimeMillis());
-            log.setTimestamp(timestamp);
-            log.setDescription("删除host_qos_group成功");
-            log.setUserID(user.getUserID());
-            log.setUserName(user.getUserName());
-            databasemanager.addLogger(log);
+        int flag =1;
+        try {
+			flag=hqgDao.deleteUserByID(groupId);
+	
+        if (flag==0) {
+            System_Logger log =new System_Logger();
+            log.setOperation_Description("删除host_qos_group成功");
+            log.setUser_ID(user.getUser_ID());
+            log.setUser_Name(user.getUser_Name());
+            logDao.addLog(log);
             String hostqoslist=GetHostQos();
             String hosqosGrouplist=GetHostQosGroups();
             if(hostqoslist=="qoserror"||hosqosGrouplist=="qoserror"){
@@ -309,16 +280,17 @@ public class QosWeb_qos {
             request.setAttribute("grouplist", hosqosGrouplist);
             return "qoshost_admin";
         } else {
-            System.out.println("删除host_qos_group失败,reason:" + state);
-            Logger log =new Logger();
-            Timestamp timestamp =new Timestamp(System.currentTimeMillis());
-            log.setTimestamp(timestamp);
-            log.setDescription("删除host_qos_group失败");
-            log.setUserID(user.getUserID());
-            log.setUserName(user.getUserName());
-            databasemanager.addLogger(log);
+            System_Logger log =new System_Logger();
+            log.setOperation_Description("删除host_qos_group失败");
+            log.setUser_ID(user.getUser_ID());
+            log.setUser_Name(user.getUser_Name());
+            logDao.addLog(log);
             return "qoserror";
-        }
+        }	} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+        	return "qoserror";
+		}
     }
 
     @RequestMapping(value="/cascadegroup")
@@ -327,14 +299,14 @@ public class QosWeb_qos {
         String groupInfo = request.getParameter("deletegroup");
         String info[] = groupInfo.split(",");
         int groupId = Integer.parseInt(info[0]);
-        HostGroup hg = new HostGroup();
-        hg.setHostGroupID(groupId);
-        List<HostGroup> list = new ArrayList<HostGroup>();
+        HQ_Group hg = new HQ_Group();
+        hg.setHQGroup_ID(groupId);
+        List<HQ_Group> list = new ArrayList<HQ_Group>();
         list.add(hg);//调用接口isexitcascade 然后返回。
     }
 
-    @RequestMapping(value = "/modhostgroup")
-    public String modHostGroup(Model model, final HttpServletRequest request,
+    @RequestMapping(value = "/modHQ_Group")
+    public String modHQ_Group(Model model, final HttpServletRequest request,
             final HttpServletResponse response) {
         int bandwidth, delay, packetLoss;
         String groupInfo = request.getParameter("groupInfo");
@@ -342,43 +314,34 @@ public class QosWeb_qos {
         System.out.println(groupInfo);
         int groupId = Integer.parseInt(info[0]);
         System.out.println(groupId);
-        int priority = Integer.parseInt(request.getParameter("priority"));
-        String bd = request.getParameter("bandwidth");
+        int priority = Integer.parseInt(request.getParameter("HQ_Priority"));
+        String bd = request.getParameter("HQ_Up_Bandwidth");
         if (bd == "") {
-            bandwidth = 0;
+            bandwidth = -1;
         } else {
             bandwidth = Integer.parseInt(bd);
         }
-        String de = request.getParameter("delay");
+        String de = request.getParameter("HQ_Down_Bandwidth");
         if (de == "") {
-            delay = 0;
+            delay = -1;
         } else {
             delay = Integer.parseInt(de);
         }
-        String pl = request.getParameter("packetLoss");
-        if (pl == "") {
-            packetLoss = 0;
-        } else {
-            packetLoss = Integer.parseInt(pl);
-        }
-        HostGroup hg = new HostGroup();
-        hg.setPriority(priority);
-        hg.setDelay(delay);
-        hg.setBandwidth(bandwidth);
-        hg.setPacketLoss(packetLoss);
-        hg.setHostGroupID(groupId);
-        databasemanager = (Idatabasemanager) ServiceHelper.getGlobalInstance(
-                Idatabasemanager.class, this);
-        Status state = databasemanager.setHostGroup(hg);
-        if (state == Status.SUCCESS) {
-            System.out.println("修改host_qos_group成功");
-            Logger log =new Logger();
-            Timestamp timestamp =new Timestamp(System.currentTimeMillis());
-            log.setTimestamp(timestamp);
-            log.setDescription("修改host_qos_group成功");
-            log.setUserID(user.getUserID());
-            log.setUserName(user.getUserName());
-            databasemanager.addLogger(log);
+        HQ_Group hg = new HQ_Group();
+        hg.setHQ_Priority(priority);
+        hg.setHQ_Up_Bandwidth(bandwidth);
+        hg.setHQ_Down_Bandwidth(delay);
+        hg.setHQGroup_ID(groupId);
+        int flag=1;
+        try {
+			flag = hqgDao.modHQGByID(groupId, hg);
+		
+        if (flag==0) {
+            System_Logger log =new System_Logger();
+            log.setOperation_Description("修改host_qos_group成功");
+            log.setUser_ID(user.getUser_ID());
+            log.setUser_Name(user.getUser_Name());
+            logDao.addLog(log);
             String hostqoslist=GetHostQos();
             String hosqosGrouplist=GetHostQosGroups();
             if(hostqoslist=="qoserror"||hosqosGrouplist=="qoserror"){
@@ -388,16 +351,18 @@ public class QosWeb_qos {
             request.setAttribute("grouplist", hosqosGrouplist);
             return "qoshost_admin";
         } else {
-            System.out.println("修改host_qos_group失败,reason:" + state);
-            Logger log =new Logger();
-            Timestamp timestamp =new Timestamp(System.currentTimeMillis());
-            log.setTimestamp(timestamp);
-            log.setDescription("修改host_qos_group失败");
-            log.setUserID(user.getUserID());
-            log.setUserName(user.getUserName());
-            databasemanager.addLogger(log);
+            System_Logger log =new System_Logger();
+            log.setOperation_Description("修改host_qos_group失败");
+            log.setUser_ID(user.getUser_ID());
+            log.setUser_Name(user.getUser_Name());
+            logDao.addLog(log);
             return "qoserror";
         }
+        } catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "qoserror";
+		}
     }
 
     @RequestMapping(value = "addqos")
@@ -406,38 +371,34 @@ public class QosWeb_qos {
         String qosname = request.getParameter("qosname");
         String macaddr = request.getParameter("macaddr");
         String ipaddr = request.getParameter("ipaddr");
-        /*String u = request.getParameter("userid");
-        int userid = Integer.parseInt(u);*/
+
         HttpSession session = request.getSession();
         user = (User) session.getAttribute("user");
-        int userid=user.getUserID();
+        int userid=user.getUser_ID();
         String g = request.getParameter("groupid");
         int groupid = Integer.parseInt(g);
-        HostQos h = new HostQos();
-        h.setQosName(qosname);
-        h.setHostMac(macaddr);
-        h.setHostIP(ipaddr);
-        h.setUserID(userid);
-        h.setGroupID(groupid);
+        Host_QoS h = new Host_QoS();
+        h.setHQ_Name(qosname);
+        h.setHost_MAC(macaddr);
+        h.setHost_IP(Integer.parseInt(ipaddr));
+        h.setUser_ID(userid);
+        h.setHQGroup_ID(groupid);
         user = (User) session.getAttribute("user");
-        if (user.getUserLevelID() == 1) {
-            h.setAuditTag(1);
+        if (user.getRole_ID() == 1) {
+            h.setHQ_State(1);
         } else {
-            h.setAuditTag(0);
+            h.setHQ_State(0);
         }
-        System.out.println(h + "\n\n\n");
-        databasemanager = (Idatabasemanager) ServiceHelper.getGlobalInstance(
-                Idatabasemanager.class, this);
-        Status state = databasemanager.addHostQos(h);
-        if (state == Status.SUCCESS) {
-            System.out.println("增加主机QOS成功");
-            Logger log =new Logger();
-            Timestamp timestamp =new Timestamp(System.currentTimeMillis());
-            log.setTimestamp(timestamp);
-            log.setDescription("增加主机QOS成功");
-            log.setUserID(user.getUserID());
-            log.setUserName(user.getUserName());
-            databasemanager.addLogger(log);
+        int flag = 1;
+        try {
+			flag=hqDao.addHQoS(h);
+		
+        if (flag==0) {
+            System_Logger log =new System_Logger();
+            log.setOperation_Description("增加主机QOS成功");
+            log.setUser_ID(user.getUser_ID());
+            log.setUser_Name(user.getUser_Name());
+            logDao.addLog(log);
             String hostqoslist=GetHostQos();
             String hosqosGrouplist=GetHostQosGroups();
             if(hostqoslist=="qoserror"||hosqosGrouplist=="qoserror"){
@@ -445,23 +406,24 @@ public class QosWeb_qos {
             }
             request.setAttribute("hostlist", hostqoslist);
             request.setAttribute("grouplist", hosqosGrouplist);
-            if (user.getUserLevelID() == 1) {
+            if (user.getRole_ID() == 1) {
                 return "qoshost_admin";
             }
             else {
                 return "qoshost";
             }
         } else {
-            System.out.println(state);
-            Logger log =new Logger();
-            Timestamp timestamp =new Timestamp(System.currentTimeMillis());
-            log.setTimestamp(timestamp);
-            log.setDescription("增加主机QOS失败");
-            log.setUserID(user.getUserID());
-            log.setUserName(user.getUserName());
-            databasemanager.addLogger(log);
+            System_Logger log =new System_Logger();
+            log.setOperation_Description("增加主机QOS失败");
+            log.setUser_ID(user.getUser_ID());
+            log.setUser_Name(user.getUser_Name());
+            logDao.addLog(log);
             return "qoserror";
-        }
+        }} catch (Exception e) {
+			// TODO Auto-generated catch block
+        	e.printStackTrace();
+        	return "qoserror";
+		}
     }
 
     @RequestMapping(value = "deleteqos")
@@ -470,20 +432,16 @@ public class QosWeb_qos {
         String qosinfo = request.getParameter("choosenqosinfomation");
         String info[] = qosinfo.split(",");
         int qosid = Integer.parseInt(info[0]);
-        HostQos hq = new HostQos();
-        hq.setHostQosID(qosid);
-        databasemanager = (Idatabasemanager) ServiceHelper.getGlobalInstance(
-                Idatabasemanager.class, this);
-        Status state = databasemanager.deleteHostQos(hq);
-        if (state == Status.SUCCESS) {
-            System.out.println("删除主机QOS成功");
-            Logger log =new Logger();
-            Timestamp timestamp =new Timestamp(System.currentTimeMillis());
-            log.setTimestamp(timestamp);
-            log.setDescription("删除主机QOS成功");
-            log.setUserID(user.getUserID());
-            log.setUserName(user.getUserName());
-            databasemanager.addLogger(log);
+        int flag=1;
+        try {
+			flag = hqDao.deleteHQoS(qosid);
+		
+        if (flag==0) {
+            System_Logger log =new System_Logger();
+            log.setOperation_Description("删除主机QOS成功");
+            log.setUser_ID(user.getUser_ID());
+            log.setUser_Name(user.getUser_Name());
+            logDao.addLog(log);
             String hostqoslist=GetHostQos();
             String hosqosGrouplist=GetHostQosGroups();
             if(hostqoslist=="qoserror"||hosqosGrouplist=="qoserror"){
@@ -493,16 +451,17 @@ public class QosWeb_qos {
             request.setAttribute("grouplist", hosqosGrouplist);
             return "qoshost_admin";
         } else {
-            System.out.println(state);
-            Logger log =new Logger();
-            Timestamp timestamp =new Timestamp(System.currentTimeMillis());
-            log.setTimestamp(timestamp);
-            log.setDescription("删除主机QOS失败");
-            log.setUserID(user.getUserID());
-            log.setUserName(user.getUserName());
-            databasemanager.addLogger(log);
+            System_Logger log =new System_Logger();
+            log.setOperation_Description("删除主机QOS失败");
+            log.setUser_ID(user.getUser_ID());
+            log.setUser_Name(user.getUser_Name());
+            logDao.addLog(log);
             return "qoserror";
-        }
+        }} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "qoserror";
+		}
     }
 
     @RequestMapping(value = "modqos")
@@ -513,33 +472,31 @@ public class QosWeb_qos {
         String hostmac = request.getParameter("macaddr");
         String info[] = qosinfo.split(",");
         int qosid = Integer.parseInt(info[0]);
-        HostQos hq = new HostQos();
-        hq.setHostQosID(qosid);
+        Host_QoS hq = new Host_QoS();
+        hq.setHQ_ID(qosid);
         String qosname = request.getParameter("qosname");
         String g = request.getParameter("groupid");
         int qroupid = Integer.parseInt(g);
-        hq.setQosName(qosname);
-        hq.setGroupID(qroupid);
-        hq.setHostMac(hostmac);
-        hq.setHostIP(hostip);
+        hq.setHQ_Name(qosname);
+        hq.setHQ_ID(qroupid);
+        hq.setHost_MAC(hostmac);
+        hq.setHost_IP(Integer.parseInt(hostip));
         int userid = Integer.parseInt(info[4]);
-        hq.setUserID(userid);
-        if(user.getUserLevelID()!=1){
-            hq.setUserID(userid);
+        hq.setUser_ID(userid);
+        if(user.getRole_ID()!=1){
+            hq.setUser_ID(userid);
         }
-        hq.setAuditTag(1);
-        databasemanager = (Idatabasemanager) ServiceHelper.getGlobalInstance(
-                Idatabasemanager.class, this);
-        Status state = databasemanager.setHostQos(hq);
-        if (state == Status.SUCCESS) {
-            System.out.println("修改主机QOS成功");
-            Logger log =new Logger();
-            Timestamp timestamp =new Timestamp(System.currentTimeMillis());
-            log.setTimestamp(timestamp);
-            log.setDescription("修改主机QOS成功");
-            log.setUserID(user.getUserID());
-            log.setUserName(user.getUserName());
-            databasemanager.addLogger(log);
+        hq.setHQ_State(1);
+        int flag = 1;
+        try {
+			flag = hqDao.modHQoS(qosid, hq);
+		
+        if (flag==0) {
+            System_Logger log =new System_Logger();
+            log.setOperation_Description("修改主机QOS成功");
+            log.setUser_ID(user.getUser_ID());
+            log.setUser_Name(user.getUser_Name());
+            logDao.addLog(log);
             String hostqoslist=GetHostQos();
             String hosqosGrouplist=GetHostQosGroups();
             if(hostqoslist=="qoserror"||hosqosGrouplist=="qoserror"){
@@ -549,202 +506,190 @@ public class QosWeb_qos {
             request.setAttribute("grouplist", hosqosGrouplist);
             return "qoshost_admin";
         } else {
-            System.out.println(state);
-            Logger log =new Logger();
-            Timestamp timestamp =new Timestamp(System.currentTimeMillis());
-            log.setTimestamp(timestamp);
-            log.setDescription("修改主机QOS失败");
-            log.setUserID(user.getUserID());
-            log.setUserName(user.getUserName());
-            databasemanager.addLogger(log);
+            System_Logger log =new System_Logger();
+            log.setOperation_Description("修改主机QOS失败");
+            log.setUser_ID(user.getUser_ID());
+            log.setUser_Name(user.getUser_Name());
+            logDao.addLog(log);
             return "qoserror";
         }
+        } catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "qoserror";
+		}
     }
 
-    @RequestMapping(value = "addappqos")
-    public String addappqos(Model model, final HttpServletRequest request,
+    @RequestMapping(value = "addApp_QoS")
+    public String addApp_QoS(Model model, final HttpServletRequest request,
             final HttpServletResponse response) {
         String qosname = request.getParameter("qosname");
         String protocolname = request.getParameter("protocolname");
         String p = request.getParameter("portid");
         int portid = Integer.parseInt(p);
-       /* String u = request.getParameter("userid");
-        int userid = Integer.parseInt(u);*/
-        int userid=user.getUserID();
+        int userid=user.getUser_ID();
         String g = request.getParameter("groupid");
         int groupid = Integer.parseInt(g);
-        AppQos app = new AppQos();
-        app.setQosName(qosname);
-        app.setProtocolName(protocolname);
-        app.setPortID(portid);
-        app.setUserID(userid);
-        app.setGroupID(groupid);
-        if (user.getUserLevelID() == 1) {
-            app.setAuditTag(1);
+        App_QoS app = new App_QoS();
+        app.setAQ_Name(qosname);
+        app.setProtocol_Name(protocolname);
+        app.setPort_ID(portid);
+        app.setUser_ID(userid);
+        app.setAQGroup_ID(groupid);
+        if (user.getRole_ID() == 1) {
+            app.setAQ_State(1);
         } else {
-            app.setAuditTag(0);
+            app.setAQ_State(0);
         }
-        databasemanager = (Idatabasemanager) ServiceHelper.getGlobalInstance(
-                Idatabasemanager.class, this);
-        Status state = databasemanager.addAppQos(app);
-        if (state == Status.SUCCESS) {
-            System.out.println("增加appQOS成功");
-            Logger log =new Logger();
-            Timestamp timestamp =new Timestamp(System.currentTimeMillis());
-            log.setTimestamp(timestamp);
-            log.setDescription("增加主机QOS成功");
-            log.setUserID(user.getUserID());
-            log.setUserName(user.getUserName());
-            databasemanager.addLogger(log);
-            String qoslist=GetAppQos();
-            String qosgrouplist=GetAppQosGroups();
+        int flag = 1;
+        try {
+			flag = aqDao.addUser(app);
+		
+        if (flag==0) {
+            log.setOperation_Description("增加主机QOS成功");
+            log.setUser_ID(user.getUser_ID());
+            log.setUser_Name(user.getUser_Name());
+            logDao.addLog(log);
+            String qoslist=GetApp_QoS();
+            String qosgrouplist=GetApp_QoSGroups();
             if(qoslist=="qoserror"||qosgrouplist=="qoserror"){
                 return "qoserror";
             }
-            request.setAttribute("appgrouplist", qosgrouplist);
-            request.setAttribute("appqoslist", qoslist);
-            if (user.getUserLevelID() == 1) {
+            request.setAttribute("AQ_Grouplist", qosgrouplist);
+            request.setAttribute("App_QoSlist", qoslist);
+            if (user.getRole_ID() == 1) {
                 return "qosapp_admin";
             }
             else {
                 return "qosapp";
             }
         } else {
-            System.out.println("增加appQOS失败" + state);
-            Logger log =new Logger();
-            Timestamp timestamp =new Timestamp(System.currentTimeMillis());
-            log.setTimestamp(timestamp);
-            log.setDescription("增加主机QOS失败");
-            log.setUserID(user.getUserID());
-            log.setUserName(user.getUserName());
-            databasemanager.addLogger(log);
+            log.setOperation_Description("增加主机QOS失败");
+            log.setUser_ID(user.getUser_ID());
+            log.setUser_Name(user.getUser_Name());
+            logDao.addLog(log);
             return "qoserror";
-        }
+        }} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "qoserror";
+		}
     }
-
-    @RequestMapping(value = "addappgroup")
-    public String addappgroup(Model model, final HttpServletRequest request,
+    @RequestMapping(value = "addAQ_Group")
+    public String addAQ_Group(Model model, final HttpServletRequest request,
             final HttpServletResponse response) {
- //       String g = request.getParameter("groupid");
-  //      int groupid = Integer.parseInt(g);
-        String b = request.getParameter("bandwidth");
-        int bandwidth = Integer.parseInt(b);
-        AppGroup group = new AppGroup();
-     //   group.setGroupId(groupid);
-        group.setBandwidth(bandwidth);
-      databasemanager = (Idatabasemanager) ServiceHelper.getGlobalInstance(
-              Idatabasemanager.class, this);
-        Status state = databasemanager.addAppGroup(group);
-        if (state == Status.SUCCESS) {
-            System.out.println("增加app分组成功");
-            Logger log =new Logger();
-            Timestamp timestamp =new Timestamp(System.currentTimeMillis());
-            log.setTimestamp(timestamp);
-            log.setDescription("增加app分组成功");
-            log.setUserID(user.getUserID());
-            log.setUserName(user.getUserName());
-            databasemanager.addLogger(log);
-            String qoslist=GetAppQos();
-            String qosgrouplist=GetAppQosGroups();
+        String uBandwidth = request.getParameter("AQ_Up_Bandwidth");
+        String dBandwidth = request.getParameter("AQ_Down_Bandwidth");
+        int bandwidthu = Integer.parseInt(uBandwidth);
+        int bandwidthd = Integer.parseInt(dBandwidth);
+        AQ_Group group = new AQ_Group();
+        group.setAQ_Up_Bandwidth(bandwidthu);
+        int flag = 1;
+        try {
+			flag = aqgDao.addAQGroup(group);
+		
+        if (flag==0) {
+            log.setOperation_Description("增加app分组成功");
+            log.setUser_ID(user.getUser_ID());
+            log.setUser_Name(user.getUser_Name());
+            logDao.addLog(log);
+            String qoslist=GetApp_QoS();
+            String qosgrouplist=GetApp_QoSGroups();
             if(qoslist=="qoserror"||qosgrouplist=="qoserror"){
                 return "qoserror";
             }
-            request.setAttribute("appgrouplist", qosgrouplist);
-            request.setAttribute("appqoslist", qoslist);
+            request.setAttribute("AQ_Grouplist", qosgrouplist);
+            request.setAttribute("App_QoSlist", qoslist);
             return "qosapp_admin";
         } else {
-            System.out.println("增加app分组失败" + state);
-            Logger log =new Logger();
-            Timestamp timestamp =new Timestamp(System.currentTimeMillis());
-            log.setTimestamp(timestamp);
-            log.setDescription("增加app分组失败");
-            log.setUserID(user.getUserID());
-            log.setUserName(user.getUserName());
-            databasemanager.addLogger(log);
+            log.setOperation_Description("增加app分组失败");
+            log.setUser_ID(user.getUser_ID());
+            log.setUser_Name(user.getUser_Name());
+            logDao.addLog(log);
             return "qoserror";
-        }
+        }} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "qoserror";
+		}
     }
 
-    @RequestMapping(value = "deleteappqos")
-    public String deleteappqos(Model model, final HttpServletRequest request,
+    @RequestMapping(value = "deleteApp_QoS")
+    public String deleteApp_QoS(Model model, final HttpServletRequest request,
             final HttpServletResponse response) {
         String qosID = request.getParameter("qosID");
-        int appQosID = Integer.parseInt(qosID);
-        AppQos delete=new AppQos();
-        delete.setAppQosID(appQosID);
-        databasemanager = (Idatabasemanager) ServiceHelper.getGlobalInstance(Idatabasemanager.class, this);
-        Status state =databasemanager.deleteAppQos(delete);
-        if (state == Status.SUCCESS) {
-            System.out.println("删除app qos成功");
-            Logger log =new Logger();
-            Timestamp timestamp =new Timestamp(System.currentTimeMillis());
-            log.setTimestamp(timestamp);
-            log.setDescription("删除app qos成功");
-            log.setUserID(user.getUserID());
-            log.setUserName(user.getUserName());
-            databasemanager.addLogger(log);
-            String qoslist=GetAppQos();
-            String qosgrouplist=GetAppQosGroups();
+        int App_QoSID = Integer.parseInt(qosID);
+        App_QoS delete=new App_QoS();
+        delete.setAQ_ID(App_QoSID);
+        int flag = 1;
+        try {
+			flag = aqDao.deleteUserByID(App_QoSID);
+		
+        if (flag==0) {
+            log.setOperation_Description("删除app qos成功");
+            log.setUser_ID(user.getUser_ID());
+            log.setUser_Name(user.getUser_Name());
+            logDao.addLog(log);
+            String qoslist=GetApp_QoS();
+            String qosgrouplist=GetApp_QoSGroups();
             if(qoslist=="qoserror"||qosgrouplist=="qoserror"){
                 return "qoserror";
             }
-            request.setAttribute("appgrouplist", qosgrouplist);
-            request.setAttribute("appqoslist", qoslist);
+            request.setAttribute("AQ_Grouplist", qosgrouplist);
+            request.setAttribute("App_QoSlist", qoslist);
             return "qosapp_admin";
         } else {
-            System.out.println("删除app qos失败" + state);
-            Logger log =new Logger();
-            Timestamp timestamp =new Timestamp(System.currentTimeMillis());
-            log.setTimestamp(timestamp);
-            log.setDescription("删除app qos失败");
-            log.setUserID(user.getUserID());
-            log.setUserName(user.getUserName());
-            databasemanager.addLogger(log);
+            log.setOperation_Description("删除app qos失败");
+            log.setUser_ID(user.getUser_ID());
+            log.setUser_Name(user.getUser_Name());
+            logDao.addLog(log);
             return "qoserror";
-        }
+        }} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "qoserror";
+		}
     }
 
-    @RequestMapping(value = "deleteappgroup")
-    public String deleteappgroup(Model model, final HttpServletRequest request,
+    @RequestMapping(value = "deleteAQ_Group")
+    public String deleteAQ_Group(Model model, final HttpServletRequest request,
             final HttpServletResponse response) {
         String group = request.getParameter("groupinfo");
         int groupid = Integer.parseInt(group);
-        databasemanager = (Idatabasemanager) ServiceHelper.getGlobalInstance(Idatabasemanager.class, this);
-        Status state =databasemanager.deleteAppGroups(groupid);
-        if (state == Status.SUCCESS) {
-            System.out.println("删除app 分组成功");
-            Logger log =new Logger();
-            Timestamp timestamp =new Timestamp(System.currentTimeMillis());
-            log.setTimestamp(timestamp);
-            log.setDescription("删除app 分组成功");
-            log.setUserID(user.getUserID());
-            log.setUserName(user.getUserName());
-            databasemanager.addLogger(log);
-            String qoslist=GetAppQos();
-            String qosgrouplist=GetAppQosGroups();
+        int flag = 1;
+        try {
+			flag = aqgDao.deleteAQGByID(groupid);
+		
+        if (flag==0) {
+            log.setOperation_Description("删除app 分组成功");
+            log.setUser_ID(user.getUser_ID());
+            log.setUser_Name(user.getUser_Name());
+            logDao.addLog(log);
+            String qoslist=GetApp_QoS();
+            String qosgrouplist=GetApp_QoSGroups();
             if(qoslist=="qoserror"||qosgrouplist=="qoserror"){
                 return "qoserror";
             }
-            request.setAttribute("appgrouplist", qosgrouplist);
-            request.setAttribute("appqoslist", qoslist);
+            request.setAttribute("AQ_Grouplist", qosgrouplist);
+            request.setAttribute("App_QoSlist", qoslist);
             return "qosapp_admin";
         } else {
-            System.out.println("删除app 分组失败" + state);
-            Logger log =new Logger();
-            Timestamp timestamp =new Timestamp(System.currentTimeMillis());
-            log.setTimestamp(timestamp);
-            log.setDescription("删除app 分组失败");
-            log.setUserID(user.getUserID());
-            log.setUserName(user.getUserName());
-            databasemanager.addLogger(log);
+            log.setOperation_Description("删除app 分组失败");
+            log.setUser_ID(user.getUser_ID());
+            log.setUser_Name(user.getUser_Name());
+            logDao.addLog(log);
             return "qoserror";
-        }
+        }} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "qoserror";
+		}
     }
 
-    @RequestMapping(value = "modappqos")
-    public String modappqos(Model model, final HttpServletRequest request,
+    @RequestMapping(value = "modApp_QoS")
+    public String modApp_QoS(Model model, final HttpServletRequest request,
             final HttpServletResponse response) {
-        String appinfo = request.getParameter("appqosidnum");
+        String appinfo = request.getParameter("App_QoSidnum");
         int appid = Integer.parseInt(appinfo);
         String qosname = request.getParameter("qosname");
         String protocolname = request.getParameter("protocolname");
@@ -754,90 +699,91 @@ public class QosWeb_qos {
         int userid=Integer.parseInt(id);
         String gid = request.getParameter("groupid");
         int groupid=Integer.parseInt(gid);
-        AppQos aq=new AppQos();
-        aq.setAppQosID(appid);
-        aq.setQosName(qosname);
-        aq.setProtocolName(protocolname);
-        aq.setPortID(portid);
-        aq.setUserID(userid);
-        aq.setGroupID(groupid);
-        aq.setAuditTag(1);
-        databasemanager = (Idatabasemanager) ServiceHelper.getGlobalInstance(Idatabasemanager.class, this);
-        Status state =databasemanager.setAppQos(aq);
-        if (state == Status.SUCCESS) {
-            System.out.println("修改app qos成功");
-            Logger log =new Logger();
-            Timestamp timestamp =new Timestamp(System.currentTimeMillis());
-            log.setTimestamp(timestamp);
-            log.setDescription("修改app qos成功");
-            log.setUserID(user.getUserID());
-            log.setUserName(user.getUserName());
-            databasemanager.addLogger(log);
-            String qoslist=GetAppQos();
-            String qosgrouplist=GetAppQosGroups();
+        App_QoS aq=new App_QoS();
+        aq.setAQ_ID(appid);
+        aq.setAQ_Name(qosname);
+        aq.setProtocol_Name(protocolname);
+        aq.setPort_ID(portid);
+        aq.setUser_ID(userid);
+        aq.setAQGroup_ID(groupid);
+        aq.setAQ_State(1);
+        int flag = 1;
+        try {
+			flag = aqDao.modAQByID(appid, aq);
+		
+        if (flag == 0) {
+            log.setOperation_Description("修改app qos成功");
+            log.setUser_ID(user.getUser_ID());
+            log.setUser_Name(user.getUser_Name());
+            logDao.addLog(log);
+            String qoslist=GetApp_QoS();
+            String qosgrouplist=GetApp_QoSGroups();
             if(qoslist=="qoserror"||qosgrouplist=="qoserror"){
                 return "qoserror";
             }
-            request.setAttribute("appgrouplist", qosgrouplist);
-            request.setAttribute("appqoslist", qoslist);
+            request.setAttribute("AQ_Grouplist", qosgrouplist);
+            request.setAttribute("App_QoSlist", qoslist);
             return "qosapp_admin";
         } else {
-            System.out.println("修改app qos失败" + state);
-            Logger log =new Logger();
-            Timestamp timestamp =new Timestamp(System.currentTimeMillis());
-            log.setTimestamp(timestamp);
-            log.setDescription("修改app qos失败");
-            log.setUserID(user.getUserID());
-            log.setUserName(user.getUserName());
-            databasemanager.addLogger(log);
+            log.setOperation_Description("修改app qos失败");
+            log.setUser_ID(user.getUser_ID());
+            log.setUser_Name(user.getUser_Name());
+            logDao.addLog(log);
             return "qoserror";
-        }
+        }} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "qoserror";
+		}
     }
 
-    @RequestMapping(value = "modappgroup")
-    public String modappgroup(Model model, final HttpServletRequest request,
+    @RequestMapping(value = "modAQ_Group")
+    public String modAQ_Group(Model model, final HttpServletRequest request,
             final HttpServletResponse response) {
-        String groupinfo = request.getParameter("appgroupIDnum");
+        String groupinfo = request.getParameter("AQ_GroupIDnum");
         System.out.println(groupinfo);
         int groupid = Integer.parseInt(groupinfo);
-        String bw=request.getParameter("bandwidth");
-        System.out.println(bw);
-        int bandwidth= Integer.parseInt(bw);
-        AppGroup ag=new AppGroup();
-        ag.setGroupId(groupid);
-        ag.setBandwidth(bandwidth);
-        databasemanager = (Idatabasemanager) ServiceHelper.getGlobalInstance(Idatabasemanager.class, this);
-        Status state =databasemanager.setAppGroup(ag);
-        if (state == Status.SUCCESS) {
-            System.out.println("修改app 分组成功");
-            Logger log =new Logger();
-            Timestamp timestamp =new Timestamp(System.currentTimeMillis());
-            log.setTimestamp(timestamp);
-            log.setDescription("修改app 分组成功");
-            log.setUserID(user.getUserID());
-            log.setUserName(user.getUserName());
-            databasemanager.addLogger(log);
-            String qoslist=GetAppQos();
-            String qosgrouplist=GetAppQosGroups();
+        String bw=request.getParameter("AQ_Up_Bandwidth");
+        String dw=request.getParameter("AQ_Down_Bandwidth");
+        int bandwidthu= Integer.parseInt(bw);
+        int badnwidthd= Integer.parseInt(dw);
+        AQ_Group ag=new AQ_Group();
+        ag.setAQGroup_ID(groupid);
+        ag.setAQ_Up_Bandwidth(bandwidthu);
+        ag.setAQ_Down_Bandwidth(badnwidthd);
+        int flag=1;
+        try {
+			flag = aqgDao.modAQGByID(groupid, ag);
+		
+        if (flag==0) {
+            log.setOperation_Description("修改app 分组成功");
+            log.setUser_ID(user.getUser_ID());
+            log.setUser_Name(user.getUser_Name());
+            logDao.addLog(log);
+            String qoslist=GetApp_QoS();
+            String qosgrouplist=GetApp_QoSGroups();
             if(qoslist=="qoserror"||qosgrouplist=="qoserror"){
                 return "qoserror";
             }
-            request.setAttribute("appgrouplist", qosgrouplist);
-            request.setAttribute("appqoslist", qoslist);
+            request.setAttribute("AQ_Grouplist", qosgrouplist);
+            request.setAttribute("App_QoSlist", qoslist);
             return "qosapp_admin";
         } else {
-            System.out.println("修改app 分组失败" + state);
-            Logger log =new Logger();
-            Timestamp timestamp =new Timestamp(System.currentTimeMillis());
-            log.setTimestamp(timestamp);
-            log.setDescription("修改app 分组失败");
-            log.setUserID(user.getUserID());
-            log.setUserName(user.getUserName());
-            databasemanager.addLogger(log);
+            log.setOperation_Description("修改app 分组失败");
+            log.setUser_ID(user.getUser_ID());
+            log.setUser_Name(user.getUser_Name());
+            logDao.addLog(log);
             return "qoserror";
-        }
+        }} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "qoserrror";
+		}
     }
-
+/*
+ * 
+ * 注意 未修改！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+ */
     @RequestMapping(value = "auditapp")
     public String auditapp(Model model, final HttpServletRequest request,
             final HttpServletResponse response) {
@@ -845,38 +791,34 @@ public class QosWeb_qos {
         int check[]=new int[checkinfo.length];
         for(int i=0;i<checkinfo.length;i++){
             check[i]=Integer.parseInt(checkinfo[i]);
-        }
-        databasemanager = (Idatabasemanager) ServiceHelper.getGlobalInstance(
-                Idatabasemanager.class, this);
-        Status state =databasemanager.auditAppQos(check, 1);
-        if (state == Status.SUCCESS) {
-            System.out.println("审核APP QOS成功");
-            Logger log =new Logger();
-            Timestamp timestamp =new Timestamp(System.currentTimeMillis());
-            log.setTimestamp(timestamp);
-            log.setDescription("审核APP QOS成功");
-            log.setUserID(user.getUserID());
-            log.setUserName(user.getUserName());
-            databasemanager.addLogger(log);
-            String qoslist=GetAppQos();
-            String qosgrouplist=GetAppQosGroups();
+        } try {
+        int flag=1;
+        if (flag==0) {
+            log.setOperation_Description("审核APP QOS成功");
+            log.setUser_ID(user.getUser_ID());
+            log.setUser_Name(user.getUser_Name());
+           
+				logDao.addLog(log);
+			
+            String qoslist=GetApp_QoS();
+            String qosgrouplist=GetApp_QoSGroups();
             if(qoslist=="qoserror"||qosgrouplist=="qoserror"){
                 return "qoserror";
             }
-            request.setAttribute("appgrouplist", qosgrouplist);
-            request.setAttribute("appqoslist", qoslist);
+            request.setAttribute("AQ_Grouplist", qosgrouplist);
+            request.setAttribute("App_QoSlist", qoslist);
             return "qosapp_admin";
         } else {
-            System.out.println("审核APP QOS失败" + state);
-            Logger log =new Logger();
-            Timestamp timestamp =new Timestamp(System.currentTimeMillis());
-            log.setTimestamp(timestamp);
-            log.setDescription("审核APP QOS失败");
-            log.setUserID(user.getUserID());
-            log.setUserName(user.getUserName());
-            databasemanager.addLogger(log);
+            log.setOperation_Description("审核APP QOS失败");
+            log.setUser_ID(user.getUser_ID());
+            log.setUser_Name(user.getUser_Name());
+            logDao.addLog(log);
             return "qoserror";
-        }
+        }} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return "qoserror";
+			}
     }
 
     @RequestMapping(value = "audithost")
@@ -886,20 +828,15 @@ public class QosWeb_qos {
         int check[]=new int[checkinfo.length];
         for(int i=0;i<checkinfo.length;i++){
             check[i]=Integer.parseInt(checkinfo[i]);
-            System.out.println("check length*****"+check[i]);
-        }
-        System.out.println(check.length);
-        databasemanager = (Idatabasemanager) ServiceHelper.getGlobalInstance(
-                Idatabasemanager.class, this);
-        Status state =databasemanager.auditHostQos(check, 1);
-        if (state == Status.SUCCESS) {
-            System.out.println("审核host 分组成功");
-            Logger log =new Logger();
-            Timestamp timestamp =new Timestamp(System.currentTimeMillis());
-            log.setTimestamp(timestamp);
-            log.setDescription("审核host 分组成功");
-            log.setUserID(user.getUserID());
-            log.setUserName(user.getUserName());
+        } try {
+        int flag =1;
+        if (flag==0) {
+            log.setOperation_Description("审核host 分组成功");
+            log.setUser_ID(user.getUser_ID());
+            log.setUser_Name(user.getUser_Name());
+           
+				logDao.addLog(log);
+			
             String hostqoslist=GetHostQos();
             String hosqosGrouplist=GetHostQosGroups();
             if(hostqoslist=="qoserror"||hosqosGrouplist=="qoserror"){
@@ -909,16 +846,16 @@ public class QosWeb_qos {
             request.setAttribute("grouplist", hosqosGrouplist);
             return "qoshost_admin";
         } else {
-            System.out.println("审核host 分组失败" + state);
-            Logger log =new Logger();
-            Timestamp timestamp =new Timestamp(System.currentTimeMillis());
-            log.setTimestamp(timestamp);
-            log.setDescription("审核host 分组失败");
-            log.setUserID(user.getUserID());
-            log.setUserName(user.getUserName());
-            databasemanager.addLogger(log);
+            log.setOperation_Description("审核host 分组失败");
+            log.setUser_Name(user.getUser_Name());
+            log.setUser_Name(user.getUser_Name());
+            logDao.addLog(log);
             return "qoserror";
-        }
+        }} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return "qoserror";
+			}
     }
 
 }

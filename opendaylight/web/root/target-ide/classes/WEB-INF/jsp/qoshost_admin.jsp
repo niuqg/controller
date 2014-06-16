@@ -58,9 +58,9 @@
 
 <div id="Host_Groups" class="down" ><!--主机分组查询操作  -->
 <form method="post" name="Grouplist" id="Grouplist" class="form">
-	<input type="button" value="添加主机QOS分组" onclick="document.getElementById('addhgroup').style.display='block';document.getElementById('fade').style.display='block'">&nbsp;&nbsp;
-  	<input type="button" value="删除选中QOS分组" onclick="deletehostgroup()">&nbsp;&nbsp;
-   	<input type="button" value="修改选中QOS分组" onclick="modHostGroup()"><br>
+	<input type="button" value="新建主机分组" onclick="document.getElementById('addhgroup').style.display='block';document.getElementById('fade').style.display='block'">&nbsp;&nbsp;
+  	<input type="button" value="删除选中分组" onclick="deletehostgroup()">&nbsp;&nbsp;
+   	<input type="button" value="修改选中分组" onclick="modHostGroup()"><br>
    	  <input type="text" name="deletegroup" id="deletegroup" style="display:none" ><br>
    	<div id="host_qos_group" style="font-family:Consolas;">
     </div>

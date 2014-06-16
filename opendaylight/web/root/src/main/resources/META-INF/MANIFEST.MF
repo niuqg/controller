@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1402838934233
-Build-Jdk: 1.7.0_55
-Built-By: bctx
+Bnd-LastModified: 1402897713843
+Build-Jdk: 1.7.0_51
+Built-By: niu
 Bundle-ManifestVersion: 2
 Bundle-Name: web
 Bundle-SymbolicName: org.opendaylight.controller.web
@@ -23,28 +23,27 @@ Import-Package: org.opendaylight.controller.configuration;version="[0.4,
  1)",org.opendaylight.controller.switchmanager;version="[0.7,1)",org.ope
  ndaylight.controller.topologymanager;version="[0.4,1)",com.google.gson;
  version="[2.2,3)",javax.servlet.http;version="[2.6,3)",org.slf4j;versio
- n="[1.7,2)",edu.ustc.qos.databasemanager;version="[0.0,1)",edu.ustc.qos
- .dao;version="[0.0,1)",org.springframework.stereotype;version="[3.0,4)"
- ,org.springframework.ui;version="[3.0,4)",org.springframework.web.bind.
- annotation;version="[3.0,4)",org.apache.taglibs.standard.tag.rt.fmt,jav
- ax.xml.parsers,org.apache.taglibs.standard.tlv,org.springframework.web.
- filter;version="[3.0,4)",org.springframework.beans.factory.xml;version=
- "[3.0,4)",javax.servlet.jsp.jstl.tlv,javax.servlet.resources;version="[
- 2.6,3)",org.apache.taglibs.standard.tag.rt.core,org.springframework.web
- .servlet.view,javax.annotation,org.springframework.web.servlet,org.apac
- he.taglibs.standard.tei,org.apache.catalina.filters,javax.servlet.jsp,o
- rg.apache.taglibs.standard.tag.common.core,org.osgi.framework;version="
- [1.7,2)",org.springframework.util;version="[3.0,4)",org.springframework
- .web.servlet.view.json,org.apache.taglibs.standard.functions,org.spring
- framework.beans;version="[3.0,4)",org.apache.taglibs.standard.resources
- ,org.apache.taglibs.standard.tag.common.fmt,org.springframework.web;ver
- sion="[3.0,4)",org.apache.commons.logging,org.springframework.web.conte
- xt;version="[3.0,4)",org.springframework.context.config;version="[3.0,4
- )",javax.servlet;version="[2.6,3)",javax.servlet.jsp.el,javax.servlet.j
- sp.jstl.core,javax.servlet.jsp.tagext,javax.naming,org.springframework.
- web.servlet.config,org.springframework.core;version="[3.0,4)",javax.xml
- .transform,javax.servlet.annotation;version="[2.6,3)",javax.servlet.jsp
- .jstl.fmt
+ n="[1.7,2)",edu.ustc.qos.databasemanager,edu.ustc.qos.dao,org.springfra
+ mework.stereotype;version="[3.0,4)",org.springframework.ui;version="[3.
+ 0,4)",org.springframework.web.bind.annotation;version="[3.0,4)",org.spr
+ ingframework.web.servlet,javax.servlet.jsp.jstl.tlv,org.springframework
+ .web.servlet.view.json,javax.servlet.jsp.tagext,org.apache.taglibs.stan
+ dard.resources,org.springframework.beans.factory.xml;version="[3.0,4)",
+ org.apache.taglibs.standard.tag.common.fmt,org.springframework.web.filt
+ er;version="[3.0,4)",javax.servlet.resources;version="[2.6,3)",org.osgi
+ .framework;version="[1.7,2)",org.apache.taglibs.standard.tag.rt.fmt,org
+ .apache.catalina.filters,org.apache.taglibs.standard.tlv,org.springfram
+ ework.web.servlet.view,javax.servlet.jsp.jstl.fmt,org.apache.commons.lo
+ gging,javax.servlet.jsp.el,org.apache.taglibs.standard.tag.common.core,
+ javax.naming,org.springframework.beans;version="[3.0,4)",org.springfram
+ ework.core;version="[3.0,4)",org.apache.taglibs.standard.functions,org.
+ springframework.context.config;version="[3.0,4)",org.springframework.we
+ b;version="[3.0,4)",javax.annotation,org.apache.taglibs.standard.tag.rt
+ .core,javax.servlet.jsp,javax.xml.parsers,javax.servlet.jsp.jstl.core,o
+ rg.apache.taglibs.standard.tei,org.springframework.web.servlet.config,j
+ avax.servlet.annotation;version="[2.6,3)",org.springframework.util;vers
+ ion="[3.0,4)",org.springframework.web.context;version="[3.0,4)",javax.s
+ ervlet;version="[2.6,3)",javax.xml.transform
 Originally-Created-By: Apache Maven Bundle Plugin
 Tool: Bnd-2.1.0.20130426-122213
 Web-ContextPath: /
