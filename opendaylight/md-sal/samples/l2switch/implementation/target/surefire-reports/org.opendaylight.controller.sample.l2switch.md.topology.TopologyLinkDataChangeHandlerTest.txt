@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: org.opendaylight.controller.sample.l2switch.md.topology.TopologyLinkDataChangeHandlerTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.214 sec - in org.opendaylight.controller.sample.l2switch.md.topology.TopologyLinkDataChangeHandlerTest

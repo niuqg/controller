@@ -1,0 +1,378 @@
+@CHARSET "UTF-8";
+div#head{
+	position: relative;
+    margin:0px auto 0px auto;
+    width:100%;
+    height:10%;
+    white-space: nowrap;
+    border-style:solid;
+    border-left-width:0px;
+    border-right-width:0px;
+    border-top-width:0px;
+    border-bottom-width:3px;
+}
+div#title{
+	left:0px;
+    position: relative;
+    margin:0px auto 0px auto;
+    width:85%;
+    height:60px;
+}
+.login_info{
+    position:absolute;
+    top:20px;
+    right:0px;
+    width:15%;
+    font:16px "宋体";
+}
+div#bottom{
+    width: 100%;
+    height: 90%;
+}
+div#left{
+    width: 15%;
+    height: 598px;
+    float:left;
+    margin-top:0px;
+    border-style:solid;
+    border-left-width:0px;
+    border-right-width:3px;
+    border-top-width:0px;
+    border-bottom-width:0px;
+}
+div#right{
+    top:250px;
+    width: 85%;
+    height: 90%;
+    float:right;
+    margin-top:-598px;
+}
+div#up{
+    width: 85%;
+    height:45%;
+}
+div#down{
+    width: 85%;
+    height:40%;
+}
+.black_overlay{ display: none; position: absolute; top: 0%; left: 0%; width: 100%; height: 100%;
+background-color: white; z-index:1001; -moz-opacity: 0.8; opacity:.80; filter: alpha(opacity=80); }
+.white_content { display: none; position: absolute; top: 25%; left: 25%; width: 50%; height: 50%;
+padding: 16px; border:0px; background-color: gray; z-index:1002; overflow: auto; }
+
+
+.tabll {
+    margin:20px 20px 20px 20px;
+    width:760px;
+}
+
+.table {
+    margin:20px 20px 20px 20px;
+    width:400px;
+}
+
+.form {
+    margin-top:30px;
+    margin-left:120px;
+    margin-right:auto;
+    width:800px;
+    border:20px solid white;
+}
+
+.form1 {
+    margin-top:30px;
+    margin-left:100px;
+    margin-right:auto;
+    width:800px;
+    border:20px solid white;
+}
+
+tr th.adminth {
+    background: #687291;
+    font-size:18px;
+}
+
+tr td.admincls1 {
+    border-top:1px solid white;
+    background: #dfe1e7;
+    font-size:18px;
+}
+
+tr td.admincls0 {
+    border-top:1px solid white;
+    background:  #eeeff2;
+    font-size:18px;
+}
+
+tr td.totall {
+    display:none;
+}
+
+
+/* 表格分页CSS */
+.tbData {
+        border-collapse:collapse;
+        border-spacing:0px;
+        border:solid 3px #ddd;
+        font-size:14px;
+        font-family:Consolas;
+        color:#333;
+        background-color:white;
+        margin:10px 0px;
+}
+.tbData th, td {
+        border:solid 1px #ddd;
+        padding:5px 8px;
+}
+.tbData th {
+        border-bottom:solid 2px #ddd;
+        background-color:#eef;
+        font-weight:normal;
+        color:blue;
+}
+#divData .tbData tr:hover {
+        background-color:#fef;
+}
+
+/*分页样式*/
+#divPage {
+        text-align:left;
+        margin:10px 0px;
+        height:30px;
+        font-size:12px;
+}   
+#divPage a, #divPage span {
+        text-decoration:none;
+        color:Blue;
+        background-color:White;
+        padding:3px 5px;
+        font-family:Consolas;
+        text-align:center;
+        border:solid 1px #ddd;
+        display:inline-block;
+}   
+#divPage span {
+        color:gray;
+}       
+#divPage a:hover {
+        color:Red;
+}
+#divPage .aCur {
+        background-color:green;
+        color:White;
+        font-weight:bold;
+}
+
+
+.switch{
+    border:0px;
+    width:50px;
+}
+
+.switch21{
+    border:3px;
+    width:100px;
+    margin-left:85px;
+    margin-top:20px;
+    font-size:16px;
+    color:red;
+}
+.switch31{
+    border:3px;
+    width:100px;
+    margin-left:20px;
+    margin-top:20px;
+    font-size:16px;
+    text-align:right;
+    color:red;
+}
+.switch33{
+    border:3px;
+    width:100px;
+    margin-left:70px;
+    margin-top:20px;
+    font-size:16px;
+    text-align:left;
+    color:red;
+}
+.switch41{
+    border:3px;
+    width:100px;
+    margin-left:0px;
+    margin-top:20px;
+    font-size:16px;
+    text-align:right;
+    color:red;
+}
+.switcht1{
+    border:3px;
+    width:70px;
+    margin-left:95px;
+    margin-top:20px;
+    color:red;
+}
+.switch22{
+    border:3px;
+    width:100px;
+    margin-left:-50px;
+    margin-top:40px;
+    font-size:16px;
+    text-align:right;
+    color:red;
+}
+
+.switch32{
+    border:3px;
+    width:100px;
+    margin-left:135px;
+    margin-top:40px;
+    font-size:16px;
+    text-align:right;
+    color:red;
+}
+.switch42{
+    border:3px;
+    width:100px;
+    margin-left:370px;
+    margin-top:40px;
+    font-size:16px;
+    text-align:left;
+    color:red;
+}
+.h5{
+    border:3px;
+    width:100px;
+    margin-left:260px;
+    margin-top:90px;
+    font-size:16px;
+}
+.h6{
+    border:3px;
+    width:120px;
+    margin-left:0px;
+    margin-top:90px;
+    font-size:16px;
+}
+.switch51{
+    border:3px;
+    width:100px;
+    margin-left:95px;
+    margin-top:90px;
+    font-size:16px;
+    text-align:right;
+    color:red;
+}
+.switch52{
+    border:3px;
+    width:100px;
+    margin-left:520px;
+    margin-top:30px;
+    font-size:16px;
+    text-align:right;
+    color:red;
+}
+.switcht2{
+    border:3px;
+    width:1px;
+    margin-left:130px;
+    margin-top:30px;
+    font-size:16px;
+    color:red;
+}
+.switch11{
+    border:3px;
+    width:100px;
+    margin-left:-48px;
+    margin-top:25px;
+    font-size:16px;
+    text-align:right;
+    color:red;
+}
+.switch12{
+    border:3px;
+    width:100px;
+    margin-left:60px;
+    margin-top:25px;
+    font-size:16px;
+    color:red;
+}
+.switch62{
+    border:3px;
+    width:100px;
+    margin-left:200px;
+    margin-top:25px;
+    font-size:16px;
+    text-align:right;
+    color:red;
+}
+.switcht3{
+    border:3px;
+    width:1px;
+    margin-left:240px;
+    margin-top:0px;
+    font-size:16px;
+    color:red;
+}
+.switch13{
+    border:3px;
+    width:100px;
+    margin-left:100px;
+    margin-top:50px;
+    font-size:16px;
+    color:red;
+}
+.switch61{
+    border:3px;
+    width:100px;
+    margin-left:120px;
+    margin-top:50px;
+    font-size:16px;
+    text-align:right;
+    color:red;
+}
+.h3{
+    border:3px;
+    width:60px;
+    margin-left:240px;
+    margin-top:50px;
+    align:right;
+    font-size:16px;
+}
+.h4{
+    border:3px;
+    width:60px;
+    margin-left:15px;
+    margin-top:0px;
+    font-size:16px;
+}
+.h1{
+    border:3px;
+    width:120px;
+    margin-left:20px;
+    margin-top:70px;
+    font-size:16px;
+}
+.h2{
+    border:3px;
+    width:120px;
+    margin-left:280px;
+    margin-top:70px;
+    font-size:16px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

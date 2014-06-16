@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<application xmlns="http://wadl.dev.java.net/2009/02" xmlns:types="urn:opendaylight:flow:types"
+xmlns:group-type="urn:opendaylight:group:types"
+xmlns:inv="urn:opendaylight:inventory"
+xmlns:tr="urn:opendaylight:flow:transaction"
+xmlns:error="urn:opendaylight:flow:errors"
+xmlns:ext="urn:opendaylight:yang:extension:yang-ext"
+xmlns:meter-type="urn:opendaylight:meter:types"
+ xmlns:flow="urn:opendaylight:flow:service">
+
+	<grammars>
+		<include href="sal-flow.yang"/>
+		<include href="opendaylight-flow-types.yang"/>
+		<include href="opendaylight-group-types.yang"/>
+		<include href="opendaylight-inventory.yang"/>
+		<include href="flow-capable-transaction.yang"/>
+		<include href="flow-errors.yang"/>
+		<include href="yang-ext.yang"/>
+		<include href="opendaylight-meter-types.yang"/>
+	</grammars>
+	
+	<resources base="http://localhost:9998/restconf">
+		<resource path="operations">
+			<resource path="sal-flow:add-flow">
+				<method name="POST">
+					<request>
+						<representation mediaType="application/xml" element="input"/>
+						<representation mediaType="text/xml" element="input"/>
+						<representation mediaType="application/json" element="input"/>
+						<representation mediaType="application/yang.data+xml" element="input"/>
+						<representation mediaType="application/yang.data+json" element="input"/>
+					</request>
+					<response>
+						<representation mediaType="application/xml" element="output"/>
+						<representation mediaType="text/xml" element="output"/>
+						<representation mediaType="application/json" element="output"/>
+						<representation mediaType="application/yang.data+xml" element="output"/>
+						<representation mediaType="application/yang.data+json" element="output"/>
+					</response>
+				</method>
+			</resource>
+			<resource path="sal-flow:remove-flow">
+				<method name="POST">
+					<request>
+						<representation mediaType="application/xml" element="input"/>
+						<representation mediaType="text/xml" element="input"/>
+						<representation mediaType="application/json" element="input"/>
+						<representation mediaType="application/yang.data+xml" element="input"/>
+						<representation mediaType="application/yang.data+json" element="input"/>
+					</request>
+					<response>
+						<representation mediaType="application/xml" element="output"/>
+						<representation mediaType="text/xml" element="output"/>
+						<representation mediaType="application/json" element="output"/>
+						<representation mediaType="application/yang.data+xml" element="output"/>
+						<representation mediaType="application/yang.data+json" element="output"/>
+					</response>
+				</method>
+			</resource>
+			<resource path="sal-flow:update-flow">
+				<method name="POST">
+					<request>
+						<representation mediaType="application/xml" element="input"/>
+						<representation mediaType="text/xml" element="input"/>
+						<representation mediaType="application/json" element="input"/>
+						<representation mediaType="application/yang.data+xml" element="input"/>
+						<representation mediaType="application/yang.data+json" element="input"/>
+					</request>
+					<response>
+						<representation mediaType="application/xml" element="output"/>
+						<representation mediaType="text/xml" element="output"/>
+						<representation mediaType="application/json" element="output"/>
+						<representation mediaType="application/yang.data+xml" element="output"/>
+						<representation mediaType="application/yang.data+json" element="output"/>
+					</response>
+				</method>
+			</resource>
+		</resource>
+	</resources>
+</application>

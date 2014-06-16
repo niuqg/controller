@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>opendaylight-inventory</title>
+  </head>
+  <body>
+    <h1>opendaylight-inventory</h1>
+    
+    <h2>Base Information</h2>
+    <table>
+        <tr>
+            <td><strong>prefix</strong></td>
+            <td>inv</td>
+        </tr>
+        <tr>
+            <td><strong>namespace</strong></td>
+            <td>urn:opendaylight:inventory</td>
+        </tr>
+        <tr>
+            <td><strong>revision</strong></td>
+            <td>2013-08-19</td>
+        </tr>
+        <tr>
+            <td><strong>description</strong></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><strong>yang-version</strong></td>
+            <td>1</td>
+        </tr>
+        <tr>
+    <td><strong>imports</strong></td><td>        ext:yang-ext 2013-07-09;
+            inet:ietf-inet-types 2010-09-24;
+    </td>    </tr>
+    </table>
+    
+    <div>
+        <h3>Type Definitions Summary</h3>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>
+                <a href="#node-connector-id"><strong>node-connector-id</strong></a>
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                <a href="#node-connector-ref"><strong>node-connector-ref</strong></a>
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                <a href="#node-id"><strong>node-id</strong></a>
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                <a href="#node-ref"><strong>node-ref</strong></a>
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                <a href="#support-type"><strong>support-type</strong></a>
+                </td>
+                <td>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <h3>Identities Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#node-connector-context"><strong>node-connector-context</strong></a>
+            </td>
+            <td>
+            Identity used to mark node connector context
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#node-connector-type"><strong>node-connector-type</strong></a>
+            </td>
+            <td>
+            Base identity for node connectors type
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#node-context"><strong>node-context</strong></a>
+            </td>
+            <td>
+            Identity used to mark node context
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#node-type"><strong>node-type</strong></a>
+            </td>
+            <td>
+            Base identity for node types
+            </td>
+        </tr>
+    </table>
+    <h3>Groupings Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#node"><strong>node</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#node-connector"><strong>node-connector</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#node-context-ref"><strong>node-context-ref</strong></a>
+            </td>
+            <td>
+            Helper grouping which contains a reference to node context.
+            </td>
+        </tr>
+    </table>
+    <h3>Child Nodes Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#nodes"><strong>nodes</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    <h3>Notifications Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#node-connector-removed"><strong>node-connector-removed</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#node-connector-updated"><strong>node-connector-updated</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#node-removed"><strong>node-removed</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#node-updated"><strong>node-updated</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    
+    <h2>Type Definitions</h2>
+    <ul>
+    <li>
+        <h3 id="node-connector-id">node-connector-id</h3>
+        <ul>
+        <li>
+            Base type: inet:uri
+        </li>
+        </ul>
+    </li>
+    <li>
+        <h3 id="node-connector-ref">node-connector-ref</h3>
+        <ul>
+        <li>
+            Base type: instance-identifier
+        </li>
+        </ul>
+    </li>
+    <li>
+        <h3 id="node-id">node-id</h3>
+        <ul>
+        <li>
+            Base type: inet:uri
+        </li>
+        </ul>
+    </li>
+    <li>
+        <h3 id="node-ref">node-ref</h3>
+        <ul>
+        <li>
+            Base type: instance-identifier
+        </li>
+        </ul>
+    </li>
+    <li>
+        <h3 id="support-type">support-type</h3>
+        <ul>
+        <li>
+            Base type: enumeration
+        </li>
+        </ul>
+    </li>
+    </ul>
+    
+    <h2>Identities</h2>
+    <ul>
+    <li>
+        <h3 id="node-connector-context">node-connector-context</h3>
+        <ul>
+        <li>
+            Description: Identity used to mark node connector context
+        </li>
+        </ul>
+    </li>
+    <li>
+        <h3 id="node-connector-type">node-connector-type</h3>
+        <ul>
+        <li>
+            Description: Base identity for node connectors type
+        </li>
+        </ul>
+    </li>
+    <li>
+        <h3 id="node-context">node-context</h3>
+        <ul>
+        <li>
+            Description: Identity used to mark node context
+        </li>
+        </ul>
+    </li>
+    <li>
+        <h3 id="node-type">node-type</h3>
+        <ul>
+        <li>
+            Description: Base identity for node types
+        </li>
+        </ul>
+    </li>
+    </ul>
+    
+    <h2>Groupings</h2>
+    <ul>
+    <li>
+        <h3 id="node">node</h3>
+        <ul>
+            <ul>
+            <strong><li>
+                leaf: id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: <a href="#node-id">node-id</a>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="node/node-connector">
+                list: node-connector
+            </li>
+            </strong>
+            <ul>
+            <li>
+                key definition: id
+            </li>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: <a href="#node-connector">node-connector</a>
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: <a href="#node-connector-id">node-connector-id</a>
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+        </ul>
+    </li>
+    <li>
+        <h3 id="node-connector">node-connector</h3>
+        <ul>
+            <ul>
+            <strong><li>
+                leaf: id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: <a href="#node-connector-id">node-connector-id</a>
+            </li>
+            </ul>
+            </ul>
+        </ul>
+    </li>
+    <li>
+        <h3 id="node-context-ref">node-context-ref</h3>
+        <ul>
+            <li>
+                Description: Helper grouping which contains a reference to node context.
+            </li>
+            <ul>
+            <strong><li>
+                leaf: node
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: <a href="#node-ref">node-ref</a>
+            </li>
+            </ul>
+            </ul>
+        </ul>
+    </li>
+    </ul>
+    
+    <h2>Datastore Structure</h2>
+    <strong>opendaylight-inventory</strong>
+    <ul>
+    <li>
+        <a href="#nodes"><strong>nodes</strong>
+        </a>
+        <ul>
+        <li>
+            <a href="#nodes/node"><strong>node</strong> [id]
+            </a>
+            <ul>
+            <li>
+                <i>connected</i>(A)(U)
+            </li>
+            <li>
+                <i>current-capability</i>(A)(U)
+            </li>
+            <li>
+                <i>id</i>(U)
+            </li>
+            <li>
+                <i>initial-capability</i>(A)(U)
+            </li>
+            <li>
+                <a href="#nodes/node/node-connector"><strong><i>node-connector</i></strong> [id]
+                (U)
+                </a>
+                <ul>
+                <li>
+                    <i>id</i>(U)
+                </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#nodes/node/pass-through"><strong><i>pass-through</i></strong>(A)(U)
+                </a>
+            </li>
+            </ul>
+        </li>
+        </ul>
+    </li>
+    </ul>
+    
+    <h2>Child nodes</h2>
+    
+    <h3>Direct children</h3>
+    <ul>
+    <li><strong><a href="#nodes">nodes</a>
+    </strong> (container)</li>
+    </ul>
+    
+    <h3 id="nodes">
+        nodes
+    </h3>
+    <dl>
+      <dt>XML Path</dt>
+      <dd></dd>
+      <dt>Restconf path</dt>
+      <dd><code>opendaylight-inventory:nodes</code></dd>
+    </dl>
+    <h3>Direct children</h3>
+    <ul>
+    <li><strong><a href="#nodes/node">node</a>
+    </strong> (list)</li>
+    </ul>
+    
+    <h3>XML example</h3>
+    <pre>
+        &lt;nodes xmlns="urn:opendaylight:inventory"&gt;<!-- Child nodes -->
+        <!-- node -->
+            &lt!-- See <a href="#nodes/node">definition</a>
+             for child nodes.  --&gt
+            &lt!-- This node could appear multiple times --&gt
+            &lt;node xmlns="urn:opendaylight:inventory"&gt;...&lt;/node&gt;
+        
+        &lt;/nodes&gt;
+    </pre>
+    </h3>
+    <h3 id="nodes/node">
+        nodes/node
+    </h3>
+    <dl>
+      <dt>XML Path</dt>
+      <dd></dd>
+      <dt>Restconf path</dt>
+      <dd><code>opendaylight-inventory:nodes/node/{id}</code></dd>
+    </dl>
+    <h3>Direct children</h3>
+    <ul>
+    <li><strong>connected</strong> (leaf)</li>
+    <li><strong>id</strong> (leaf)</li>
+    <li><strong>current-capability</strong> (leaf-list)</li>
+    <li><strong>initial-capability</strong> (leaf-list)</li>
+    <li><strong><a href="#nodes/node/pass-through">pass-through</a>
+    </strong> (container)</li>
+    <li><strong><a href="#nodes/node/node-connector">node-connector</a>
+    </strong> (list)</li>
+    </ul>
+    
+    <h3>XML example</h3>
+    <pre>
+        &lt;node xmlns="urn:opendaylight:inventory"&gt;<!-- Child nodes -->
+        <!-- connected -->
+            &lt;connected xmlns="urn:opendaylight:netconf-node-inventory"&gt;...&lt;/connected&gt;
+        <!-- current-capability -->
+            &lt!-- This node could appear multiple times --&gt
+            &lt;current-capability xmlns="urn:opendaylight:netconf-node-inventory"&gt;...&lt;/current-capability&gt;
+        <!-- id -->
+            &lt;id xmlns="urn:opendaylight:inventory"&gt;...&lt;/id&gt;
+        <!-- initial-capability -->
+            &lt!-- This node could appear multiple times --&gt
+            &lt;initial-capability xmlns="urn:opendaylight:netconf-node-inventory"&gt;...&lt;/initial-capability&gt;
+        <!-- node-connector -->
+            &lt!-- See <a href="#nodes/node/node-connector">definition</a>
+             for child nodes.  --&gt
+            &lt!-- This node could appear multiple times --&gt
+            &lt;node-connector xmlns="urn:opendaylight:inventory"&gt;...&lt;/node-connector&gt;
+        <!-- pass-through -->
+            &lt!-- See <a href="#nodes/node/pass-through">definition</a>
+             for child nodes.  --&gt
+            &lt;pass-through xmlns="urn:opendaylight:netconf-node-inventory"&gt;...&lt;/pass-through&gt;
+        
+        &lt;/node&gt;
+    </pre>
+    </h3>
+    <h3 id="nodes/node/pass-through">
+        nodes/node/pass-through
+    </h3>
+    <dl>
+      <dt>XML Path</dt>
+      <dd></dd>
+      <dt>Restconf path</dt>
+      <dd><code>opendaylight-inventory:nodes/node/{id}/pass-through</code></dd>
+    </dl>
+    
+    <h3>XML example</h3>
+    <pre>
+        &lt;pass-through xmlns="urn:opendaylight:netconf-node-inventory"&gt;<!-- Child nodes -->
+        
+        &lt;/pass-through&gt;
+    </pre>
+    </h3>
+    <h3 id="nodes/node/node-connector">
+        nodes/node/node-connector
+    </h3>
+    <dl>
+      <dt>XML Path</dt>
+      <dd></dd>
+      <dt>Restconf path</dt>
+      <dd><code>opendaylight-inventory:nodes/node/{id}/node-connector/{id}</code></dd>
+    </dl>
+    <h3>Direct children</h3>
+    <ul>
+    <li><strong>id</strong> (leaf)</li>
+    </ul>
+    
+    <h3>XML example</h3>
+    <pre>
+        &lt;node-connector xmlns="urn:opendaylight:inventory"&gt;<!-- Child nodes -->
+        <!-- id -->
+            &lt;id xmlns="urn:opendaylight:inventory"&gt;...&lt;/id&gt;
+        
+        &lt;/node-connector&gt;
+    </pre>
+    </h3>
+    
+    <h2>Notifications</h2>
+    
+    <h3 id="node-connector-removed">node-connector-removed
+    </h3>
+        <ul>
+        <strong><li>
+            leaf: node-connector-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: <a href="#node-connector-ref">node-connector-ref</a>
+        </li>
+        </ul>
+        </ul>
+    
+    <h3 id="node-connector-updated">node-connector-updated
+    </h3>
+        <ul>
+        <strong><li>
+            leaf: id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: <a href="#node-connector-id">node-connector-id</a>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: node-connector-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: <a href="#node-connector-ref">node-connector-ref</a>
+        </li>
+        </ul>
+        </ul>
+    
+    <h3 id="node-removed">node-removed
+    </h3>
+        <ul>
+        <strong><li>
+            leaf: node-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: <a href="#node-ref">node-ref</a>
+        </li>
+        </ul>
+        </ul>
+    
+    <h3 id="node-updated">node-updated
+    </h3>
+        <ul>
+        <strong><li>
+            leaf: id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: <a href="#node-id">node-id</a>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="node-updated/node-connector">
+            list: node-connector
+        </li>
+        </strong>
+        <ul>
+        <li>
+            key definition: id
+        </li>
+        </ul>
+        <ul>
+        <strong><li>
+            uses: <a href="#node-connector">node-connector</a>
+        </li>
+        </strong>
+        <ul>
+        <li>refines:
+            <ul>
+            </ul>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: <a href="#node-connector-id">node-connector-id</a>
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: node-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: <a href="#node-ref">node-ref</a>
+        </li>
+        </ul>
+        </ul>
+    
+    
+    
+    
+    
+  </body>
+</html>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<application xmlns="http://wadl.dev.java.net/2009/02" xmlns:inv="urn:opendaylight:inventory"
+ xmlns:flow-node-topo="urn:opendaylight:flow:topology:discovery">
+
+	<grammars>
+		<include href="flow-topology-discovery.yang"/>
+		<include href="opendaylight-inventory.yang"/>
+	</grammars>
+	
+	<resources base="http://localhost:9998/restconf">
+		<resource path="operations">
+			<resource path="flow-topology-discovery:solicit-refresh">
+				<method name="POST">
+				</method>
+			</resource>
+		</resource>
+	</resources>
+</application>

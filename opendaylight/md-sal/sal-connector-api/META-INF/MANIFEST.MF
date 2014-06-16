@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1402892691745
+Build-Jdk: 1.7.0_51
+Built-By: niu
+Bundle-ManifestVersion: 2
+Bundle-Name: org.opendaylight.controller.sal-connector-api
+Bundle-SymbolicName: org.opendaylight.controller.sal-connector-api
+Bundle-Version: 1.1.0.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Export-Package: org.opendaylight.controller.sal.connector.api;uses:="org
+ .opendaylight.controller.sal.core.api,org.opendaylight.controller.sal.c
+ ore.api.notify,org.opendaylight.yangtools.concepts,org.opendaylight.yan
+ gtools.yang.data.api";version="1.1.0.SNAPSHOT"
+Import-Package: org.opendaylight.controller.sal.core.api,org.opendayligh
+ t.controller.sal.core.api.notify,org.opendaylight.yangtools.concepts;ve
+ rsion="[0.6,1)",org.opendaylight.yangtools.yang.data.api;version="[0.6,
+ 1)"
+Tool: Bnd-2.1.0.20130426-122213

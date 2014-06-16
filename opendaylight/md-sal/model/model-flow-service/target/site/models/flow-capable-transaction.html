@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>flow-capable-transaction</title>
+  </head>
+  <body>
+    <h1>flow-capable-transaction</h1>
+    
+    <h2>Base Information</h2>
+    <table>
+        <tr>
+            <td><strong>prefix</strong></td>
+            <td>type</td>
+        </tr>
+        <tr>
+            <td><strong>namespace</strong></td>
+            <td>urn:opendaylight:flow:transaction</td>
+        </tr>
+        <tr>
+            <td><strong>revision</strong></td>
+            <td>2013-11-03</td>
+        </tr>
+        <tr>
+            <td><strong>description</strong></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><strong>yang-version</strong></td>
+            <td>1</td>
+        </tr>
+        <tr>
+    <td><strong>imports</strong></td><td>        inv:opendaylight-inventory 2013-08-19;
+            ext:yang-ext 2013-07-09;
+            inet:ietf-inet-types 2010-09-24;
+    </td>    </tr>
+    </table>
+    
+    <div>
+        <h3>Type Definitions Summary</h3>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>
+                <a href="#transaction-id"><strong>transaction-id</strong></a>
+                </td>
+                <td>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <h3>Groupings Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#multipart-transaction-aware"><strong>multipart-transaction-aware</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#transaction-aware"><strong>transaction-aware</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#transaction-metadata"><strong>transaction-metadata</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    <h3>RPCs Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#finish-transaction"><strong>finish-transaction</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#get-next-transaction-id"><strong>get-next-transaction-id</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    
+    <h2>Type Definitions</h2>
+    <ul>
+    <li>
+        <h3 id="transaction-id">transaction-id</h3>
+        <ul>
+        <li>
+            Base type: uint64
+        </li>
+        </ul>
+    </li>
+    </ul>
+    
+    
+    <h2>Groupings</h2>
+    <ul>
+    <li>
+        <h3 id="multipart-transaction-aware">multipart-transaction-aware</h3>
+        <ul>
+            <ul>
+            <strong><li>
+                leaf: moreReplies
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: boolean
+            </li>
+            <li>
+                default: false
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transaction-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: <a href="#transaction-id">transaction-id</a>
+            </li>
+            </ul>
+            </ul>
+        </ul>
+    </li>
+    <li>
+        <h3 id="transaction-aware">transaction-aware</h3>
+        <ul>
+            <ul>
+            <strong><li>
+                leaf: transaction-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: <a href="#transaction-id">transaction-id</a>
+            </li>
+            </ul>
+            </ul>
+        </ul>
+    </li>
+    <li>
+        <h3 id="transaction-metadata">transaction-metadata</h3>
+        <ul>
+            <ul>
+            <strong><li>
+                leaf: transaction-uri
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: inet:uri
+            </li>
+            </ul>
+            </ul>
+        </ul>
+    </li>
+    </ul>
+    
+    
+    
+    
+    
+    <h2>RPC Definitions</h2>
+    <h3 id="finish-transaction">finish-transaction
+    </h3>
+        <ul>
+            <ul>
+            <strong>
+            <li id="finish-transaction/input">
+                container: input
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: node
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: inv:node-ref
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transaction-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: <a href="#transaction-id">transaction-id</a>
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+        </ul>
+    <h3 id="get-next-transaction-id">get-next-transaction-id
+    </h3>
+        <ul>
+            <ul>
+            <strong>
+            <li id="get-next-transaction-id/input">
+                container: input
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: node
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: inv:node-ref
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="get-next-transaction-id/output">
+                container: output
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: <a href="#transaction-aware">transaction-aware</a>
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: transaction-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: <a href="#transaction-id">transaction-id</a>
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+        </ul>
+    </ul>
+    
+    
+    
+  </body>
+</html>

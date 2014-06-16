@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>opendaylight-topology-view</title>
+  </head>
+  <body>
+    <h1>opendaylight-topology-view</h1>
+    
+    <h2>Base Information</h2>
+    <table>
+        <tr>
+            <td><strong>prefix</strong></td>
+            <td>nt</td>
+        </tr>
+        <tr>
+            <td><strong>namespace</strong></td>
+            <td>urn:opendaylight:model:topology:view</td>
+        </tr>
+        <tr>
+            <td><strong>revision</strong></td>
+            <td>2013-10-30</td>
+        </tr>
+        <tr>
+            <td><strong>description</strong></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><strong>yang-version</strong></td>
+            <td>1</td>
+        </tr>
+        <tr>
+    <td><strong>imports</strong></td><td>        ext:yang-ext;
+            topo:network-topology 2013-10-21;
+    </td>    </tr>
+    </table>
+    
+    <h3>Groupings Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#aggregate-node"><strong>aggregate-node</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#aggregate-topology"><strong>aggregate-topology</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    <h3>Augmentations Summary</h3>
+    <table>
+        <tr>
+            <th>Target</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#/network-topology:network-topology/network-topology:topology/network-topology:node/"><strong>/network-topology:network-topology/network-topology:topology/network-topology:node/</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#/network-topology:network-topology/network-topology:topology/"><strong>/network-topology:network-topology/network-topology:topology/</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    
+    
+    
+    <h2>Groupings</h2>
+    <ul>
+    <li>
+        <h3 id="aggregate-node">aggregate-node</h3>
+        <ul>
+            <ul>
+            <strong>
+            <li id="aggregate-node/original-node">
+                list: original-node
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: node
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: <a href="#node-ref">node-ref</a>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: topology
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: <a href="#topology-ref">topology-ref</a>
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+        </ul>
+    </li>
+    <li>
+        <h3 id="aggregate-topology">aggregate-topology</h3>
+        <ul>
+            <ul>
+            <strong><li>
+                leaf-list: original-topology
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: topology-ref
+            </li>
+            </ul>
+            </ul>
+        </ul>
+    </li>
+    </ul>
+    
+    
+    
+    
+    <h2>Augmentations</h2>
+    
+    <ul>
+    <li>
+        <h3 id="/network-topology:network-topology/network-topology:topology/network-topology:node/">
+        Target [topo:/network-topology:network-topology/network-topology:topology/network-topology:node/]</h3>
+        <ul>
+        <strong>
+        <li id="network-topology/topology/node/original-node">
+            list: original-node
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: node
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: <a href="#node-ref">node-ref</a>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: topology
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: <a href="#topology-ref">topology-ref</a>
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+    </li>
+    <li>
+        <h3 id="/network-topology:network-topology/network-topology:topology/">
+        Target [topo:/network-topology:network-topology/network-topology:topology/]</h3>
+        <ul>
+        <strong><li>
+            leaf-list: original-topology
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: topology-ref
+        </li>
+        </ul>
+        </ul>
+    </li>
+    </ul>
+    
+    
+    
+    
+  </body>
+</html>

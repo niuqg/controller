@@ -1,0 +1,6 @@
+org.opendaylight.controller.config.yang.md.sal.binding.impl.BindingBrokerImplModuleFactory
+org.opendaylight.controller.config.yang.md.sal.binding.impl.RuntimeMappingModuleFactory
+org.opendaylight.controller.config.yang.md.sal.binding.impl.NotificationBrokerImplModuleFactory
+org.opendaylight.controller.config.yang.md.sal.binding.impl.RpcBrokerImplModuleFactory
+org.opendaylight.controller.config.yang.md.sal.binding.impl.ForwardedCompatibleDataBrokerImplModuleFactory
+org.opendaylight.controller.config.yang.md.sal.binding.impl.DataBrokerImplModuleFactory

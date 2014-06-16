@@ -1,0 +1,4 @@
+2.3增加getAppQos(int id)等方法
+2.4增加静态路由方面
+2.5增加logger，user，host表中直接用Id的操作,增加getAllPath（）
+

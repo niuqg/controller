@@ -1,0 +1,4 @@
+org.opendaylight.controller.config.yang.md.sal.dom.impl.SchemaServiceImplSingletonModuleFactory
+org.opendaylight.controller.config.yang.md.sal.dom.impl.HashMapDataStoreModuleFactory
+org.opendaylight.controller.config.yang.md.sal.dom.impl.DomBrokerImplModuleFactory
+org.opendaylight.controller.config.yang.md.sal.dom.impl.DomInmemoryDataBrokerModuleFactory

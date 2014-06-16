@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<application xmlns="http://wadl.dev.java.net/2009/02" xmlns:inv="urn:opendaylight:inventory"
+xmlns:ext="urn:opendaylight:yang:extension:yang-ext"
+xmlns:inet="urn:ietf:params:xml:ns:yang:ietf-inet-types"
+ xmlns:type="urn:opendaylight:flow:transaction">
+
+	<grammars>
+		<include href="flow-capable-transaction.yang"/>
+		<include href="opendaylight-inventory.yang"/>
+		<include href="yang-ext.yang"/>
+		<include href="ietf-inet-types.yang"/>
+	</grammars>
+	
+	<resources base="http://localhost:9998/restconf">
+		<resource path="operations">
+			<resource path="flow-capable-transaction:finish-transaction">
+				<method name="POST">
+					<request>
+						<representation mediaType="application/xml" element="input"/>
+						<representation mediaType="text/xml" element="input"/>
+						<representation mediaType="application/json" element="input"/>
+						<representation mediaType="application/yang.data+xml" element="input"/>
+						<representation mediaType="application/yang.data+json" element="input"/>
+					</request>
+				</method>
+			</resource>
+			<resource path="flow-capable-transaction:get-next-transaction-id">
+				<method name="POST">
+					<request>
+						<representation mediaType="application/xml" element="input"/>
+						<representation mediaType="text/xml" element="input"/>
+						<representation mediaType="application/json" element="input"/>
+						<representation mediaType="application/yang.data+xml" element="input"/>
+						<representation mediaType="application/yang.data+json" element="input"/>
+					</request>
+					<response>
+						<representation mediaType="application/xml" element="output"/>
+						<representation mediaType="text/xml" element="output"/>
+						<representation mediaType="application/json" element="output"/>
+						<representation mediaType="application/yang.data+xml" element="output"/>
+						<representation mediaType="application/yang.data+json" element="output"/>
+					</response>
+				</method>
+			</resource>
+		</resource>
+	</resources>
+</application>

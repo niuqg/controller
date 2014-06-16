@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1402892677963
+Build-Jdk: 1.7.0_51
+Built-By: niu
+Bundle-ManifestVersion: 2
+Bundle-Name: org.opendaylight.controller.sal-binding-util
+Bundle-SymbolicName: org.opendaylight.controller.sal-binding-util
+Bundle-Version: 1.1.0.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Export-Package: org.opendaylight.controller.md.sal.binding.util;uses:="c
+ om.google.common.collect,org.opendaylight.controller.md.sal.common.api,
+ org.opendaylight.controller.md.sal.common.api.data,org.opendaylight.con
+ troller.md.sal.common.api.routing,org.opendaylight.controller.sal.bindi
+ ng.api,org.opendaylight.controller.sal.binding.api.data,org.opendayligh
+ t.controller.sal.binding.api.rpc,org.opendaylight.yangtools.concepts,or
+ g.opendaylight.yangtools.yang.binding";version="1.1.0.SNAPSHOT"
+Import-Package: com.google.common.base;version="[14.0,15)",com.google.co
+ mmon.collect;version="[14.0,15)",org.opendaylight.controller.md.sal.com
+ mon.api,org.opendaylight.controller.md.sal.common.api.data,org.opendayl
+ ight.controller.md.sal.common.api.routing,org.opendaylight.controller.s
+ al.binding.api,org.opendaylight.controller.sal.binding.api.data,org.ope
+ ndaylight.controller.sal.binding.api.rpc,org.opendaylight.yangtools.con
+ cepts;version="[0.6,1)",org.opendaylight.yangtools.yang.binding;version
+ ="[0.6,1)"
+Tool: Bnd-2.1.0.20130426-122213

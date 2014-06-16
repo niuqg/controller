@@ -1,0 +1,6 @@
+org.opendaylight.yang.gen.v1.urn.opendaylight.meter.config.rev131024.$YangModelBindingProvider
+org.opendaylight.yang.gen.v1.urn.opendaylight.port.config.rev131024.$YangModelBindingProvider
+org.opendaylight.yang.gen.v1.urn.opendaylight.table.config.rev131024.$YangModelBindingProvider
+org.opendaylight.yang.gen.v1.urn.opendaylight.group.config.rev131024.$YangModelBindingProvider
+org.opendaylight.yang.gen.v1.urn.opendaylight.queue.config.rev131024.$YangModelBindingProvider
+org.opendaylight.yang.gen.v1.urn.opendaylight.flow.config.rev130819.$YangModelBindingProvider

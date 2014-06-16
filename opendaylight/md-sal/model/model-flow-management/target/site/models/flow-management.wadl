@@ -1,0 +1,559 @@
+<?xml version="1.0"?>
+<application xmlns="http://wadl.dev.java.net/2009/02" xmlns:flow="urn:opendaylight:flow:types"
+xmlns:inv="urn:opendaylight:inventory"
+ xmlns:flow-cfg="urn:opendaylight:flow:config">
+
+	<grammars>
+		<include href="flow-management.yang"/>
+		<include href="opendaylight-flow-types.yang"/>
+		<include href="opendaylight-inventory.yang"/>
+	</grammars>
+	
+	<resources base="http://localhost:9998/restconf">
+		<resource path="config">
+			<method name="POST">
+				<request>
+					<representation mediaType="application/xml" element="flow-cfg:flows"/>
+					<representation mediaType="text/xml" element="flow-cfg:flows"/>
+					<representation mediaType="application/json" element="flow-cfg:flows"/>
+					<representation mediaType="application/yang.data+xml" element="flow-cfg:flows"/>
+					<representation mediaType="application/yang.data+json" element="flow-cfg:flows"/>
+				</request>
+			</method>
+			<resource path="flow-management:flows">
+				<method name="GET">
+					<response>
+						<representation mediaType="application/xml" element="flow-cfg:flows"/>
+						<representation mediaType="text/xml" element="flow-cfg:flows"/>
+						<representation mediaType="application/json" element="flow-cfg:flows"/>
+						<representation mediaType="application/yang.data+xml" element="flow-cfg:flows"/>
+						<representation mediaType="application/yang.data+json" element="flow-cfg:flows"/>
+					</response>
+				</method>
+				<method name="DELETE" />
+				<method name="PUT">
+					<request>
+						<representation mediaType="application/xml" element="flow-cfg:flows"/>
+						<representation mediaType="text/xml" element="flow-cfg:flows"/>
+						<representation mediaType="application/json" element="flow-cfg:flows"/>
+						<representation mediaType="application/yang.data+xml" element="flow-cfg:flows"/>
+						<representation mediaType="application/yang.data+json" element="flow-cfg:flows"/>
+					</request>
+				</method>
+				<method name="POST">
+					<request>
+						<representation mediaType="application/xml" element="flow-cfg:flow"/>
+						<representation mediaType="text/xml" element="flow-cfg:flow"/>
+						<representation mediaType="application/json" element="flow-cfg:flow"/>
+						<representation mediaType="application/yang.data+xml" element="flow-cfg:flow"/>
+						<representation mediaType="application/yang.data+json" element="flow-cfg:flow"/>
+					</request>
+				</method>
+				<resource path="flow/{node}/{id}">
+					<param required="true" style="template" name="node" type="flow-cfg:node-ref"/>
+					<param required="true" style="template" name="id" type="uint32"/>
+					<method name="GET">
+						<response>
+							<representation mediaType="application/xml" element="flow-cfg:flow"/>
+							<representation mediaType="text/xml" element="flow-cfg:flow"/>
+							<representation mediaType="application/json" element="flow-cfg:flow"/>
+							<representation mediaType="application/yang.data+xml" element="flow-cfg:flow"/>
+							<representation mediaType="application/yang.data+json" element="flow-cfg:flow"/>
+						</response>
+					</method>
+					<method name="DELETE" />
+					<method name="PUT">
+						<request>
+							<representation mediaType="application/xml" element="flow-cfg:flow"/>
+							<representation mediaType="text/xml" element="flow-cfg:flow"/>
+							<representation mediaType="application/json" element="flow-cfg:flow"/>
+							<representation mediaType="application/yang.data+xml" element="flow-cfg:flow"/>
+							<representation mediaType="application/yang.data+json" element="flow-cfg:flow"/>
+						</request>
+					</method>
+					<method name="POST">
+						<request>
+							<representation mediaType="application/xml" element="flow-cfg:instructions"/>
+							<representation mediaType="text/xml" element="flow-cfg:instructions"/>
+							<representation mediaType="application/json" element="flow-cfg:instructions"/>
+							<representation mediaType="application/yang.data+xml" element="flow-cfg:instructions"/>
+							<representation mediaType="application/yang.data+json" element="flow-cfg:instructions"/>
+						</request>
+					</method>
+					<method name="POST">
+						<request>
+							<representation mediaType="application/xml" element="flow-cfg:match"/>
+							<representation mediaType="text/xml" element="flow-cfg:match"/>
+							<representation mediaType="application/json" element="flow-cfg:match"/>
+							<representation mediaType="application/yang.data+xml" element="flow-cfg:match"/>
+							<representation mediaType="application/yang.data+json" element="flow-cfg:match"/>
+						</request>
+					</method>
+					<resource path="instructions">
+						<method name="GET">
+							<response>
+								<representation mediaType="application/xml" element="flow-cfg:instructions"/>
+								<representation mediaType="text/xml" element="flow-cfg:instructions"/>
+								<representation mediaType="application/json" element="flow-cfg:instructions"/>
+								<representation mediaType="application/yang.data+xml" element="flow-cfg:instructions"/>
+								<representation mediaType="application/yang.data+json" element="flow-cfg:instructions"/>
+							</response>
+						</method>
+						<method name="DELETE" />
+						<method name="PUT">
+							<request>
+								<representation mediaType="application/xml" element="flow-cfg:instructions"/>
+								<representation mediaType="text/xml" element="flow-cfg:instructions"/>
+								<representation mediaType="application/json" element="flow-cfg:instructions"/>
+								<representation mediaType="application/yang.data+xml" element="flow-cfg:instructions"/>
+								<representation mediaType="application/yang.data+json" element="flow-cfg:instructions"/>
+							</request>
+						</method>
+						<method name="POST">
+							<request>
+								<representation mediaType="application/xml" element="flow-cfg:instruction"/>
+								<representation mediaType="text/xml" element="flow-cfg:instruction"/>
+								<representation mediaType="application/json" element="flow-cfg:instruction"/>
+								<representation mediaType="application/yang.data+xml" element="flow-cfg:instruction"/>
+								<representation mediaType="application/yang.data+json" element="flow-cfg:instruction"/>
+							</request>
+						</method>
+						<resource path="instruction/{order}">
+							<param required="true" style="template" name="order" type="int32"/>
+							<method name="GET">
+								<response>
+									<representation mediaType="application/xml" element="flow-cfg:instruction"/>
+									<representation mediaType="text/xml" element="flow-cfg:instruction"/>
+									<representation mediaType="application/json" element="flow-cfg:instruction"/>
+									<representation mediaType="application/yang.data+xml" element="flow-cfg:instruction"/>
+									<representation mediaType="application/yang.data+json" element="flow-cfg:instruction"/>
+								</response>
+							</method>
+							<method name="DELETE" />
+							<method name="PUT">
+								<request>
+									<representation mediaType="application/xml" element="flow-cfg:instruction"/>
+									<representation mediaType="text/xml" element="flow-cfg:instruction"/>
+									<representation mediaType="application/json" element="flow-cfg:instruction"/>
+									<representation mediaType="application/yang.data+xml" element="flow-cfg:instruction"/>
+									<representation mediaType="application/yang.data+json" element="flow-cfg:instruction"/>
+								</request>
+							</method>
+						</resource>
+					</resource>
+					<resource path="match">
+						<method name="GET">
+							<response>
+								<representation mediaType="application/xml" element="flow-cfg:match"/>
+								<representation mediaType="text/xml" element="flow-cfg:match"/>
+								<representation mediaType="application/json" element="flow-cfg:match"/>
+								<representation mediaType="application/yang.data+xml" element="flow-cfg:match"/>
+								<representation mediaType="application/yang.data+json" element="flow-cfg:match"/>
+							</response>
+						</method>
+						<method name="DELETE" />
+						<method name="PUT">
+							<request>
+								<representation mediaType="application/xml" element="flow-cfg:match"/>
+								<representation mediaType="text/xml" element="flow-cfg:match"/>
+								<representation mediaType="application/json" element="flow-cfg:match"/>
+								<representation mediaType="application/yang.data+xml" element="flow-cfg:match"/>
+								<representation mediaType="application/yang.data+json" element="flow-cfg:match"/>
+							</request>
+						</method>
+						<method name="POST">
+							<request>
+								<representation mediaType="application/xml" element="flow-cfg:ethernet-match"/>
+								<representation mediaType="text/xml" element="flow-cfg:ethernet-match"/>
+								<representation mediaType="application/json" element="flow-cfg:ethernet-match"/>
+								<representation mediaType="application/yang.data+xml" element="flow-cfg:ethernet-match"/>
+								<representation mediaType="application/yang.data+json" element="flow-cfg:ethernet-match"/>
+							</request>
+						</method>
+						<method name="POST">
+							<request>
+								<representation mediaType="application/xml" element="flow-cfg:icmpv4-match"/>
+								<representation mediaType="text/xml" element="flow-cfg:icmpv4-match"/>
+								<representation mediaType="application/json" element="flow-cfg:icmpv4-match"/>
+								<representation mediaType="application/yang.data+xml" element="flow-cfg:icmpv4-match"/>
+								<representation mediaType="application/yang.data+json" element="flow-cfg:icmpv4-match"/>
+							</request>
+						</method>
+						<method name="POST">
+							<request>
+								<representation mediaType="application/xml" element="flow-cfg:icmpv6-match"/>
+								<representation mediaType="text/xml" element="flow-cfg:icmpv6-match"/>
+								<representation mediaType="application/json" element="flow-cfg:icmpv6-match"/>
+								<representation mediaType="application/yang.data+xml" element="flow-cfg:icmpv6-match"/>
+								<representation mediaType="application/yang.data+json" element="flow-cfg:icmpv6-match"/>
+							</request>
+						</method>
+						<method name="POST">
+							<request>
+								<representation mediaType="application/xml" element="flow-cfg:ip-match"/>
+								<representation mediaType="text/xml" element="flow-cfg:ip-match"/>
+								<representation mediaType="application/json" element="flow-cfg:ip-match"/>
+								<representation mediaType="application/yang.data+xml" element="flow-cfg:ip-match"/>
+								<representation mediaType="application/yang.data+json" element="flow-cfg:ip-match"/>
+							</request>
+						</method>
+						<method name="POST">
+							<request>
+								<representation mediaType="application/xml" element="flow-cfg:metadata"/>
+								<representation mediaType="text/xml" element="flow-cfg:metadata"/>
+								<representation mediaType="application/json" element="flow-cfg:metadata"/>
+								<representation mediaType="application/yang.data+xml" element="flow-cfg:metadata"/>
+								<representation mediaType="application/yang.data+json" element="flow-cfg:metadata"/>
+							</request>
+						</method>
+						<method name="POST">
+							<request>
+								<representation mediaType="application/xml" element="flow-cfg:protocol-match-fields"/>
+								<representation mediaType="text/xml" element="flow-cfg:protocol-match-fields"/>
+								<representation mediaType="application/json" element="flow-cfg:protocol-match-fields"/>
+								<representation mediaType="application/yang.data+xml" element="flow-cfg:protocol-match-fields"/>
+								<representation mediaType="application/yang.data+json" element="flow-cfg:protocol-match-fields"/>
+							</request>
+						</method>
+						<method name="POST">
+							<request>
+								<representation mediaType="application/xml" element="flow-cfg:tunnel"/>
+								<representation mediaType="text/xml" element="flow-cfg:tunnel"/>
+								<representation mediaType="application/json" element="flow-cfg:tunnel"/>
+								<representation mediaType="application/yang.data+xml" element="flow-cfg:tunnel"/>
+								<representation mediaType="application/yang.data+json" element="flow-cfg:tunnel"/>
+							</request>
+						</method>
+						<method name="POST">
+							<request>
+								<representation mediaType="application/xml" element="flow-cfg:vlan-match"/>
+								<representation mediaType="text/xml" element="flow-cfg:vlan-match"/>
+								<representation mediaType="application/json" element="flow-cfg:vlan-match"/>
+								<representation mediaType="application/yang.data+xml" element="flow-cfg:vlan-match"/>
+								<representation mediaType="application/yang.data+json" element="flow-cfg:vlan-match"/>
+							</request>
+						</method>
+						<resource path="ethernet-match">
+							<method name="GET">
+								<response>
+									<representation mediaType="application/xml" element="flow-cfg:ethernet-match"/>
+									<representation mediaType="text/xml" element="flow-cfg:ethernet-match"/>
+									<representation mediaType="application/json" element="flow-cfg:ethernet-match"/>
+									<representation mediaType="application/yang.data+xml" element="flow-cfg:ethernet-match"/>
+									<representation mediaType="application/yang.data+json" element="flow-cfg:ethernet-match"/>
+								</response>
+							</method>
+							<method name="DELETE" />
+							<method name="PUT">
+								<request>
+									<representation mediaType="application/xml" element="flow-cfg:ethernet-match"/>
+									<representation mediaType="text/xml" element="flow-cfg:ethernet-match"/>
+									<representation mediaType="application/json" element="flow-cfg:ethernet-match"/>
+									<representation mediaType="application/yang.data+xml" element="flow-cfg:ethernet-match"/>
+									<representation mediaType="application/yang.data+json" element="flow-cfg:ethernet-match"/>
+								</request>
+							</method>
+							<method name="POST">
+								<request>
+									<representation mediaType="application/xml" element="flow-cfg:ethernet-destination"/>
+									<representation mediaType="text/xml" element="flow-cfg:ethernet-destination"/>
+									<representation mediaType="application/json" element="flow-cfg:ethernet-destination"/>
+									<representation mediaType="application/yang.data+xml" element="flow-cfg:ethernet-destination"/>
+									<representation mediaType="application/yang.data+json" element="flow-cfg:ethernet-destination"/>
+								</request>
+							</method>
+							<method name="POST">
+								<request>
+									<representation mediaType="application/xml" element="flow-cfg:ethernet-source"/>
+									<representation mediaType="text/xml" element="flow-cfg:ethernet-source"/>
+									<representation mediaType="application/json" element="flow-cfg:ethernet-source"/>
+									<representation mediaType="application/yang.data+xml" element="flow-cfg:ethernet-source"/>
+									<representation mediaType="application/yang.data+json" element="flow-cfg:ethernet-source"/>
+								</request>
+							</method>
+							<method name="POST">
+								<request>
+									<representation mediaType="application/xml" element="flow-cfg:ethernet-type"/>
+									<representation mediaType="text/xml" element="flow-cfg:ethernet-type"/>
+									<representation mediaType="application/json" element="flow-cfg:ethernet-type"/>
+									<representation mediaType="application/yang.data+xml" element="flow-cfg:ethernet-type"/>
+									<representation mediaType="application/yang.data+json" element="flow-cfg:ethernet-type"/>
+								</request>
+							</method>
+							<resource path="ethernet-destination">
+								<method name="GET">
+									<response>
+										<representation mediaType="application/xml" element="flow-cfg:ethernet-destination"/>
+										<representation mediaType="text/xml" element="flow-cfg:ethernet-destination"/>
+										<representation mediaType="application/json" element="flow-cfg:ethernet-destination"/>
+										<representation mediaType="application/yang.data+xml" element="flow-cfg:ethernet-destination"/>
+										<representation mediaType="application/yang.data+json" element="flow-cfg:ethernet-destination"/>
+									</response>
+								</method>
+								<method name="DELETE" />
+								<method name="PUT">
+									<request>
+										<representation mediaType="application/xml" element="flow-cfg:ethernet-destination"/>
+										<representation mediaType="text/xml" element="flow-cfg:ethernet-destination"/>
+										<representation mediaType="application/json" element="flow-cfg:ethernet-destination"/>
+										<representation mediaType="application/yang.data+xml" element="flow-cfg:ethernet-destination"/>
+										<representation mediaType="application/yang.data+json" element="flow-cfg:ethernet-destination"/>
+									</request>
+								</method>
+							</resource>
+							<resource path="ethernet-source">
+								<method name="GET">
+									<response>
+										<representation mediaType="application/xml" element="flow-cfg:ethernet-source"/>
+										<representation mediaType="text/xml" element="flow-cfg:ethernet-source"/>
+										<representation mediaType="application/json" element="flow-cfg:ethernet-source"/>
+										<representation mediaType="application/yang.data+xml" element="flow-cfg:ethernet-source"/>
+										<representation mediaType="application/yang.data+json" element="flow-cfg:ethernet-source"/>
+									</response>
+								</method>
+								<method name="DELETE" />
+								<method name="PUT">
+									<request>
+										<representation mediaType="application/xml" element="flow-cfg:ethernet-source"/>
+										<representation mediaType="text/xml" element="flow-cfg:ethernet-source"/>
+										<representation mediaType="application/json" element="flow-cfg:ethernet-source"/>
+										<representation mediaType="application/yang.data+xml" element="flow-cfg:ethernet-source"/>
+										<representation mediaType="application/yang.data+json" element="flow-cfg:ethernet-source"/>
+									</request>
+								</method>
+							</resource>
+							<resource path="ethernet-type">
+								<method name="GET">
+									<response>
+										<representation mediaType="application/xml" element="flow-cfg:ethernet-type"/>
+										<representation mediaType="text/xml" element="flow-cfg:ethernet-type"/>
+										<representation mediaType="application/json" element="flow-cfg:ethernet-type"/>
+										<representation mediaType="application/yang.data+xml" element="flow-cfg:ethernet-type"/>
+										<representation mediaType="application/yang.data+json" element="flow-cfg:ethernet-type"/>
+									</response>
+								</method>
+								<method name="DELETE" />
+								<method name="PUT">
+									<request>
+										<representation mediaType="application/xml" element="flow-cfg:ethernet-type"/>
+										<representation mediaType="text/xml" element="flow-cfg:ethernet-type"/>
+										<representation mediaType="application/json" element="flow-cfg:ethernet-type"/>
+										<representation mediaType="application/yang.data+xml" element="flow-cfg:ethernet-type"/>
+										<representation mediaType="application/yang.data+json" element="flow-cfg:ethernet-type"/>
+									</request>
+								</method>
+							</resource>
+						</resource>
+						<resource path="icmpv4-match">
+							<method name="GET">
+								<response>
+									<representation mediaType="application/xml" element="flow-cfg:icmpv4-match"/>
+									<representation mediaType="text/xml" element="flow-cfg:icmpv4-match"/>
+									<representation mediaType="application/json" element="flow-cfg:icmpv4-match"/>
+									<representation mediaType="application/yang.data+xml" element="flow-cfg:icmpv4-match"/>
+									<representation mediaType="application/yang.data+json" element="flow-cfg:icmpv4-match"/>
+								</response>
+							</method>
+							<method name="DELETE" />
+							<method name="PUT">
+								<request>
+									<representation mediaType="application/xml" element="flow-cfg:icmpv4-match"/>
+									<representation mediaType="text/xml" element="flow-cfg:icmpv4-match"/>
+									<representation mediaType="application/json" element="flow-cfg:icmpv4-match"/>
+									<representation mediaType="application/yang.data+xml" element="flow-cfg:icmpv4-match"/>
+									<representation mediaType="application/yang.data+json" element="flow-cfg:icmpv4-match"/>
+								</request>
+							</method>
+						</resource>
+						<resource path="icmpv6-match">
+							<method name="GET">
+								<response>
+									<representation mediaType="application/xml" element="flow-cfg:icmpv6-match"/>
+									<representation mediaType="text/xml" element="flow-cfg:icmpv6-match"/>
+									<representation mediaType="application/json" element="flow-cfg:icmpv6-match"/>
+									<representation mediaType="application/yang.data+xml" element="flow-cfg:icmpv6-match"/>
+									<representation mediaType="application/yang.data+json" element="flow-cfg:icmpv6-match"/>
+								</response>
+							</method>
+							<method name="DELETE" />
+							<method name="PUT">
+								<request>
+									<representation mediaType="application/xml" element="flow-cfg:icmpv6-match"/>
+									<representation mediaType="text/xml" element="flow-cfg:icmpv6-match"/>
+									<representation mediaType="application/json" element="flow-cfg:icmpv6-match"/>
+									<representation mediaType="application/yang.data+xml" element="flow-cfg:icmpv6-match"/>
+									<representation mediaType="application/yang.data+json" element="flow-cfg:icmpv6-match"/>
+								</request>
+							</method>
+						</resource>
+						<resource path="ip-match">
+							<method name="GET">
+								<response>
+									<representation mediaType="application/xml" element="flow-cfg:ip-match"/>
+									<representation mediaType="text/xml" element="flow-cfg:ip-match"/>
+									<representation mediaType="application/json" element="flow-cfg:ip-match"/>
+									<representation mediaType="application/yang.data+xml" element="flow-cfg:ip-match"/>
+									<representation mediaType="application/yang.data+json" element="flow-cfg:ip-match"/>
+								</response>
+							</method>
+							<method name="DELETE" />
+							<method name="PUT">
+								<request>
+									<representation mediaType="application/xml" element="flow-cfg:ip-match"/>
+									<representation mediaType="text/xml" element="flow-cfg:ip-match"/>
+									<representation mediaType="application/json" element="flow-cfg:ip-match"/>
+									<representation mediaType="application/yang.data+xml" element="flow-cfg:ip-match"/>
+									<representation mediaType="application/yang.data+json" element="flow-cfg:ip-match"/>
+								</request>
+							</method>
+						</resource>
+						<resource path="metadata">
+							<method name="GET">
+								<response>
+									<representation mediaType="application/xml" element="flow-cfg:metadata"/>
+									<representation mediaType="text/xml" element="flow-cfg:metadata"/>
+									<representation mediaType="application/json" element="flow-cfg:metadata"/>
+									<representation mediaType="application/yang.data+xml" element="flow-cfg:metadata"/>
+									<representation mediaType="application/yang.data+json" element="flow-cfg:metadata"/>
+								</response>
+							</method>
+							<method name="DELETE" />
+							<method name="PUT">
+								<request>
+									<representation mediaType="application/xml" element="flow-cfg:metadata"/>
+									<representation mediaType="text/xml" element="flow-cfg:metadata"/>
+									<representation mediaType="application/json" element="flow-cfg:metadata"/>
+									<representation mediaType="application/yang.data+xml" element="flow-cfg:metadata"/>
+									<representation mediaType="application/yang.data+json" element="flow-cfg:metadata"/>
+								</request>
+							</method>
+						</resource>
+						<resource path="protocol-match-fields">
+							<method name="GET">
+								<response>
+									<representation mediaType="application/xml" element="flow-cfg:protocol-match-fields"/>
+									<representation mediaType="text/xml" element="flow-cfg:protocol-match-fields"/>
+									<representation mediaType="application/json" element="flow-cfg:protocol-match-fields"/>
+									<representation mediaType="application/yang.data+xml" element="flow-cfg:protocol-match-fields"/>
+									<representation mediaType="application/yang.data+json" element="flow-cfg:protocol-match-fields"/>
+								</response>
+							</method>
+							<method name="DELETE" />
+							<method name="PUT">
+								<request>
+									<representation mediaType="application/xml" element="flow-cfg:protocol-match-fields"/>
+									<representation mediaType="text/xml" element="flow-cfg:protocol-match-fields"/>
+									<representation mediaType="application/json" element="flow-cfg:protocol-match-fields"/>
+									<representation mediaType="application/yang.data+xml" element="flow-cfg:protocol-match-fields"/>
+									<representation mediaType="application/yang.data+json" element="flow-cfg:protocol-match-fields"/>
+								</request>
+							</method>
+							<method name="POST">
+								<request>
+									<representation mediaType="application/xml" element="flow-cfg:pbb"/>
+									<representation mediaType="text/xml" element="flow-cfg:pbb"/>
+									<representation mediaType="application/json" element="flow-cfg:pbb"/>
+									<representation mediaType="application/yang.data+xml" element="flow-cfg:pbb"/>
+									<representation mediaType="application/yang.data+json" element="flow-cfg:pbb"/>
+								</request>
+							</method>
+							<resource path="pbb">
+								<method name="GET">
+									<response>
+										<representation mediaType="application/xml" element="flow-cfg:pbb"/>
+										<representation mediaType="text/xml" element="flow-cfg:pbb"/>
+										<representation mediaType="application/json" element="flow-cfg:pbb"/>
+										<representation mediaType="application/yang.data+xml" element="flow-cfg:pbb"/>
+										<representation mediaType="application/yang.data+json" element="flow-cfg:pbb"/>
+									</response>
+								</method>
+								<method name="DELETE" />
+								<method name="PUT">
+									<request>
+										<representation mediaType="application/xml" element="flow-cfg:pbb"/>
+										<representation mediaType="text/xml" element="flow-cfg:pbb"/>
+										<representation mediaType="application/json" element="flow-cfg:pbb"/>
+										<representation mediaType="application/yang.data+xml" element="flow-cfg:pbb"/>
+										<representation mediaType="application/yang.data+json" element="flow-cfg:pbb"/>
+									</request>
+								</method>
+							</resource>
+						</resource>
+						<resource path="tunnel">
+							<method name="GET">
+								<response>
+									<representation mediaType="application/xml" element="flow-cfg:tunnel"/>
+									<representation mediaType="text/xml" element="flow-cfg:tunnel"/>
+									<representation mediaType="application/json" element="flow-cfg:tunnel"/>
+									<representation mediaType="application/yang.data+xml" element="flow-cfg:tunnel"/>
+									<representation mediaType="application/yang.data+json" element="flow-cfg:tunnel"/>
+								</response>
+							</method>
+							<method name="DELETE" />
+							<method name="PUT">
+								<request>
+									<representation mediaType="application/xml" element="flow-cfg:tunnel"/>
+									<representation mediaType="text/xml" element="flow-cfg:tunnel"/>
+									<representation mediaType="application/json" element="flow-cfg:tunnel"/>
+									<representation mediaType="application/yang.data+xml" element="flow-cfg:tunnel"/>
+									<representation mediaType="application/yang.data+json" element="flow-cfg:tunnel"/>
+								</request>
+							</method>
+						</resource>
+						<resource path="vlan-match">
+							<method name="GET">
+								<response>
+									<representation mediaType="application/xml" element="flow-cfg:vlan-match"/>
+									<representation mediaType="text/xml" element="flow-cfg:vlan-match"/>
+									<representation mediaType="application/json" element="flow-cfg:vlan-match"/>
+									<representation mediaType="application/yang.data+xml" element="flow-cfg:vlan-match"/>
+									<representation mediaType="application/yang.data+json" element="flow-cfg:vlan-match"/>
+								</response>
+							</method>
+							<method name="DELETE" />
+							<method name="PUT">
+								<request>
+									<representation mediaType="application/xml" element="flow-cfg:vlan-match"/>
+									<representation mediaType="text/xml" element="flow-cfg:vlan-match"/>
+									<representation mediaType="application/json" element="flow-cfg:vlan-match"/>
+									<representation mediaType="application/yang.data+xml" element="flow-cfg:vlan-match"/>
+									<representation mediaType="application/yang.data+json" element="flow-cfg:vlan-match"/>
+								</request>
+							</method>
+							<method name="POST">
+								<request>
+									<representation mediaType="application/xml" element="flow-cfg:vlan-id"/>
+									<representation mediaType="text/xml" element="flow-cfg:vlan-id"/>
+									<representation mediaType="application/json" element="flow-cfg:vlan-id"/>
+									<representation mediaType="application/yang.data+xml" element="flow-cfg:vlan-id"/>
+									<representation mediaType="application/yang.data+json" element="flow-cfg:vlan-id"/>
+								</request>
+							</method>
+							<resource path="vlan-id">
+								<method name="GET">
+									<response>
+										<representation mediaType="application/xml" element="flow-cfg:vlan-id"/>
+										<representation mediaType="text/xml" element="flow-cfg:vlan-id"/>
+										<representation mediaType="application/json" element="flow-cfg:vlan-id"/>
+										<representation mediaType="application/yang.data+xml" element="flow-cfg:vlan-id"/>
+										<representation mediaType="application/yang.data+json" element="flow-cfg:vlan-id"/>
+									</response>
+								</method>
+								<method name="DELETE" />
+								<method name="PUT">
+									<request>
+										<representation mediaType="application/xml" element="flow-cfg:vlan-id"/>
+										<representation mediaType="text/xml" element="flow-cfg:vlan-id"/>
+										<representation mediaType="application/json" element="flow-cfg:vlan-id"/>
+										<representation mediaType="application/yang.data+xml" element="flow-cfg:vlan-id"/>
+										<representation mediaType="application/yang.data+json" element="flow-cfg:vlan-id"/>
+									</request>
+								</method>
+							</resource>
+						</resource>
+					</resource>
+				</resource>
+			</resource>
+		</resource>
+	</resources>
+</application>

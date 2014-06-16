@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<application xmlns="http://wadl.dev.java.net/2009/02" xmlns:inv="urn:opendaylight:inventory"
+xmlns:queue-type="urn:opendaylight:flow:types:queue"
+ xmlns:queue="urn:opendaylight:queue:service">
+
+	<grammars>
+		<include href="sal-queue.yang"/>
+		<include href="opendaylight-inventory.yang"/>
+		<include href="opendaylight-queue-types.yang"/>
+	</grammars>
+	
+	<resources base="http://localhost:9998/restconf">
+		<resource path="operations">
+			<resource path="sal-queue:get-queue">
+				<method name="POST">
+					<response>
+						<representation mediaType="application/xml" element="output"/>
+						<representation mediaType="text/xml" element="output"/>
+						<representation mediaType="application/json" element="output"/>
+						<representation mediaType="application/yang.data+xml" element="output"/>
+						<representation mediaType="application/yang.data+json" element="output"/>
+					</response>
+				</method>
+			</resource>
+		</resource>
+	</resources>
+</application>

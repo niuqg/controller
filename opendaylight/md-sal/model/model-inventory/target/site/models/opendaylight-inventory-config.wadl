@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<application xmlns="http://wadl.dev.java.net/2009/02" xmlns:inv="urn:opendaylight:inventory"
+xmlns:ext="urn:opendaylight:yang:extension:yang-ext"
+ xmlns:inv-config="urn:opendaylight:inventory:config">
+
+	<grammars>
+		<include href="opendaylight-inventory-config.yang"/>
+		<include href="opendaylight-inventory.yang"/>
+		<include href="yang-ext.yang"/>
+	</grammars>
+	
+	<resources base="http://localhost:9998/restconf">
+		<resource path="config">
+			<method name="POST">
+				<request>
+					<representation mediaType="application/xml" element="inv-config:nodes"/>
+					<representation mediaType="text/xml" element="inv-config:nodes"/>
+					<representation mediaType="application/json" element="inv-config:nodes"/>
+					<representation mediaType="application/yang.data+xml" element="inv-config:nodes"/>
+					<representation mediaType="application/yang.data+json" element="inv-config:nodes"/>
+				</request>
+			</method>
+			<resource path="opendaylight-inventory-config:nodes">
+				<method name="GET">
+					<response>
+						<representation mediaType="application/xml" element="inv-config:nodes"/>
+						<representation mediaType="text/xml" element="inv-config:nodes"/>
+						<representation mediaType="application/json" element="inv-config:nodes"/>
+						<representation mediaType="application/yang.data+xml" element="inv-config:nodes"/>
+						<representation mediaType="application/yang.data+json" element="inv-config:nodes"/>
+					</response>
+				</method>
+				<method name="DELETE" />
+				<method name="PUT">
+					<request>
+						<representation mediaType="application/xml" element="inv-config:nodes"/>
+						<representation mediaType="text/xml" element="inv-config:nodes"/>
+						<representation mediaType="application/json" element="inv-config:nodes"/>
+						<representation mediaType="application/yang.data+xml" element="inv-config:nodes"/>
+						<representation mediaType="application/yang.data+json" element="inv-config:nodes"/>
+					</request>
+				</method>
+				<method name="POST">
+					<request>
+						<representation mediaType="application/xml" element="inv-config:node"/>
+						<representation mediaType="text/xml" element="inv-config:node"/>
+						<representation mediaType="application/json" element="inv-config:node"/>
+						<representation mediaType="application/yang.data+xml" element="inv-config:node"/>
+						<representation mediaType="application/yang.data+json" element="inv-config:node"/>
+					</request>
+				</method>
+				<resource path="node/{id}">
+					<param required="true" style="template" name="id" type="inv-config:node-id"/>
+					<method name="GET">
+						<response>
+							<representation mediaType="application/xml" element="inv-config:node"/>
+							<representation mediaType="text/xml" element="inv-config:node"/>
+							<representation mediaType="application/json" element="inv-config:node"/>
+							<representation mediaType="application/yang.data+xml" element="inv-config:node"/>
+							<representation mediaType="application/yang.data+json" element="inv-config:node"/>
+						</response>
+					</method>
+					<method name="DELETE" />
+					<method name="PUT">
+						<request>
+							<representation mediaType="application/xml" element="inv-config:node"/>
+							<representation mediaType="text/xml" element="inv-config:node"/>
+							<representation mediaType="application/json" element="inv-config:node"/>
+							<representation mediaType="application/yang.data+xml" element="inv-config:node"/>
+							<representation mediaType="application/yang.data+json" element="inv-config:node"/>
+						</request>
+					</method>
+					<method name="POST">
+						<request>
+							<representation mediaType="application/xml" element="inv-config:node-connector"/>
+							<representation mediaType="text/xml" element="inv-config:node-connector"/>
+							<representation mediaType="application/json" element="inv-config:node-connector"/>
+							<representation mediaType="application/yang.data+xml" element="inv-config:node-connector"/>
+							<representation mediaType="application/yang.data+json" element="inv-config:node-connector"/>
+						</request>
+					</method>
+					<resource path="node-connector/{id}">
+						<param required="true" style="template" name="id" type="inv-config:node-connector-id"/>
+						<method name="GET">
+							<response>
+								<representation mediaType="application/xml" element="inv-config:node-connector"/>
+								<representation mediaType="text/xml" element="inv-config:node-connector"/>
+								<representation mediaType="application/json" element="inv-config:node-connector"/>
+								<representation mediaType="application/yang.data+xml" element="inv-config:node-connector"/>
+								<representation mediaType="application/yang.data+json" element="inv-config:node-connector"/>
+							</response>
+						</method>
+						<method name="DELETE" />
+						<method name="PUT">
+							<request>
+								<representation mediaType="application/xml" element="inv-config:node-connector"/>
+								<representation mediaType="text/xml" element="inv-config:node-connector"/>
+								<representation mediaType="application/json" element="inv-config:node-connector"/>
+								<representation mediaType="application/yang.data+xml" element="inv-config:node-connector"/>
+								<representation mediaType="application/yang.data+json" element="inv-config:node-connector"/>
+							</request>
+						</method>
+					</resource>
+				</resource>
+			</resource>
+		</resource>
+	</resources>
+</application>

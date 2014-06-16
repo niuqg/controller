@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1402892658468
+Build-Jdk: 1.7.0_51
+Built-By: niu
+Bundle-ManifestVersion: 2
+Bundle-Name: org.opendaylight.controller.sal-common
+Bundle-SymbolicName: org.opendaylight.controller.sal-common
+Bundle-Version: 1.1.0.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Export-Package: org.opendaylight.controller.sal.common;version="1.1.0.SN
+ APSHOT"
+Tool: Bnd-2.1.0.20130426-122213

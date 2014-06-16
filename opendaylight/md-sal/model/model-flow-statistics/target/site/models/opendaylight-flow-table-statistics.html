@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>opendaylight-flow-table-statistics</title>
+  </head>
+  <body>
+    <h1>opendaylight-flow-table-statistics</h1>
+    
+    <h2>Base Information</h2>
+    <table>
+        <tr>
+            <td><strong>prefix</strong></td>
+            <td>flowtablestat</td>
+        </tr>
+        <tr>
+            <td><strong>namespace</strong></td>
+            <td>urn:opendaylight:flow:table:statistics</td>
+        </tr>
+        <tr>
+            <td><strong>revision</strong></td>
+            <td>2013-12-15</td>
+        </tr>
+        <tr>
+            <td><strong>description</strong></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><strong>yang-version</strong></td>
+            <td>1</td>
+        </tr>
+        <tr>
+    <td><strong>imports</strong></td><td>        stat-types:opendaylight-statistics-types 2013-09-25;
+            tr:flow-capable-transaction;
+            inv:opendaylight-inventory 2013-08-19;
+            ext:yang-ext 2013-07-09;
+            flow-node:flow-node-inventory 2013-08-19;
+            table-types:opendaylight-table-types 2013-10-26;
+    </td>    </tr>
+    </table>
+    
+    <h3>Groupings Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#flow-table-and-statistics-map"><strong>flow-table-and-statistics-map</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#flow-table-statistics"><strong>flow-table-statistics</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    <h3>Augmentations Summary</h3>
+    <table>
+        <tr>
+            <th>Target</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#/opendaylight-inventory:nodes/opendaylight-inventory:node/flow-node-inventory:table/"><strong>/opendaylight-inventory:nodes/opendaylight-inventory:node/flow-node-inventory:table/</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    <h3>Notifications Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#flow-table-statistics-update"><strong>flow-table-statistics-update</strong></a>
+            </td>
+            <td>
+            Receive flow table statistics update
+            </td>
+        </tr>
+    </table>
+    <h3>RPCs Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#get-flow-tables-statistics"><strong>get-flow-tables-statistics</strong></a>
+            </td>
+            <td>
+            Fetch statistics of all the flow tables present on the tarnet node
+            </td>
+        </tr>
+    </table>
+    
+    
+    
+    <h2>Groupings</h2>
+    <ul>
+    <li>
+        <h3 id="flow-table-and-statistics-map">flow-table-and-statistics-map</h3>
+        <ul>
+            <ul>
+            <strong>
+            <li id="flow-table-and-statistics-map/flow-table-and-statistics-map">
+                list: flow-table-and-statistics-map
+            </li>
+            </strong>
+            <ul>
+            <li>
+                key definition: table-id
+            </li>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: stat-types:generic-table-statistics
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: active-flows
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: packets-looked-up
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: packets-matched
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: table-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: table-id
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+        </ul>
+    </li>
+    <li>
+        <h3 id="flow-table-statistics">flow-table-statistics</h3>
+        <ul>
+            <ul>
+            <strong>
+            <li id="flow-table-statistics/flow-table-statistics">
+                container: flow-table-statistics
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: stat-types:generic-table-statistics
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: active-flows
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: packets-looked-up
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: packets-matched
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter64
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+        </ul>
+    </li>
+    </ul>
+    
+    
+    
+    <h2>Notifications</h2>
+    
+    <h3 id="flow-table-statistics-update">flow-table-statistics-update
+    </h3>
+        Receive flow table statistics update
+        <ul>
+        <strong>
+        <li id="flow-table-statistics-update/flow-table-and-statistics-map">
+            list: flow-table-and-statistics-map
+        </li>
+        </strong>
+        <ul>
+        <li>
+            key definition: table-id
+        </li>
+        </ul>
+        <ul>
+        <strong><li>
+            uses: stat-types:generic-table-statistics
+        </li>
+        </strong>
+        <ul>
+        <li>refines:
+            <ul>
+            </ul>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: active-flows
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: yang:counter32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: packets-looked-up
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: yang:counter64
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: packets-matched
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: yang:counter64
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: table-id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: table-id
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inv:node-id
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: moreReplies
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: boolean
+        </li>
+        <li>
+            default: false
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="flow-table-statistics-update/node-connector">
+            list: node-connector
+        </li>
+        </strong>
+        <ul>
+        <li>
+            key definition: id
+        </li>
+        </ul>
+        <ul>
+        <strong><li>
+            uses: inv:node-connector
+        </li>
+        </strong>
+        <ul>
+        <li>refines:
+            <ul>
+            </ul>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inv:node-connector-id
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transaction-id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: transaction-id
+        </li>
+        </ul>
+        </ul>
+    
+    <h2>Augmentations</h2>
+    
+    <ul>
+    <li>
+        <h3 id="/opendaylight-inventory:nodes/opendaylight-inventory:node/flow-node-inventory:table/">
+        Target [flow-node:/opendaylight-inventory:nodes/opendaylight-inventory:node/flow-node-inventory:table/]</h3>
+        <ul>
+        <strong>
+        <li id="nodes/node/table/flow-table-statistics">
+            container: flow-table-statistics
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        <strong><li>
+            uses: stat-types:generic-table-statistics
+        </li>
+        </strong>
+        <ul>
+        <li>refines:
+            <ul>
+            </ul>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: active-flows
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: yang:counter32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: packets-looked-up
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: yang:counter64
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: packets-matched
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: yang:counter64
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+    </li>
+    </ul>
+    
+    <h2>RPC Definitions</h2>
+    <h3 id="get-flow-tables-statistics">get-flow-tables-statistics
+    </h3>
+        <ul>
+            <li>
+                Description: Fetch statistics of all the flow tables present on the tarnet node
+            </li>
+            <ul>
+            <strong>
+            <li id="get-flow-tables-statistics/input">
+                container: input
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: inv:node-context-ref
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: node
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: inv:node-ref
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="get-flow-tables-statistics/output">
+                container: output
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: transaction-aware
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            <strong><li>
+                uses: <a href="#flow-table-and-statistics-map">flow-table-and-statistics-map</a>
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong>
+            <li id="get-flow-tables-statistics/output/flow-table-and-statistics-map">
+                list: flow-table-and-statistics-map
+            </li>
+            </strong>
+            <ul>
+            <li>
+                key definition: table-id
+            </li>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: stat-types:generic-table-statistics
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: active-flows
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: packets-looked-up
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: packets-matched
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: table-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: table-id
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transaction-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: transaction-id
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+        </ul>
+    </ul>
+    
+    
+    
+  </body>
+</html>

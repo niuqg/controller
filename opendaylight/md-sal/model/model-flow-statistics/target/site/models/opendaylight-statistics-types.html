@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>opendaylight-statistics-types</title>
+  </head>
+  <body>
+    <h1>opendaylight-statistics-types</h1>
+    
+    <h2>Base Information</h2>
+    <table>
+        <tr>
+            <td><strong>prefix</strong></td>
+            <td>stat-types</td>
+        </tr>
+        <tr>
+            <td><strong>namespace</strong></td>
+            <td>urn:opendaylight:model:statistics:types</td>
+        </tr>
+        <tr>
+            <td><strong>revision</strong></td>
+            <td>2013-09-25</td>
+        </tr>
+        <tr>
+            <td><strong>description</strong></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><strong>yang-version</strong></td>
+            <td>1</td>
+        </tr>
+        <tr>
+    <td><strong>imports</strong></td><td>        yang:ietf-yang-types 2010-09-24;
+    </td>    </tr>
+    </table>
+    
+    <h3>Groupings Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#aggregate-flow-statistics"><strong>aggregate-flow-statistics</strong></a>
+            </td>
+            <td>
+            Aggregate flow statistics
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#duration"><strong>duration</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#generic-queue-statistics"><strong>generic-queue-statistics</strong></a>
+            </td>
+            <td>
+            Generic statistics of switch port attached queues.
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#generic-statistics"><strong>generic-statistics</strong></a>
+            </td>
+            <td>
+            Generic grouping for statistics
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#generic-table-statistics"><strong>generic-table-statistics</strong></a>
+            </td>
+            <td>
+            Generic grouping holding generic statistics related to switch table
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#node-connector-statistics"><strong>node-connector-statistics</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    
+    
+    
+    <h2>Groupings</h2>
+    <ul>
+    <li>
+        <h3 id="aggregate-flow-statistics">aggregate-flow-statistics</h3>
+        <ul>
+            <li>
+                Description: Aggregate flow statistics
+            </li>
+            <ul>
+            <strong><li>
+                leaf: byte-count
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: flow-count
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: packet-count
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter64
+            </li>
+            </ul>
+            </ul>
+        </ul>
+    </li>
+    <li>
+        <h3 id="duration">duration</h3>
+        <ul>
+            <ul>
+            <strong>
+            <li id="duration/duration">
+                container: duration
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: nanosecond
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: second
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter32
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+        </ul>
+    </li>
+    <li>
+        <h3 id="generic-queue-statistics">generic-queue-statistics</h3>
+        <ul>
+            <li>
+                Description: Generic statistics of switch port attached queues.
+            </li>
+            <ul>
+            <strong>
+            <li id="generic-queue-statistics/duration">
+                container: duration
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: nanosecond
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: second
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter32
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transmission-errors
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transmitted-bytes
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transmitted-packets
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter64
+            </li>
+            </ul>
+            </ul>
+        </ul>
+    </li>
+    <li>
+        <h3 id="generic-statistics">generic-statistics</h3>
+        <ul>
+            <li>
+                Description: Generic grouping for statistics
+            </li>
+            <ul>
+            <strong><li>
+                leaf: byte-count
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="generic-statistics/duration">
+                container: duration
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: nanosecond
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: second
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter32
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: packet-count
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter64
+            </li>
+            </ul>
+            </ul>
+        </ul>
+    </li>
+    <li>
+        <h3 id="generic-table-statistics">generic-table-statistics</h3>
+        <ul>
+            <li>
+                Description: Generic grouping holding generic statistics related to switch table
+            </li>
+            <ul>
+            <strong><li>
+                leaf: active-flows
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: packets-looked-up
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: packets-matched
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter64
+            </li>
+            </ul>
+            </ul>
+        </ul>
+    </li>
+    <li>
+        <h3 id="node-connector-statistics">node-connector-statistics</h3>
+        <ul>
+            <ul>
+            <strong>
+            <li id="node-connector-statistics/bytes">
+                container: bytes
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: received
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transmitted
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: collision-count
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="node-connector-statistics/duration">
+                container: duration
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: nanosecond
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: second
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter32
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="node-connector-statistics/packets">
+                container: packets
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: received
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transmitted
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: receive-crc-error
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: receive-drops
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: receive-errors
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: receive-frame-error
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: receive-over-run-error
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transmit-drops
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transmit-errors
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+        </ul>
+    </li>
+    </ul>
+    
+    
+    
+    
+    
+    
+    
+    
+  </body>
+</html>

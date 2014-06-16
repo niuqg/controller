@@ -1,0 +1,18 @@
+-------------------------------------------------------------------------------
+Test set: org.opendaylight.controller.sal.restconf.impl.cnsn.to.xml.test.CnSnToXmlTest
+-------------------------------------------------------------------------------
+Tests run: 19, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.217 sec <<< FAILURE! - in org.opendaylight.controller.sal.restconf.impl.cnsn.to.xml.test.CnSnToXmlTest
+snAsYangBinaryToXmlTest(org.opendaylight.controller.sal.restconf.impl.cnsn.to.xml.test.CnSnToXmlTest)  Time elapsed: 0.071 sec  <<< FAILURE!
+java.lang.AssertionError: At least one of specified strings [<lfBinary>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234567</lfBinary>] wasn't found.
+	at org.junit.Assert.fail(Assert.java:91)
+	at org.junit.Assert.assertTrue(Assert.java:43)
+	at org.opendaylight.controller.sal.restconf.impl.cnsn.to.xml.test.CnSnToXmlTest.serializeToXml(CnSnToXmlTest.java:219)
+	at org.opendaylight.controller.sal.restconf.impl.cnsn.to.xml.test.CnSnToXmlTest.snAsYangBinaryToXmlTest(CnSnToXmlTest.java:139)
+
+snAsYangBitsToXmlTest(org.opendaylight.controller.sal.restconf.impl.cnsn.to.xml.test.CnSnToXmlTest)  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.AssertionError: At least one of specified strings [<lfBits>one two</lfBits>][<lfBits>two one</lfBits>] wasn't found.
+	at org.junit.Assert.fail(Assert.java:91)
+	at org.junit.Assert.assertTrue(Assert.java:43)
+	at org.opendaylight.controller.sal.restconf.impl.cnsn.to.xml.test.CnSnToXmlTest.serializeToXml(CnSnToXmlTest.java:219)
+	at org.opendaylight.controller.sal.restconf.impl.cnsn.to.xml.test.CnSnToXmlTest.snAsYangBitsToXmlTest(CnSnToXmlTest.java:150)
+

@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1402895451397
+Build-Jdk: 1.7.0_51
+Built-By: niu
+Bundle-ManifestVersion: 2
+Bundle-Name: databasemanager
+Bundle-SymbolicName: edu.ustc.qos.databasemanager
+Bundle-Version: 0.0.2.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Export-Package: edu.ustc.qos.databasemanager;version="0.0.2.SNAPSHOT",ed
+ u.ustc.qos.dao;uses:="edu.ustc.qos.databasemanager";version="0.0.2.SNAP
+ SHOT"
+Import-Package: org.opendaylight.controller.sal.reader;version="[0.8,1)"
+ ,org.slf4j;version="[1.7,2)",com.mysql.jdbc;version="[5.1,6)",org.opend
+ aylight.controller.sal.flowprogrammer;version="[0.8,1)",org.apache.feli
+ x.dm;version="[3.0,4)",org.opendaylight.controller.containermanager;ver
+ sion="[0.5,1)",org.opendaylight.controller.sal.core;version="[0.8,1)",o
+ rg.opendaylight.controller.forwardingrulesmanager;version="[0.6,1)"
+Tool: Bnd-2.1.0.20130426-122213

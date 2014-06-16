@@ -1,0 +1,33 @@
+<?xml version="1.0" standalone="no"?>
+
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"
+>
+<svg width="100%" height="100%" version="1.1"
+xmlns="http://www.w3.org/2000/svg" onload="init()">
+<script>
+<![CDATA[
+var text, textnode
+function init()
+{
+alert("aaa");
+plus();
+}
+
+function plus()
+{
+textnode = document.getElementById("switch1");
+textnode.textContent ="1";
+topoinfo.action="topoupdate";
+topoinfo.submit();
+}
+
+]]>
+</script>
+<circle cx="100" cy="50" r="40" stroke="black"
+stroke-width="2" fill="red"/>
+<line x1="140" y1="120" x2="340" y2="340"
+style="stroke:rgb(99,99,99);stroke-width:2"/>
+<text  id="switch1" x="120" y="140" font-family="Verdana" font-size="10" fill="blue" >
+</text>
+</svg>

@@ -1,0 +1,3 @@
+org.opendaylight.yang.gen.v1.urn.opendaylight.netconf.node.inventory.rev140108.$YangModelBindingProvider
+org.opendaylight.yang.gen.v1.urn.opendaylight.inventory.config.rev130819.$YangModelBindingProvider
+org.opendaylight.yang.gen.v1.urn.opendaylight.inventory.rev130819.$YangModelBindingProvider

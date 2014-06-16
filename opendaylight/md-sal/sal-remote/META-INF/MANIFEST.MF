@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1402892717108
+Build-Jdk: 1.7.0_51
+Built-By: niu
+Bundle-ManifestVersion: 2
+Bundle-Name: org.opendaylight.controller.sal-remote
+Bundle-SymbolicName: org.opendaylight.controller.sal-remote
+Bundle-Version: 1.1.0.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Export-Package: org.opendaylight.yang.gen.v1.urn.opendaylight.params.xml
+ .ns.yang.controller.md.sal.remote.rev140114.data.changed.notification;u
+ ses:="org.opendaylight.yang.gen.v1.urn.opendaylight.params.xml.ns.yang.
+ controller.md.sal.remote.rev140114,org.opendaylight.yangtools.yang.bind
+ ing,org.opendaylight.yangtools.yang.common";version="1.1.0.SNAPSHOT",or
+ g.opendaylight.yang.gen.v1.urn.opendaylight.params.xml.ns.yang.controll
+ er.md.sal.remote.rev140114;uses:="org.opendaylight.yang.gen.v1.urn.open
+ daylight.params.xml.ns.yang.controller.md.sal.remote.rev140114.data.cha
+ nged.notification,org.opendaylight.yangtools.yang.binding,org.opendayli
+ ght.yangtools.yang.common";version="1.1.0.SNAPSHOT"
+Import-Package: org.opendaylight.yangtools.yang.binding;version="[0.6,1)
+ ",org.opendaylight.yangtools.yang.common;version="[0.6,1)"
+Tool: Bnd-2.1.0.20130426-122213

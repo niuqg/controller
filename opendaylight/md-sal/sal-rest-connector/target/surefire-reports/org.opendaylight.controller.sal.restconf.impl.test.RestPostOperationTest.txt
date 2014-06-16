@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: org.opendaylight.controller.sal.restconf.impl.test.RestPostOperationTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.82 sec - in org.opendaylight.controller.sal.restconf.impl.test.RestPostOperationTest

@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>opendaylight-port-types</title>
+  </head>
+  <body>
+    <h1>opendaylight-port-types</h1>
+    
+    <h2>Base Information</h2>
+    <table>
+        <tr>
+            <td><strong>prefix</strong></td>
+            <td>port-types</td>
+        </tr>
+        <tr>
+            <td><strong>namespace</strong></td>
+            <td>urn:opendaylight:flow:types:port</td>
+        </tr>
+        <tr>
+            <td><strong>revision</strong></td>
+            <td>2013-09-25</td>
+        </tr>
+        <tr>
+            <td><strong>description</strong></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><strong>yang-version</strong></td>
+            <td>1</td>
+        </tr>
+        <tr>
+    <td><strong>imports</strong></td><td>        yang:ietf-yang-types 2010-09-24;
+            queue-types:opendaylight-queue-types 2013-09-25;
+    </td>    </tr>
+    </table>
+    
+    <div>
+        <h3>Type Definitions Summary</h3>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>
+                <a href="#port-config"><strong>port-config</strong></a>
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                <a href="#port-features"><strong>port-features</strong></a>
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                <a href="#port-reason"><strong>port-reason</strong></a>
+                </td>
+                <td>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <h3>Groupings Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#common-port"><strong>common-port</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#flow-capable-port"><strong>flow-capable-port</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#flow-port-status"><strong>flow-port-status</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#port-mod"><strong>port-mod</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#port-state"><strong>port-state</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#queues"><strong>queues</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    
+    <h2>Type Definitions</h2>
+    <ul>
+    <li>
+        <h3 id="port-config">port-config</h3>
+        <ul>
+        <li>
+            Base type: bits
+        </li>
+        </ul>
+    </li>
+    <li>
+        <h3 id="port-features">port-features</h3>
+        <ul>
+        <li>
+            Base type: bits
+        </li>
+        </ul>
+    </li>
+    <li>
+        <h3 id="port-reason">port-reason</h3>
+        <ul>
+        <li>
+            Base type: enumeration
+        </li>
+        </ul>
+    </li>
+    </ul>
+    
+    
+    <h2>Groupings</h2>
+    <ul>
+    <li>
+        <h3 id="common-port">common-port</h3>
+        <ul>
+            <ul>
+            <strong><li>
+                leaf: advertised-features
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Features being advertised by the port
+            </li>
+            <li>
+                type: <a href="#port-features">port-features</a>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: configuration
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Bit map of OFPPC-* flags
+            </li>
+            <li>
+                type: <a href="#port-config">port-config</a>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: hardware-address
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: MAC Address of the port
+            </li>
+            <li>
+                type: yang:mac-address
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: port-number
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+        </ul>
+    </li>
+    <li>
+        <h3 id="flow-capable-port">flow-capable-port</h3>
+        <ul>
+            <ul>
+            <strong><li>
+                leaf: advertised-features
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Features being advertised by the port
+            </li>
+            <li>
+                type: <a href="#port-features">port-features</a>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: configuration
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Bit map of OFPPC-* flags
+            </li>
+            <li>
+                type: <a href="#port-config">port-config</a>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: current-feature
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Bit map of OFPPF-* flags
+            </li>
+            <li>
+                type: <a href="#port-features">port-features</a>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: current-speed
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Current port bit rate in kbps
+            </li>
+            <li>
+                type: uint32
+            </li>
+            <li>
+                units: kbps
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: hardware-address
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: MAC Address of the port
+            </li>
+            <li>
+                type: yang:mac-address
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: maximum-speed
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Max port bit rate in kbps
+            </li>
+            <li>
+                type: uint32
+            </li>
+            <li>
+                units: kbps
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: name
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Human readable name of the port
+            </li>
+            <li>
+                type: string
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: peer-features
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Features advertised by peer
+            </li>
+            <li>
+                type: <a href="#port-features">port-features</a>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: port-number
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="flow-capable-port/queue">
+                list: queue
+            </li>
+            </strong>
+            <ul>
+            <li>
+                key definition: queue-id
+            </li>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: queue-types:queue-packet
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: port
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Port this queue is attached to.
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: property
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: One of OFPQT_.
+            </li>
+            <li>
+                type: uint16
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: queue-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: id for the specific queue.
+            </li>
+            <li>
+                type: queue-types:queue-id
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="flow-capable-port/state">
+                container: state
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Description of state of port
+            </li>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: <a href="#port-state">port-state</a>
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: blocked
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: boolean
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: link-down
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: boolean
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: live
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: boolean
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: supported
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Features supported by the port
+            </li>
+            <li>
+                type: <a href="#port-features">port-features</a>
+            </li>
+            </ul>
+            </ul>
+        </ul>
+    </li>
+    <li>
+        <h3 id="flow-port-status">flow-port-status</h3>
+        <ul>
+            <ul>
+            <strong><li>
+                leaf: advertised-features
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Features being advertised by the port
+            </li>
+            <li>
+                type: <a href="#port-features">port-features</a>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: configuration
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Bit map of OFPPC-* flags
+            </li>
+            <li>
+                type: <a href="#port-config">port-config</a>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: current-feature
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Bit map of OFPPF-* flags
+            </li>
+            <li>
+                type: <a href="#port-features">port-features</a>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: current-speed
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Current port bit rate in kbps
+            </li>
+            <li>
+                type: uint32
+            </li>
+            <li>
+                units: kbps
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: hardware-address
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: MAC Address of the port
+            </li>
+            <li>
+                type: yang:mac-address
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: maximum-speed
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Max port bit rate in kbps
+            </li>
+            <li>
+                type: uint32
+            </li>
+            <li>
+                units: kbps
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: name
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Human readable name of the port
+            </li>
+            <li>
+                type: string
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: peer-features
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Features advertised by peer
+            </li>
+            <li>
+                type: <a href="#port-features">port-features</a>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: port-number
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="flow-port-status/queue">
+                list: queue
+            </li>
+            </strong>
+            <ul>
+            <li>
+                key definition: queue-id
+            </li>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: queue-types:queue-packet
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: port
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Port this queue is attached to.
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: property
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: One of OFPQT_.
+            </li>
+            <li>
+                type: uint16
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: queue-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: id for the specific queue.
+            </li>
+            <li>
+                type: queue-types:queue-id
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: reason
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: <a href="#port-reason">port-reason</a>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="flow-port-status/state">
+                container: state
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Description of state of port
+            </li>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: <a href="#port-state">port-state</a>
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: blocked
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: boolean
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: link-down
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: boolean
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: live
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: boolean
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: supported
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Features supported by the port
+            </li>
+            <li>
+                type: <a href="#port-features">port-features</a>
+            </li>
+            </ul>
+            </ul>
+        </ul>
+    </li>
+    <li>
+        <h3 id="port-mod">port-mod</h3>
+        <ul>
+            <ul>
+            <strong>
+            <li id="port-mod/port">
+                container: port
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong>
+            <li id="port-mod/port/port">
+                list: port
+            </li>
+            </strong>
+            <ul>
+            <li>
+                key definition: port-mod-order
+            </li>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: <a href="#common-port">common-port</a>
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: advertised-features
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Features being advertised by the port
+            </li>
+            <li>
+                type: <a href="#port-features">port-features</a>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: barrier
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: boolean
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: configuration
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Bit map of OFPPC-* flags
+            </li>
+            <li>
+                type: <a href="#port-config">port-config</a>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: container-name
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: string
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: hardware-address
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: MAC Address of the port
+            </li>
+            <li>
+                type: yang:mac-address
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: mask
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Bitmap of OFPPC-* flags to be changed
+            </li>
+            <li>
+                type: <a href="#port-config">port-config</a>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: port-mod-order
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: port-name
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: string
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: port-number
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+        </ul>
+    </li>
+    <li>
+        <h3 id="port-state">port-state</h3>
+        <ul>
+            <ul>
+            <strong><li>
+                leaf: blocked
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: boolean
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: link-down
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: boolean
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: live
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: boolean
+            </li>
+            </ul>
+            </ul>
+        </ul>
+    </li>
+    <li>
+        <h3 id="queues">queues</h3>
+        <ul>
+            <ul>
+            <strong>
+            <li id="queues/queue">
+                list: queue
+            </li>
+            </strong>
+            <ul>
+            <li>
+                key definition: queue-id
+            </li>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: queue-types:queue-packet
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: port
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Port this queue is attached to.
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: property
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: One of OFPQT_.
+            </li>
+            <li>
+                type: uint16
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: queue-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: id for the specific queue.
+            </li>
+            <li>
+                type: queue-types:queue-id
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+        </ul>
+    </li>
+    </ul>
+    
+    
+    
+    
+    
+    
+    
+    
+  </body>
+</html>

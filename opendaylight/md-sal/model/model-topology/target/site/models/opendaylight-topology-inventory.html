@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>opendaylight-topology-inventory</title>
+  </head>
+  <body>
+    <h1>opendaylight-topology-inventory</h1>
+    
+    <h2>Base Information</h2>
+    <table>
+        <tr>
+            <td><strong>prefix</strong></td>
+            <td>nt</td>
+        </tr>
+        <tr>
+            <td><strong>namespace</strong></td>
+            <td>urn:opendaylight:model:topology:inventory</td>
+        </tr>
+        <tr>
+            <td><strong>revision</strong></td>
+            <td>2013-10-30</td>
+        </tr>
+        <tr>
+            <td><strong>description</strong></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><strong>yang-version</strong></td>
+            <td>1</td>
+        </tr>
+        <tr>
+    <td><strong>imports</strong></td><td>        ext:yang-ext;
+            inet:ietf-inet-types;
+            inv:opendaylight-inventory;
+            topo:network-topology 2013-10-21;
+            odt:opendaylight-topology;
+    </td>    </tr>
+    </table>
+    
+    <h3>Augmentations Summary</h3>
+    <table>
+        <tr>
+            <th>Target</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#/network-topology:network-topology/network-topology:topology/network-topology:node/network-topology:termination-point/"><strong>/network-topology:network-topology/network-topology:topology/network-topology:node/network-topology:termination-point/</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#/network-topology:network-topology/network-topology:topology/network-topology:node/"><strong>/network-topology:network-topology/network-topology:topology/network-topology:node/</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    
+    
+    
+    
+    
+    
+    
+    <h2>Augmentations</h2>
+    
+    <ul>
+    <li>
+        <h3 id="/network-topology:network-topology/network-topology:topology/network-topology:node/network-topology:termination-point/">
+        Target [topo:/network-topology:network-topology/network-topology:topology/network-topology:node/network-topology:termination-point/]</h3>
+        <ul>
+        <strong><li>
+            leaf: inventory-node-connector-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inv:node-connector-ref
+        </li>
+        </ul>
+        </ul>
+    </li>
+    <li>
+        <h3 id="/network-topology:network-topology/network-topology:topology/network-topology:node/">
+        Target [topo:/network-topology:network-topology/network-topology:topology/network-topology:node/]</h3>
+        <ul>
+        <strong><li>
+            leaf: inventory-node-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inv:node-ref
+        </li>
+        </ul>
+        </ul>
+    </li>
+    </ul>
+    
+    
+    
+    
+  </body>
+</html>

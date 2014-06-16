@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>sal-queue</title>
+  </head>
+  <body>
+    <h1>sal-queue</h1>
+    
+    <h2>Base Information</h2>
+    <table>
+        <tr>
+            <td><strong>prefix</strong></td>
+            <td>queue</td>
+        </tr>
+        <tr>
+            <td><strong>namespace</strong></td>
+            <td>urn:opendaylight:queue:service</td>
+        </tr>
+        <tr>
+            <td><strong>revision</strong></td>
+            <td>2013-11-07</td>
+        </tr>
+        <tr>
+            <td><strong>description</strong></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><strong>yang-version</strong></td>
+            <td>1</td>
+        </tr>
+        <tr>
+    <td><strong>imports</strong></td><td>        inv:opendaylight-inventory 2013-08-19;
+            queue-type:opendaylight-queue-types 2013-09-25;
+    </td>    </tr>
+    </table>
+    
+    <h3>Groupings Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#node-queue"><strong>node-queue</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    <h3>Notifications Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#queue-get-config-reply"><strong>queue-get-config-reply</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    <h3>RPCs Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#get-queue"><strong>get-queue</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    
+    
+    
+    <h2>Groupings</h2>
+    <ul>
+    <li>
+        <h3 id="node-queue">node-queue</h3>
+        <ul>
+            <ul>
+            <strong><li>
+                leaf: node
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: inv:node-ref
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: port
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Port this queue is attached to.
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: property
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: One of OFPQT_.
+            </li>
+            <li>
+                type: uint16
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: queue-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: id for the specific queue.
+            </li>
+            <li>
+                type: queue-id
+            </li>
+            </ul>
+            </ul>
+        </ul>
+    </li>
+    </ul>
+    
+    
+    
+    <h2>Notifications</h2>
+    
+    <h3 id="queue-get-config-reply">queue-get-config-reply
+    </h3>
+        <ul>
+        <strong><li>
+            leaf: node
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inv:node-ref
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: port
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Port this queue is attached to.
+        </li>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: property
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: One of OFPQT_.
+        </li>
+        <li>
+            type: uint16
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: queue-id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: id for the specific queue.
+        </li>
+        <li>
+            type: queue-id
+        </li>
+        </ul>
+        </ul>
+    
+    
+    <h2>RPC Definitions</h2>
+    <h3 id="get-queue">get-queue
+    </h3>
+        <ul>
+            <ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="get-queue/output">
+                container: output
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: queue-packet
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: port
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Port this queue is attached to.
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: property
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: One of OFPQT_.
+            </li>
+            <li>
+                type: uint16
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: queue-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: id for the specific queue.
+            </li>
+            <li>
+                type: queue-id
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+        </ul>
+    </ul>
+    
+    
+    
+  </body>
+</html>

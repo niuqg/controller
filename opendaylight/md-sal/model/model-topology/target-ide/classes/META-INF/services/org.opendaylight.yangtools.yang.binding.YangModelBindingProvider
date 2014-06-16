@@ -1,0 +1,3 @@
+org.opendaylight.yang.gen.v1.urn.opendaylight.model.topology.view.rev131030.$YangModelBindingProvider
+org.opendaylight.yang.gen.v1.urn.opendaylight.model.topology.general.rev131030.$YangModelBindingProvider
+org.opendaylight.yang.gen.v1.urn.opendaylight.model.topology.inventory.rev131030.$YangModelBindingProvider

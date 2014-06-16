@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>flow-topology-discovery</title>
+  </head>
+  <body>
+    <h1>flow-topology-discovery</h1>
+    
+    <h2>Base Information</h2>
+    <table>
+        <tr>
+            <td><strong>prefix</strong></td>
+            <td>flow-node-topo</td>
+        </tr>
+        <tr>
+            <td><strong>namespace</strong></td>
+            <td>urn:opendaylight:flow:topology:discovery</td>
+        </tr>
+        <tr>
+            <td><strong>revision</strong></td>
+            <td>2013-08-19</td>
+        </tr>
+        <tr>
+            <td><strong>description</strong></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><strong>yang-version</strong></td>
+            <td>1</td>
+        </tr>
+        <tr>
+    <td><strong>imports</strong></td><td>        inv:opendaylight-inventory 2013-08-19;
+    </td>    </tr>
+    </table>
+    
+    <h3>Groupings Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#link"><strong>link</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    <h3>Notifications Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#link-discovered"><strong>link-discovered</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#link-overutilized"><strong>link-overutilized</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#link-removed"><strong>link-removed</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#link-utilization-normal"><strong>link-utilization-normal</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    <h3>RPCs Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#solicit-refresh"><strong>solicit-refresh</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    
+    
+    
+    <h2>Groupings</h2>
+    <ul>
+    <li>
+        <h3 id="link">link</h3>
+        <ul>
+            <ul>
+            <strong><li>
+                leaf: destination
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: inv:node-connector-ref
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: source
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: inv:node-connector-ref
+            </li>
+            </ul>
+            </ul>
+        </ul>
+    </li>
+    </ul>
+    
+    
+    
+    <h2>Notifications</h2>
+    
+    <h3 id="link-discovered">link-discovered
+    </h3>
+        <ul>
+        <strong><li>
+            leaf: destination
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inv:node-connector-ref
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: source
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inv:node-connector-ref
+        </li>
+        </ul>
+        </ul>
+    
+    <h3 id="link-overutilized">link-overutilized
+    </h3>
+        <ul>
+        <strong><li>
+            leaf: destination
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inv:node-connector-ref
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: source
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inv:node-connector-ref
+        </li>
+        </ul>
+        </ul>
+    
+    <h3 id="link-removed">link-removed
+    </h3>
+        <ul>
+        <strong><li>
+            leaf: destination
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inv:node-connector-ref
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: source
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inv:node-connector-ref
+        </li>
+        </ul>
+        </ul>
+    
+    <h3 id="link-utilization-normal">link-utilization-normal
+    </h3>
+        <ul>
+        <strong><li>
+            leaf: destination
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inv:node-connector-ref
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: source
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inv:node-connector-ref
+        </li>
+        </ul>
+        </ul>
+    
+    
+    <h2>RPC Definitions</h2>
+    <h3 id="solicit-refresh">solicit-refresh
+    </h3>
+        <ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+        </ul>
+    </ul>
+    
+    
+    
+  </body>
+</html>

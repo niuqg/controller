@@ -1,0 +1,1835 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>opendaylight-port-statistics</title>
+  </head>
+  <body>
+    <h1>opendaylight-port-statistics</h1>
+    
+    <h2>Base Information</h2>
+    <table>
+        <tr>
+            <td><strong>prefix</strong></td>
+            <td>portstat</td>
+        </tr>
+        <tr>
+            <td><strong>namespace</strong></td>
+            <td>urn:opendaylight:port:statistics</td>
+        </tr>
+        <tr>
+            <td><strong>revision</strong></td>
+            <td>2013-12-14</td>
+        </tr>
+        <tr>
+            <td><strong>description</strong></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><strong>yang-version</strong></td>
+            <td>1</td>
+        </tr>
+        <tr>
+    <td><strong>imports</strong></td><td>        stat-types:opendaylight-statistics-types 2013-09-25;
+            tr:flow-capable-transaction;
+            inv:opendaylight-inventory 2013-08-19;
+            ext:yang-ext 2013-07-09;
+    </td>    </tr>
+    </table>
+    
+    <h3>Groupings Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#flow-capable-node-connector-statistics"><strong>flow-capable-node-connector-statistics</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#node-connector-statistics-and-port-number-map"><strong>node-connector-statistics-and-port-number-map</strong></a>
+            </td>
+            <td>
+            List of map - node connectors and their statistics
+            </td>
+        </tr>
+    </table>
+    <h3>Augmentations Summary</h3>
+    <table>
+        <tr>
+            <th>Target</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#/opendaylight-inventory:nodes/opendaylight-inventory:node/opendaylight-inventory:node-connector/"><strong>/opendaylight-inventory:nodes/opendaylight-inventory:node/opendaylight-inventory:node-connector/</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    <h3>Notifications Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#node-connector-statistics-update"><strong>node-connector-statistics-update</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    <h3>RPCs Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#get-all-node-connectors-statistics"><strong>get-all-node-connectors-statistics</strong></a>
+            </td>
+            <td>
+            Get statistics for all node connectors from the node
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#get-node-connector-statistics"><strong>get-node-connector-statistics</strong></a>
+            </td>
+            <td>
+            Get statistics for given node connector from the node
+            </td>
+        </tr>
+    </table>
+    
+    
+    
+    <h2>Groupings</h2>
+    <ul>
+    <li>
+        <h3 id="flow-capable-node-connector-statistics">flow-capable-node-connector-statistics</h3>
+        <ul>
+            <ul>
+            <strong>
+            <li id="flow-capable-node-connector-statistics/flow-capable-node-connector-statistics">
+                container: flow-capable-node-connector-statistics
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: stat-types:node-connector-statistics
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong>
+            <li id="flow-capable-node-connector-statistics/flow-capable-node-connector-statistics/bytes">
+                container: bytes
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: received
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transmitted
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: collision-count
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="flow-capable-node-connector-statistics/flow-capable-node-connector-statistics/duration">
+                container: duration
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: nanosecond
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: second
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter32
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="flow-capable-node-connector-statistics/flow-capable-node-connector-statistics/packets">
+                container: packets
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: received
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transmitted
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: receive-crc-error
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: receive-drops
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: receive-errors
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: receive-frame-error
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: receive-over-run-error
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transmit-drops
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transmit-errors
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+        </ul>
+    </li>
+    <li>
+        <h3 id="node-connector-statistics-and-port-number-map">node-connector-statistics-and-port-number-map</h3>
+        <ul>
+            <li>
+                Description: List of map - node connectors and their statistics
+            </li>
+            <ul>
+            <strong>
+            <li id="node-connector-statistics-and-port-number-map/node-connector-statistics-and-port-number-map">
+                list: node-connector-statistics-and-port-number-map
+            </li>
+            </strong>
+            <ul>
+            <li>
+                key definition: node-connector-id
+            </li>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: stat-types:node-connector-statistics
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong>
+            <li id="node-connector-statistics-and-port-number-map/node-connector-statistics-and-port-number-map/bytes">
+                container: bytes
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: received
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transmitted
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: collision-count
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="node-connector-statistics-and-port-number-map/node-connector-statistics-and-port-number-map/duration">
+                container: duration
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: nanosecond
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: second
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter32
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: node-connector-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: inv:node-connector-id
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="node-connector-statistics-and-port-number-map/node-connector-statistics-and-port-number-map/packets">
+                container: packets
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: received
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transmitted
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: receive-crc-error
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: receive-drops
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: receive-errors
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: receive-frame-error
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: receive-over-run-error
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transmit-drops
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transmit-errors
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+        </ul>
+    </li>
+    </ul>
+    
+    
+    
+    <h2>Notifications</h2>
+    
+    <h3 id="node-connector-statistics-update">node-connector-statistics-update
+    </h3>
+        <ul>
+        <strong><li>
+            leaf: id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inv:node-id
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: moreReplies
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: boolean
+        </li>
+        <li>
+            default: false
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="node-connector-statistics-update/node-connector">
+            list: node-connector
+        </li>
+        </strong>
+        <ul>
+        <li>
+            key definition: id
+        </li>
+        </ul>
+        <ul>
+        <strong><li>
+            uses: inv:node-connector
+        </li>
+        </strong>
+        <ul>
+        <li>refines:
+            <ul>
+            </ul>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inv:node-connector-id
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="node-connector-statistics-update/node-connector-statistics-and-port-number-map">
+            list: node-connector-statistics-and-port-number-map
+        </li>
+        </strong>
+        <ul>
+        <li>
+            key definition: node-connector-id
+        </li>
+        </ul>
+        <ul>
+        <strong><li>
+            uses: stat-types:node-connector-statistics
+        </li>
+        </strong>
+        <ul>
+        <li>refines:
+            <ul>
+            </ul>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong>
+        <li id="node-connector-statistics-update/node-connector-statistics-and-port-number-map/bytes">
+            container: bytes
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: received
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint64
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transmitted
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint64
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: collision-count
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint64
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="node-connector-statistics-update/node-connector-statistics-and-port-number-map/duration">
+            container: duration
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: nanosecond
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: yang:counter32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: second
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: yang:counter32
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: node-connector-id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inv:node-connector-id
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="node-connector-statistics-update/node-connector-statistics-and-port-number-map/packets">
+            container: packets
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: received
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint64
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transmitted
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint64
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: receive-crc-error
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint64
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: receive-drops
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint64
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: receive-errors
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint64
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: receive-frame-error
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint64
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: receive-over-run-error
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint64
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transmit-drops
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint64
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transmit-errors
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint64
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transaction-id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: transaction-id
+        </li>
+        </ul>
+        </ul>
+    
+    <h2>Augmentations</h2>
+    
+    <ul>
+    <li>
+        <h3 id="/opendaylight-inventory:nodes/opendaylight-inventory:node/opendaylight-inventory:node-connector/">
+        Target [inv:/opendaylight-inventory:nodes/opendaylight-inventory:node/opendaylight-inventory:node-connector/]</h3>
+        <ul>
+        <strong>
+        <li id="nodes/node/node-connector/flow-capable-node-connector-statistics">
+            container: flow-capable-node-connector-statistics
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        <strong><li>
+            uses: stat-types:node-connector-statistics
+        </li>
+        </strong>
+        <ul>
+        <li>refines:
+            <ul>
+            </ul>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong>
+        <li id="nodes/node/node-connector/flow-capable-node-connector-statistics/bytes">
+            container: bytes
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: received
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint64
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transmitted
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint64
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: collision-count
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint64
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="nodes/node/node-connector/flow-capable-node-connector-statistics/duration">
+            container: duration
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: nanosecond
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: yang:counter32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: second
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: yang:counter32
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="nodes/node/node-connector/flow-capable-node-connector-statistics/packets">
+            container: packets
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: received
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint64
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transmitted
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint64
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: receive-crc-error
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint64
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: receive-drops
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint64
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: receive-errors
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint64
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: receive-frame-error
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint64
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: receive-over-run-error
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint64
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transmit-drops
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint64
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transmit-errors
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint64
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+    </li>
+    </ul>
+    
+    <h2>RPC Definitions</h2>
+    <h3 id="get-all-node-connectors-statistics">get-all-node-connectors-statistics
+    </h3>
+        <ul>
+            <li>
+                Description: Get statistics for all node connectors from the node
+            </li>
+            <ul>
+            <strong>
+            <li id="get-all-node-connectors-statistics/input">
+                container: input
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: inv:node-context-ref
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: node
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: inv:node-ref
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="get-all-node-connectors-statistics/output">
+                container: output
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: transaction-aware
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            <strong><li>
+                uses: <a href="#node-connector-statistics-and-port-number-map">node-connector-statistics-and-port-number-map</a>
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong>
+            <li id="get-all-node-connectors-statistics/output/node-connector-statistics-and-port-number-map">
+                list: node-connector-statistics-and-port-number-map
+            </li>
+            </strong>
+            <ul>
+            <li>
+                key definition: node-connector-id
+            </li>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: stat-types:node-connector-statistics
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong>
+            <li id="get-all-node-connectors-statistics/output/node-connector-statistics-and-port-number-map/bytes">
+                container: bytes
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: received
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transmitted
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: collision-count
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="get-all-node-connectors-statistics/output/node-connector-statistics-and-port-number-map/duration">
+                container: duration
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: nanosecond
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: second
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter32
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: node-connector-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: inv:node-connector-id
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="get-all-node-connectors-statistics/output/node-connector-statistics-and-port-number-map/packets">
+                container: packets
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: received
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transmitted
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: receive-crc-error
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: receive-drops
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: receive-errors
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: receive-frame-error
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: receive-over-run-error
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transmit-drops
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transmit-errors
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transaction-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: transaction-id
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+        </ul>
+    <h3 id="get-node-connector-statistics">get-node-connector-statistics
+    </h3>
+        <ul>
+            <li>
+                Description: Get statistics for given node connector from the node
+            </li>
+            <ul>
+            <strong>
+            <li id="get-node-connector-statistics/input">
+                container: input
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: inv:node-context-ref
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: node
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: inv:node-ref
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: node-connector-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: inv:node-connector-id
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="get-node-connector-statistics/output">
+                container: output
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: stat-types:node-connector-statistics
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            <strong><li>
+                uses: transaction-aware
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong>
+            <li id="get-node-connector-statistics/output/bytes">
+                container: bytes
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: received
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transmitted
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: collision-count
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="get-node-connector-statistics/output/duration">
+                container: duration
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: nanosecond
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: second
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter32
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="get-node-connector-statistics/output/packets">
+                container: packets
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: received
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transmitted
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: receive-crc-error
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: receive-drops
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: receive-errors
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: receive-frame-error
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: receive-over-run-error
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transaction-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: transaction-id
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transmit-drops
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transmit-errors
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint64
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+        </ul>
+    </ul>
+    
+    
+    
+  </body>
+</html>

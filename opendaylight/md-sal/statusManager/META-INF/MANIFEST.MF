@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1402892735329
+Build-Jdk: 1.7.0_51
+Built-By: niu
+Bundle-Activator: edu.ustc.qos.statusmanager.StatusManagerActivator
+Bundle-ManifestVersion: 2
+Bundle-Name: edu.ustc.qos.statusmanager
+Bundle-SymbolicName: edu.ustc.qos.statusmanager
+Bundle-Version: 1.1.0.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Export-Package: edu.ustc.qos.statusmanager;uses:="org.opendaylight.contr
+ oller.sal.binding.api,org.opendaylight.controller.sal.binding.api.data,
+ org.osgi.framework";version="1.1.0.SNAPSHOT"
+Import-Package: com.google.common.base;version="[14.0,15)",org.opendayli
+ ght.controller.md.sal.binding.util,org.opendaylight.controller.md.sal.c
+ ommon.api.data,org.opendaylight.controller.sal.binding.api,org.opendayl
+ ight.controller.sal.binding.api.data,org.opendaylight.yang.gen.v1.urn.o
+ pendaylight.flow.inventory.rev130819,org.opendaylight.yang.gen.v1.urn.o
+ pendaylight.flow.inventory.rev130819.meters,org.opendaylight.yang.gen.v
+ 1.urn.opendaylight.flow.inventory.rev130819.tables,org.opendaylight.yan
+ g.gen.v1.urn.opendaylight.inventory.rev130819,org.opendaylight.yang.gen
+ .v1.urn.opendaylight.inventory.rev130819.nodes,org.opendaylight.yang.ge
+ n.v1.urn.opendaylight.meter.statistics.rev131111,org.opendaylight.yangt
+ ools.concepts;version="[0.6,1)",org.opendaylight.yangtools.yang.binding
+ ;version="[0.6,1)",org.opendaylight.yangtools.yang.common;version="[0.6
+ ,1)",org.osgi.framework;version="[1.7,2)",org.slf4j;version="[1.7,2)"
+Tool: Bnd-2.1.0.20130426-122213

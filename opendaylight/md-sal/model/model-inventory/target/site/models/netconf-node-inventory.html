@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>netconf-node-inventory</title>
+  </head>
+  <body>
+    <h1>netconf-node-inventory</h1>
+    
+    <h2>Base Information</h2>
+    <table>
+        <tr>
+            <td><strong>prefix</strong></td>
+            <td>netinv</td>
+        </tr>
+        <tr>
+            <td><strong>namespace</strong></td>
+            <td>urn:opendaylight:netconf-node-inventory</td>
+        </tr>
+        <tr>
+            <td><strong>revision</strong></td>
+            <td>2014-01-08</td>
+        </tr>
+        <tr>
+            <td><strong>description</strong></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><strong>yang-version</strong></td>
+            <td>1</td>
+        </tr>
+        <tr>
+    <td><strong>imports</strong></td><td>        inv:opendaylight-inventory 2013-08-19;
+            ext:yang-ext 2013-07-09;
+    </td>    </tr>
+    </table>
+    
+    <h3>Groupings Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#netconf-node-fields"><strong>netconf-node-fields</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    <h3>Augmentations Summary</h3>
+    <table>
+        <tr>
+            <th>Target</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#/opendaylight-inventory:nodes/opendaylight-inventory:node/"><strong>/opendaylight-inventory:nodes/opendaylight-inventory:node/</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    
+    
+    
+    <h2>Groupings</h2>
+    <ul>
+    <li>
+        <h3 id="netconf-node-fields">netconf-node-fields</h3>
+        <ul>
+            <ul>
+            <strong><li>
+                leaf: connected
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: boolean
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf-list: current-capability
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: string
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf-list: initial-capability
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: string
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="netconf-node-fields/pass-through">
+                container: pass-through
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: When the underlying node is connected, its NETCONF context
+                                is available verbatim under this container through the
+                                mount extension.
+            </li>
+            <li>
+                when condition: ../connected = true
+            </li>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            </ul>
+        </ul>
+    </li>
+    </ul>
+    
+    
+    
+    
+    <h2>Augmentations</h2>
+    
+    <ul>
+    <li>
+        <h3 id="/opendaylight-inventory:nodes/opendaylight-inventory:node/">
+        Target [inv:/opendaylight-inventory:nodes/opendaylight-inventory:node/]</h3>
+        <ul>
+        <strong><li>
+            leaf: connected
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: boolean
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf-list: current-capability
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: string
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf-list: initial-capability
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: string
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="nodes/node/pass-through">
+            container: pass-through
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: When the underlying node is connected, its NETCONF context
+                            is available verbatim under this container through the
+                            mount extension.
+        </li>
+        <li>
+            when condition: ../connected = true
+        </li>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        </ul>
+    </li>
+    </ul>
+    
+    
+    
+    
+  </body>
+</html>

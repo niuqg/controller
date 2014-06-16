@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<application xmlns="http://wadl.dev.java.net/2009/02" xmlns:inv="urn:opendaylight:inventory"
+xmlns:queue="urn:opendaylight:flow:types:queue"
+ xmlns:queue-cfg="urn:opendaylight:queue:config">
+
+	<grammars>
+		<include href="queue-management.yang"/>
+		<include href="opendaylight-inventory.yang"/>
+		<include href="opendaylight-queue-types.yang"/>
+	</grammars>
+	
+	<resources base="http://localhost:9998/restconf">
+		<resource path="config">
+			<method name="POST">
+				<request>
+					<representation mediaType="application/xml" element="queue-cfg:queues"/>
+					<representation mediaType="text/xml" element="queue-cfg:queues"/>
+					<representation mediaType="application/json" element="queue-cfg:queues"/>
+					<representation mediaType="application/yang.data+xml" element="queue-cfg:queues"/>
+					<representation mediaType="application/yang.data+json" element="queue-cfg:queues"/>
+				</request>
+			</method>
+			<resource path="queue-management:queues">
+				<method name="GET">
+					<response>
+						<representation mediaType="application/xml" element="queue-cfg:queues"/>
+						<representation mediaType="text/xml" element="queue-cfg:queues"/>
+						<representation mediaType="application/json" element="queue-cfg:queues"/>
+						<representation mediaType="application/yang.data+xml" element="queue-cfg:queues"/>
+						<representation mediaType="application/yang.data+json" element="queue-cfg:queues"/>
+					</response>
+				</method>
+				<method name="DELETE" />
+				<method name="PUT">
+					<request>
+						<representation mediaType="application/xml" element="queue-cfg:queues"/>
+						<representation mediaType="text/xml" element="queue-cfg:queues"/>
+						<representation mediaType="application/json" element="queue-cfg:queues"/>
+						<representation mediaType="application/yang.data+xml" element="queue-cfg:queues"/>
+						<representation mediaType="application/yang.data+json" element="queue-cfg:queues"/>
+					</request>
+				</method>
+				<method name="POST">
+					<request>
+						<representation mediaType="application/xml" element="queue-cfg:queue"/>
+						<representation mediaType="text/xml" element="queue-cfg:queue"/>
+						<representation mediaType="application/json" element="queue-cfg:queue"/>
+						<representation mediaType="application/yang.data+xml" element="queue-cfg:queue"/>
+						<representation mediaType="application/yang.data+json" element="queue-cfg:queue"/>
+					</request>
+				</method>
+				<resource path="queue/{id}/{node}">
+					<param required="true" style="template" name="id" type="uint32"/>
+					<param required="true" style="template" name="node" type="queue-cfg:node-connector-ref"/>
+					<method name="GET">
+						<response>
+							<representation mediaType="application/xml" element="queue-cfg:queue"/>
+							<representation mediaType="text/xml" element="queue-cfg:queue"/>
+							<representation mediaType="application/json" element="queue-cfg:queue"/>
+							<representation mediaType="application/yang.data+xml" element="queue-cfg:queue"/>
+							<representation mediaType="application/yang.data+json" element="queue-cfg:queue"/>
+						</response>
+					</method>
+					<method name="DELETE" />
+					<method name="PUT">
+						<request>
+							<representation mediaType="application/xml" element="queue-cfg:queue"/>
+							<representation mediaType="text/xml" element="queue-cfg:queue"/>
+							<representation mediaType="application/json" element="queue-cfg:queue"/>
+							<representation mediaType="application/yang.data+xml" element="queue-cfg:queue"/>
+							<representation mediaType="application/yang.data+json" element="queue-cfg:queue"/>
+						</request>
+					</method>
+				</resource>
+			</resource>
+		</resource>
+	</resources>
+</application>

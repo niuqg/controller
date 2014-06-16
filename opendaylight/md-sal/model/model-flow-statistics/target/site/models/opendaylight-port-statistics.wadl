@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<application xmlns="http://wadl.dev.java.net/2009/02" xmlns:stat-types="urn:opendaylight:model:statistics:types"
+xmlns:tr="urn:opendaylight:flow:transaction"
+xmlns:inv="urn:opendaylight:inventory"
+xmlns:ext="urn:opendaylight:yang:extension:yang-ext"
+ xmlns:portstat="urn:opendaylight:port:statistics">
+
+	<grammars>
+		<include href="opendaylight-port-statistics.yang"/>
+		<include href="opendaylight-statistics-types.yang"/>
+		<include href="flow-capable-transaction.yang"/>
+		<include href="opendaylight-inventory.yang"/>
+		<include href="yang-ext.yang"/>
+	</grammars>
+	
+	<resources base="http://localhost:9998/restconf">
+		<resource path="operations">
+			<resource path="opendaylight-port-statistics:get-all-node-connectors-statistics">
+				<method name="POST">
+					<request>
+						<representation mediaType="application/xml" element="input"/>
+						<representation mediaType="text/xml" element="input"/>
+						<representation mediaType="application/json" element="input"/>
+						<representation mediaType="application/yang.data+xml" element="input"/>
+						<representation mediaType="application/yang.data+json" element="input"/>
+					</request>
+					<response>
+						<representation mediaType="application/xml" element="output"/>
+						<representation mediaType="text/xml" element="output"/>
+						<representation mediaType="application/json" element="output"/>
+						<representation mediaType="application/yang.data+xml" element="output"/>
+						<representation mediaType="application/yang.data+json" element="output"/>
+					</response>
+				</method>
+			</resource>
+			<resource path="opendaylight-port-statistics:get-node-connector-statistics">
+				<method name="POST">
+					<request>
+						<representation mediaType="application/xml" element="input"/>
+						<representation mediaType="text/xml" element="input"/>
+						<representation mediaType="application/json" element="input"/>
+						<representation mediaType="application/yang.data+xml" element="input"/>
+						<representation mediaType="application/yang.data+json" element="input"/>
+					</request>
+					<response>
+						<representation mediaType="application/xml" element="output"/>
+						<representation mediaType="text/xml" element="output"/>
+						<representation mediaType="application/json" element="output"/>
+						<representation mediaType="application/yang.data+xml" element="output"/>
+						<representation mediaType="application/yang.data+json" element="output"/>
+					</response>
+				</method>
+			</resource>
+		</resource>
+	</resources>
+</application>

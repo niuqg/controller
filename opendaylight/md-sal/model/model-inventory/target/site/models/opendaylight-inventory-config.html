@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>opendaylight-inventory-config</title>
+  </head>
+  <body>
+    <h1>opendaylight-inventory-config</h1>
+    
+    <h2>Base Information</h2>
+    <table>
+        <tr>
+            <td><strong>prefix</strong></td>
+            <td>inv-config</td>
+        </tr>
+        <tr>
+            <td><strong>namespace</strong></td>
+            <td>urn:opendaylight:inventory:config</td>
+        </tr>
+        <tr>
+            <td><strong>revision</strong></td>
+            <td>2013-08-19</td>
+        </tr>
+        <tr>
+            <td><strong>description</strong></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><strong>yang-version</strong></td>
+            <td>1</td>
+        </tr>
+        <tr>
+    <td><strong>imports</strong></td><td>        inv:opendaylight-inventory 2013-08-19;
+            ext:yang-ext 2013-07-09;
+    </td>    </tr>
+    </table>
+    
+    <h3>Child Nodes Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#nodes"><strong>nodes</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    
+    
+    
+    
+    <h2>Datastore Structure</h2>
+    <strong>opendaylight-inventory-config</strong>
+    <ul>
+    <li>
+        <a href="#nodes"><strong>nodes</strong>
+        </a>
+        <ul>
+        <li>
+            <a href="#nodes/node"><strong>node</strong> [id]
+            </a>
+            <ul>
+            <li>
+                <i>id</i>(U)
+            </li>
+            <li>
+                <a href="#nodes/node/node-connector"><strong><i>node-connector</i></strong> [id]
+                (U)
+                </a>
+                <ul>
+                <li>
+                    <i>id</i>(U)
+                </li>
+                </ul>
+            </li>
+            </ul>
+        </li>
+        </ul>
+    </li>
+    </ul>
+    
+    <h2>Child nodes</h2>
+    
+    <h3>Direct children</h3>
+    <ul>
+    <li><strong><a href="#nodes">nodes</a>
+    </strong> (container)</li>
+    </ul>
+    
+    <h3 id="nodes">
+        nodes
+    </h3>
+    <dl>
+      <dt>XML Path</dt>
+      <dd></dd>
+      <dt>Restconf path</dt>
+      <dd><code>opendaylight-inventory-config:nodes</code></dd>
+    </dl>
+    <h3>Direct children</h3>
+    <ul>
+    <li><strong><a href="#nodes/node">node</a>
+    </strong> (list)</li>
+    </ul>
+    
+    <h3>XML example</h3>
+    <pre>
+        &lt;nodes xmlns="urn:opendaylight:inventory:config"&gt;<!-- Child nodes -->
+        <!-- node -->
+            &lt!-- See <a href="#nodes/node">definition</a>
+             for child nodes.  --&gt
+            &lt!-- This node could appear multiple times --&gt
+            &lt;node xmlns="urn:opendaylight:inventory:config"&gt;...&lt;/node&gt;
+        
+        &lt;/nodes&gt;
+    </pre>
+    </h3>
+    <h3 id="nodes/node">
+        nodes/node
+    </h3>
+    <dl>
+      <dt>XML Path</dt>
+      <dd></dd>
+      <dt>Restconf path</dt>
+      <dd><code>opendaylight-inventory-config:nodes/node/{id}</code></dd>
+    </dl>
+    <h3>Direct children</h3>
+    <ul>
+    <li><strong>id</strong> (leaf)</li>
+    <li><strong><a href="#nodes/node/node-connector">node-connector</a>
+    </strong> (list)</li>
+    </ul>
+    
+    <h3>XML example</h3>
+    <pre>
+        &lt;node xmlns="urn:opendaylight:inventory:config"&gt;<!-- Child nodes -->
+        <!-- id -->
+            &lt;id xmlns="urn:opendaylight:inventory:config"&gt;...&lt;/id&gt;
+        <!-- node-connector -->
+            &lt!-- See <a href="#nodes/node/node-connector">definition</a>
+             for child nodes.  --&gt
+            &lt!-- This node could appear multiple times --&gt
+            &lt;node-connector xmlns="urn:opendaylight:inventory:config"&gt;...&lt;/node-connector&gt;
+        
+        &lt;/node&gt;
+    </pre>
+    </h3>
+    <h3 id="nodes/node/node-connector">
+        nodes/node/node-connector
+    </h3>
+    <dl>
+      <dt>XML Path</dt>
+      <dd></dd>
+      <dt>Restconf path</dt>
+      <dd><code>opendaylight-inventory-config:nodes/node/{id}/node-connector/{id}</code></dd>
+    </dl>
+    <h3>Direct children</h3>
+    <ul>
+    <li><strong>id</strong> (leaf)</li>
+    </ul>
+    
+    <h3>XML example</h3>
+    <pre>
+        &lt;node-connector xmlns="urn:opendaylight:inventory:config"&gt;<!-- Child nodes -->
+        <!-- id -->
+            &lt;id xmlns="urn:opendaylight:inventory:config"&gt;...&lt;/id&gt;
+        
+        &lt;/node-connector&gt;
+    </pre>
+    </h3>
+    
+    
+    
+    
+    
+    
+  </body>
+</html>

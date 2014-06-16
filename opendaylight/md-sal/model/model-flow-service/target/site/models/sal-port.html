@@ -1,0 +1,1973 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>sal-port</title>
+  </head>
+  <body>
+    <h1>sal-port</h1>
+    
+    <h2>Base Information</h2>
+    <table>
+        <tr>
+            <td><strong>prefix</strong></td>
+            <td>port</td>
+        </tr>
+        <tr>
+            <td><strong>namespace</strong></td>
+            <td>urn:opendaylight:port:service</td>
+        </tr>
+        <tr>
+            <td><strong>revision</strong></td>
+            <td>2013-11-07</td>
+        </tr>
+        <tr>
+            <td><strong>description</strong></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><strong>yang-version</strong></td>
+            <td>1</td>
+        </tr>
+        <tr>
+    <td><strong>imports</strong></td><td>        inv:opendaylight-inventory 2013-08-19;
+            tr:flow-capable-transaction;
+            ext:yang-ext 2013-07-09;
+            port-type:opendaylight-port-types 2013-09-25;
+    </td>    </tr>
+    </table>
+    
+    <h3>Groupings Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#node-port"><strong>node-port</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#port-update"><strong>port-update</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    <h3>Notifications Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#port-removed"><strong>port-removed</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#port-updated"><strong>port-updated</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    <h3>RPCs Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#update-port"><strong>update-port</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    
+    
+    
+    <h2>Groupings</h2>
+    <ul>
+    <li>
+        <h3 id="node-port">node-port</h3>
+        <ul>
+            <ul>
+            <strong><li>
+                leaf: advertised-features
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Features being advertised by the port
+            </li>
+            <li>
+                type: port-features
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: configuration
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Bit map of OFPPC-* flags
+            </li>
+            <li>
+                type: port-config
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: current-feature
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Bit map of OFPPF-* flags
+            </li>
+            <li>
+                type: port-features
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: current-speed
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Current port bit rate in kbps
+            </li>
+            <li>
+                type: uint32
+            </li>
+            <li>
+                units: kbps
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: hardware-address
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: MAC Address of the port
+            </li>
+            <li>
+                type: yang:mac-address
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: maximum-speed
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Max port bit rate in kbps
+            </li>
+            <li>
+                type: uint32
+            </li>
+            <li>
+                units: kbps
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: name
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Human readable name of the port
+            </li>
+            <li>
+                type: string
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: node
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: inv:node-ref
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: peer-features
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Features advertised by peer
+            </li>
+            <li>
+                type: port-features
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: port-number
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="node-port/queue">
+                list: queue
+            </li>
+            </strong>
+            <ul>
+            <li>
+                key definition: queue-id
+            </li>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: queue-packet
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: port
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Port this queue is attached to.
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: property
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: One of OFPQT_.
+            </li>
+            <li>
+                type: uint16
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: queue-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: id for the specific queue.
+            </li>
+            <li>
+                type: queue-id
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: reason
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: port-reason
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="node-port/state">
+                container: state
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Description of state of port
+            </li>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: port-state
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: blocked
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: boolean
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: link-down
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: boolean
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: live
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: boolean
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: supported
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Features supported by the port
+            </li>
+            <li>
+                type: port-features
+            </li>
+            </ul>
+            </ul>
+        </ul>
+    </li>
+    <li>
+        <h3 id="port-update">port-update</h3>
+        <ul>
+            <ul>
+            <strong><li>
+                leaf: node
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: inv:node-ref
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="port-update/original-port">
+                container: original-port
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: port-mod
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong>
+            <li id="port-update/original-port/port">
+                container: port
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong>
+            <li id="port-update/original-port/port/port">
+                list: port
+            </li>
+            </strong>
+            <ul>
+            <li>
+                key definition: port-mod-order
+            </li>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: common-port
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: advertised-features
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Features being advertised by the port
+            </li>
+            <li>
+                type: port-features
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: barrier
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: boolean
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: configuration
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Bit map of OFPPC-* flags
+            </li>
+            <li>
+                type: port-config
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: container-name
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: string
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: hardware-address
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: MAC Address of the port
+            </li>
+            <li>
+                type: yang:mac-address
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: mask
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Bitmap of OFPPC-* flags to be changed
+            </li>
+            <li>
+                type: port-config
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: port-mod-order
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: port-name
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: string
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: port-number
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="port-update/updated-port">
+                container: updated-port
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: port-mod
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong>
+            <li id="port-update/updated-port/port">
+                container: port
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong>
+            <li id="port-update/updated-port/port/port">
+                list: port
+            </li>
+            </strong>
+            <ul>
+            <li>
+                key definition: port-mod-order
+            </li>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: common-port
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: advertised-features
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Features being advertised by the port
+            </li>
+            <li>
+                type: port-features
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: barrier
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: boolean
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: configuration
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Bit map of OFPPC-* flags
+            </li>
+            <li>
+                type: port-config
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: container-name
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: string
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: hardware-address
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: MAC Address of the port
+            </li>
+            <li>
+                type: yang:mac-address
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: mask
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Bitmap of OFPPC-* flags to be changed
+            </li>
+            <li>
+                type: port-config
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: port-mod-order
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: port-name
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: string
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: port-number
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+        </ul>
+    </li>
+    </ul>
+    
+    
+    
+    <h2>Notifications</h2>
+    
+    <h3 id="port-removed">port-removed
+    </h3>
+        <ul>
+        <strong><li>
+            leaf: advertised-features
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Features being advertised by the port
+        </li>
+        <li>
+            type: port-features
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: configuration
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Bit map of OFPPC-* flags
+        </li>
+        <li>
+            type: port-config
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: current-feature
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Bit map of OFPPF-* flags
+        </li>
+        <li>
+            type: port-features
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: current-speed
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Current port bit rate in kbps
+        </li>
+        <li>
+            type: uint32
+        </li>
+        <li>
+            units: kbps
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: hardware-address
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: MAC Address of the port
+        </li>
+        <li>
+            type: yang:mac-address
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: maximum-speed
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Max port bit rate in kbps
+        </li>
+        <li>
+            type: uint32
+        </li>
+        <li>
+            units: kbps
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: name
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Human readable name of the port
+        </li>
+        <li>
+            type: string
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: node
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inv:node-ref
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: peer-features
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Features advertised by peer
+        </li>
+        <li>
+            type: port-features
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: port-number
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="port-removed/queue">
+            list: queue
+        </li>
+        </strong>
+        <ul>
+        <li>
+            key definition: queue-id
+        </li>
+        </ul>
+        <ul>
+        <strong><li>
+            uses: queue-packet
+        </li>
+        </strong>
+        <ul>
+        <li>refines:
+            <ul>
+            </ul>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: port
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Port this queue is attached to.
+        </li>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: property
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: One of OFPQT_.
+        </li>
+        <li>
+            type: uint16
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: queue-id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: id for the specific queue.
+        </li>
+        <li>
+            type: queue-id
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: reason
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: port-reason
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="port-removed/state">
+            container: state
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Description of state of port
+        </li>
+        </ul>
+        <ul>
+        <strong><li>
+            uses: port-state
+        </li>
+        </strong>
+        <ul>
+        <li>refines:
+            <ul>
+            </ul>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: blocked
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: boolean
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: link-down
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: boolean
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: live
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: boolean
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: supported
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Features supported by the port
+        </li>
+        <li>
+            type: port-features
+        </li>
+        </ul>
+        </ul>
+    
+    <h3 id="port-updated">port-updated
+    </h3>
+        <ul>
+        <strong><li>
+            leaf: node
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inv:node-ref
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="port-updated/original-port">
+            container: original-port
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        <strong><li>
+            uses: port-mod
+        </li>
+        </strong>
+        <ul>
+        <li>refines:
+            <ul>
+            </ul>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong>
+        <li id="port-updated/original-port/port">
+            container: port
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong>
+        <li id="port-updated/original-port/port/port">
+            list: port
+        </li>
+        </strong>
+        <ul>
+        <li>
+            key definition: port-mod-order
+        </li>
+        </ul>
+        <ul>
+        <strong><li>
+            uses: common-port
+        </li>
+        </strong>
+        <ul>
+        <li>refines:
+            <ul>
+            </ul>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: advertised-features
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Features being advertised by the port
+        </li>
+        <li>
+            type: port-features
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: barrier
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: boolean
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: configuration
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Bit map of OFPPC-* flags
+        </li>
+        <li>
+            type: port-config
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: container-name
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: string
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: hardware-address
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: MAC Address of the port
+        </li>
+        <li>
+            type: yang:mac-address
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: mask
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Bitmap of OFPPC-* flags to be changed
+        </li>
+        <li>
+            type: port-config
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: port-mod-order
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: port-name
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: string
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: port-number
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transaction-id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: transaction-id
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="port-updated/updated-port">
+            container: updated-port
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        <strong><li>
+            uses: port-mod
+        </li>
+        </strong>
+        <ul>
+        <li>refines:
+            <ul>
+            </ul>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong>
+        <li id="port-updated/updated-port/port">
+            container: port
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong>
+        <li id="port-updated/updated-port/port/port">
+            list: port
+        </li>
+        </strong>
+        <ul>
+        <li>
+            key definition: port-mod-order
+        </li>
+        </ul>
+        <ul>
+        <strong><li>
+            uses: common-port
+        </li>
+        </strong>
+        <ul>
+        <li>refines:
+            <ul>
+            </ul>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: advertised-features
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Features being advertised by the port
+        </li>
+        <li>
+            type: port-features
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: barrier
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: boolean
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: configuration
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Bit map of OFPPC-* flags
+        </li>
+        <li>
+            type: port-config
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: container-name
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: string
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: hardware-address
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: MAC Address of the port
+        </li>
+        <li>
+            type: yang:mac-address
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: mask
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Bitmap of OFPPC-* flags to be changed
+        </li>
+        <li>
+            type: port-config
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: port-mod-order
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: port-name
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: string
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: port-number
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+    
+    
+    <h2>RPC Definitions</h2>
+    <h3 id="update-port">update-port
+    </h3>
+        <ul>
+            <ul>
+            <strong>
+            <li id="update-port/input">
+                container: input
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: <a href="#port-update">port-update</a>
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            <strong><li>
+                uses: transaction-aware
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: node
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: inv:node-ref
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="update-port/input/original-port">
+                container: original-port
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: port-mod
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong>
+            <li id="update-port/input/original-port/port">
+                container: port
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong>
+            <li id="update-port/input/original-port/port/port">
+                list: port
+            </li>
+            </strong>
+            <ul>
+            <li>
+                key definition: port-mod-order
+            </li>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: common-port
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: advertised-features
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Features being advertised by the port
+            </li>
+            <li>
+                type: port-features
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: barrier
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: boolean
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: configuration
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Bit map of OFPPC-* flags
+            </li>
+            <li>
+                type: port-config
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: container-name
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: string
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: hardware-address
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: MAC Address of the port
+            </li>
+            <li>
+                type: yang:mac-address
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: mask
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Bitmap of OFPPC-* flags to be changed
+            </li>
+            <li>
+                type: port-config
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: port-mod-order
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: port-name
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: string
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: port-number
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transaction-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: transaction-id
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="update-port/input/updated-port">
+                container: updated-port
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: port-mod
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong>
+            <li id="update-port/input/updated-port/port">
+                container: port
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong>
+            <li id="update-port/input/updated-port/port/port">
+                list: port
+            </li>
+            </strong>
+            <ul>
+            <li>
+                key definition: port-mod-order
+            </li>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: common-port
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: advertised-features
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Features being advertised by the port
+            </li>
+            <li>
+                type: port-features
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: barrier
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: boolean
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: configuration
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Bit map of OFPPC-* flags
+            </li>
+            <li>
+                type: port-config
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: container-name
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: string
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: hardware-address
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: MAC Address of the port
+            </li>
+            <li>
+                type: yang:mac-address
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: mask
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Bitmap of OFPPC-* flags to be changed
+            </li>
+            <li>
+                type: port-config
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: port-mod-order
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: port-name
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: string
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: port-number
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="update-port/output">
+                container: output
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: transaction-aware
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: transaction-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: transaction-id
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+        </ul>
+    </ul>
+    
+    
+    
+  </body>
+</html>

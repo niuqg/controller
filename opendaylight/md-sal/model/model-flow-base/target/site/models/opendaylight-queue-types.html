@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>opendaylight-queue-types</title>
+  </head>
+  <body>
+    <h1>opendaylight-queue-types</h1>
+    
+    <h2>Base Information</h2>
+    <table>
+        <tr>
+            <td><strong>prefix</strong></td>
+            <td>queue-types</td>
+        </tr>
+        <tr>
+            <td><strong>namespace</strong></td>
+            <td>urn:opendaylight:flow:types:queue</td>
+        </tr>
+        <tr>
+            <td><strong>revision</strong></td>
+            <td>2013-09-25</td>
+        </tr>
+        <tr>
+            <td><strong>description</strong></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><strong>yang-version</strong></td>
+            <td>1</td>
+        </tr>
+        <tr>
+    <td><strong>imports</strong></td><td>        yang:ietf-yang-types 2010-09-24;
+    </td>    </tr>
+    </table>
+    
+    <div>
+        <h3>Type Definitions Summary</h3>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>
+                <a href="#queue-id"><strong>queue-id</strong></a>
+                </td>
+                <td>
+                id for the specific queue.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                <a href="#queue-properties"><strong>queue-properties</strong></a>
+                </td>
+                <td>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <h3>Groupings Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#common-queue"><strong>common-queue</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#queue-config-request"><strong>queue-config-request</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#queue-packet"><strong>queue-packet</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#queue-prop-max-rate"><strong>queue-prop-max-rate</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#queue-prop-min-rate"><strong>queue-prop-min-rate</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    
+    <h2>Type Definitions</h2>
+    <ul>
+    <li>
+        <h3 id="queue-id">queue-id</h3>
+        <ul>
+        <li>
+            Description: id for the specific queue.
+        </li>
+        <li>
+            Base type: yang:counter32
+        </li>
+        </ul>
+    </li>
+    <li>
+        <h3 id="queue-properties">queue-properties</h3>
+        <ul>
+        <li>
+            Base type: enumeration
+        </li>
+        </ul>
+    </li>
+    </ul>
+    
+    
+    <h2>Groupings</h2>
+    <ul>
+    <li>
+        <h3 id="common-queue">common-queue</h3>
+        <ul>
+            <ul>
+            <strong><li>
+                leaf: property
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: One of OFPQT_.
+            </li>
+            <li>
+                type: uint16
+            </li>
+            </ul>
+            </ul>
+        </ul>
+    </li>
+    <li>
+        <h3 id="queue-config-request">queue-config-request</h3>
+        <ul>
+            <ul>
+            <strong><li>
+                leaf: port
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Port to be queried.
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+        </ul>
+    </li>
+    <li>
+        <h3 id="queue-packet">queue-packet</h3>
+        <ul>
+            <ul>
+            <strong><li>
+                leaf: port
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Port this queue is attached to.
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: property
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: One of OFPQT_.
+            </li>
+            <li>
+                type: uint16
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: queue-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: id for the specific queue.
+            </li>
+            <li>
+                type: <a href="#queue-id">queue-id</a>
+            </li>
+            </ul>
+            </ul>
+        </ul>
+    </li>
+    <li>
+        <h3 id="queue-prop-max-rate">queue-prop-max-rate</h3>
+        <ul>
+            <ul>
+            <strong><li>
+                leaf: property
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: One of OFPQT_.
+            </li>
+            <li>
+                type: uint16
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: rate
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: OFPQT_MAX, len: 16
+            </li>
+            <li>
+                type: uint16
+            </li>
+            </ul>
+            </ul>
+        </ul>
+    </li>
+    <li>
+        <h3 id="queue-prop-min-rate">queue-prop-min-rate</h3>
+        <ul>
+            <ul>
+            <strong><li>
+                leaf: property
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: One of OFPQT_.
+            </li>
+            <li>
+                type: uint16
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: rate
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: OFPQT_MIN, len: 16
+            </li>
+            <li>
+                type: uint16
+            </li>
+            </ul>
+            </ul>
+        </ul>
+    </li>
+    </ul>
+    
+    
+    
+    
+    
+    
+    
+    
+  </body>
+</html>

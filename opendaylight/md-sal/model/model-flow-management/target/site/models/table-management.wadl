@@ -1,0 +1,170 @@
+<?xml version="1.0"?>
+<application xmlns="http://wadl.dev.java.net/2009/02" xmlns:inv="urn:opendaylight:inventory"
+xmlns:table="urn:opendaylight:table:types"
+ xmlns:table-cfg="urn:opendaylight:table:config">
+
+	<grammars>
+		<include href="table-management.yang"/>
+		<include href="opendaylight-inventory.yang"/>
+		<include href="opendaylight-table-types.yang"/>
+	</grammars>
+	
+	<resources base="http://localhost:9998/restconf">
+		<resource path="config">
+			<method name="POST">
+				<request>
+					<representation mediaType="application/xml" element="table-cfg:tables"/>
+					<representation mediaType="text/xml" element="table-cfg:tables"/>
+					<representation mediaType="application/json" element="table-cfg:tables"/>
+					<representation mediaType="application/yang.data+xml" element="table-cfg:tables"/>
+					<representation mediaType="application/yang.data+json" element="table-cfg:tables"/>
+				</request>
+			</method>
+			<resource path="table-management:tables">
+				<method name="GET">
+					<response>
+						<representation mediaType="application/xml" element="table-cfg:tables"/>
+						<representation mediaType="text/xml" element="table-cfg:tables"/>
+						<representation mediaType="application/json" element="table-cfg:tables"/>
+						<representation mediaType="application/yang.data+xml" element="table-cfg:tables"/>
+						<representation mediaType="application/yang.data+json" element="table-cfg:tables"/>
+					</response>
+				</method>
+				<method name="DELETE" />
+				<method name="PUT">
+					<request>
+						<representation mediaType="application/xml" element="table-cfg:tables"/>
+						<representation mediaType="text/xml" element="table-cfg:tables"/>
+						<representation mediaType="application/json" element="table-cfg:tables"/>
+						<representation mediaType="application/yang.data+xml" element="table-cfg:tables"/>
+						<representation mediaType="application/yang.data+json" element="table-cfg:tables"/>
+					</request>
+				</method>
+				<method name="POST">
+					<request>
+						<representation mediaType="application/xml" element="table-cfg:table"/>
+						<representation mediaType="text/xml" element="table-cfg:table"/>
+						<representation mediaType="application/json" element="table-cfg:table"/>
+						<representation mediaType="application/yang.data+xml" element="table-cfg:table"/>
+						<representation mediaType="application/yang.data+json" element="table-cfg:table"/>
+					</request>
+				</method>
+				<resource path="table/{id}/{node}">
+					<param required="true" style="template" name="id" type="uint32"/>
+					<param required="true" style="template" name="node" type="table-cfg:node-ref"/>
+					<method name="GET">
+						<response>
+							<representation mediaType="application/xml" element="table-cfg:table"/>
+							<representation mediaType="text/xml" element="table-cfg:table"/>
+							<representation mediaType="application/json" element="table-cfg:table"/>
+							<representation mediaType="application/yang.data+xml" element="table-cfg:table"/>
+							<representation mediaType="application/yang.data+json" element="table-cfg:table"/>
+						</response>
+					</method>
+					<method name="DELETE" />
+					<method name="PUT">
+						<request>
+							<representation mediaType="application/xml" element="table-cfg:table"/>
+							<representation mediaType="text/xml" element="table-cfg:table"/>
+							<representation mediaType="application/json" element="table-cfg:table"/>
+							<representation mediaType="application/yang.data+xml" element="table-cfg:table"/>
+							<representation mediaType="application/yang.data+json" element="table-cfg:table"/>
+						</request>
+					</method>
+					<method name="POST">
+						<request>
+							<representation mediaType="application/xml" element="table-cfg:table-features"/>
+							<representation mediaType="text/xml" element="table-cfg:table-features"/>
+							<representation mediaType="application/json" element="table-cfg:table-features"/>
+							<representation mediaType="application/yang.data+xml" element="table-cfg:table-features"/>
+							<representation mediaType="application/yang.data+json" element="table-cfg:table-features"/>
+						</request>
+					</method>
+					<resource path="table-features/{table-id}">
+						<param required="true" style="template" name="table-id" type="uint8"/>
+						<method name="GET">
+							<response>
+								<representation mediaType="application/xml" element="table-cfg:table-features"/>
+								<representation mediaType="text/xml" element="table-cfg:table-features"/>
+								<representation mediaType="application/json" element="table-cfg:table-features"/>
+								<representation mediaType="application/yang.data+xml" element="table-cfg:table-features"/>
+								<representation mediaType="application/yang.data+json" element="table-cfg:table-features"/>
+							</response>
+						</method>
+						<method name="DELETE" />
+						<method name="PUT">
+							<request>
+								<representation mediaType="application/xml" element="table-cfg:table-features"/>
+								<representation mediaType="text/xml" element="table-cfg:table-features"/>
+								<representation mediaType="application/json" element="table-cfg:table-features"/>
+								<representation mediaType="application/yang.data+xml" element="table-cfg:table-features"/>
+								<representation mediaType="application/yang.data+json" element="table-cfg:table-features"/>
+							</request>
+						</method>
+						<method name="POST">
+							<request>
+								<representation mediaType="application/xml" element="table-cfg:table-properties"/>
+								<representation mediaType="text/xml" element="table-cfg:table-properties"/>
+								<representation mediaType="application/json" element="table-cfg:table-properties"/>
+								<representation mediaType="application/yang.data+xml" element="table-cfg:table-properties"/>
+								<representation mediaType="application/yang.data+json" element="table-cfg:table-properties"/>
+							</request>
+						</method>
+						<resource path="table-properties">
+							<method name="GET">
+								<response>
+									<representation mediaType="application/xml" element="table-cfg:table-properties"/>
+									<representation mediaType="text/xml" element="table-cfg:table-properties"/>
+									<representation mediaType="application/json" element="table-cfg:table-properties"/>
+									<representation mediaType="application/yang.data+xml" element="table-cfg:table-properties"/>
+									<representation mediaType="application/yang.data+json" element="table-cfg:table-properties"/>
+								</response>
+							</method>
+							<method name="DELETE" />
+							<method name="PUT">
+								<request>
+									<representation mediaType="application/xml" element="table-cfg:table-properties"/>
+									<representation mediaType="text/xml" element="table-cfg:table-properties"/>
+									<representation mediaType="application/json" element="table-cfg:table-properties"/>
+									<representation mediaType="application/yang.data+xml" element="table-cfg:table-properties"/>
+									<representation mediaType="application/yang.data+json" element="table-cfg:table-properties"/>
+								</request>
+							</method>
+							<method name="POST">
+								<request>
+									<representation mediaType="application/xml" element="table-cfg:table-feature-properties"/>
+									<representation mediaType="text/xml" element="table-cfg:table-feature-properties"/>
+									<representation mediaType="application/json" element="table-cfg:table-feature-properties"/>
+									<representation mediaType="application/yang.data+xml" element="table-cfg:table-feature-properties"/>
+									<representation mediaType="application/yang.data+json" element="table-cfg:table-feature-properties"/>
+								</request>
+							</method>
+							<resource path="table-feature-properties/{order}">
+								<param required="true" style="template" name="order" type="int32"/>
+								<method name="GET">
+									<response>
+										<representation mediaType="application/xml" element="table-cfg:table-feature-properties"/>
+										<representation mediaType="text/xml" element="table-cfg:table-feature-properties"/>
+										<representation mediaType="application/json" element="table-cfg:table-feature-properties"/>
+										<representation mediaType="application/yang.data+xml" element="table-cfg:table-feature-properties"/>
+										<representation mediaType="application/yang.data+json" element="table-cfg:table-feature-properties"/>
+									</response>
+								</method>
+								<method name="DELETE" />
+								<method name="PUT">
+									<request>
+										<representation mediaType="application/xml" element="table-cfg:table-feature-properties"/>
+										<representation mediaType="text/xml" element="table-cfg:table-feature-properties"/>
+										<representation mediaType="application/json" element="table-cfg:table-feature-properties"/>
+										<representation mediaType="application/yang.data+xml" element="table-cfg:table-feature-properties"/>
+										<representation mediaType="application/yang.data+json" element="table-cfg:table-feature-properties"/>
+									</request>
+								</method>
+							</resource>
+						</resource>
+					</resource>
+				</resource>
+			</resource>
+		</resource>
+	</resources>
+</application>

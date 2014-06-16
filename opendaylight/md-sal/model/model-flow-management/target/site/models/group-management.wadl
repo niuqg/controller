@@ -1,0 +1,170 @@
+<?xml version="1.0"?>
+<application xmlns="http://wadl.dev.java.net/2009/02" xmlns:inv="urn:opendaylight:inventory"
+xmlns:group="urn:opendaylight:group:types"
+ xmlns:group-cfg="urn:opendaylight:group:config">
+
+	<grammars>
+		<include href="group-management.yang"/>
+		<include href="opendaylight-inventory.yang"/>
+		<include href="opendaylight-group-types.yang"/>
+	</grammars>
+	
+	<resources base="http://localhost:9998/restconf">
+		<resource path="config">
+			<method name="POST">
+				<request>
+					<representation mediaType="application/xml" element="group-cfg:groups"/>
+					<representation mediaType="text/xml" element="group-cfg:groups"/>
+					<representation mediaType="application/json" element="group-cfg:groups"/>
+					<representation mediaType="application/yang.data+xml" element="group-cfg:groups"/>
+					<representation mediaType="application/yang.data+json" element="group-cfg:groups"/>
+				</request>
+			</method>
+			<resource path="group-management:groups">
+				<method name="GET">
+					<response>
+						<representation mediaType="application/xml" element="group-cfg:groups"/>
+						<representation mediaType="text/xml" element="group-cfg:groups"/>
+						<representation mediaType="application/json" element="group-cfg:groups"/>
+						<representation mediaType="application/yang.data+xml" element="group-cfg:groups"/>
+						<representation mediaType="application/yang.data+json" element="group-cfg:groups"/>
+					</response>
+				</method>
+				<method name="DELETE" />
+				<method name="PUT">
+					<request>
+						<representation mediaType="application/xml" element="group-cfg:groups"/>
+						<representation mediaType="text/xml" element="group-cfg:groups"/>
+						<representation mediaType="application/json" element="group-cfg:groups"/>
+						<representation mediaType="application/yang.data+xml" element="group-cfg:groups"/>
+						<representation mediaType="application/yang.data+json" element="group-cfg:groups"/>
+					</request>
+				</method>
+				<method name="POST">
+					<request>
+						<representation mediaType="application/xml" element="group-cfg:group"/>
+						<representation mediaType="text/xml" element="group-cfg:group"/>
+						<representation mediaType="application/json" element="group-cfg:group"/>
+						<representation mediaType="application/yang.data+xml" element="group-cfg:group"/>
+						<representation mediaType="application/yang.data+json" element="group-cfg:group"/>
+					</request>
+				</method>
+				<resource path="group/{id}/{node}">
+					<param required="true" style="template" name="id" type="uint32"/>
+					<param required="true" style="template" name="node" type="group-cfg:node-ref"/>
+					<method name="GET">
+						<response>
+							<representation mediaType="application/xml" element="group-cfg:group"/>
+							<representation mediaType="text/xml" element="group-cfg:group"/>
+							<representation mediaType="application/json" element="group-cfg:group"/>
+							<representation mediaType="application/yang.data+xml" element="group-cfg:group"/>
+							<representation mediaType="application/yang.data+json" element="group-cfg:group"/>
+						</response>
+					</method>
+					<method name="DELETE" />
+					<method name="PUT">
+						<request>
+							<representation mediaType="application/xml" element="group-cfg:group"/>
+							<representation mediaType="text/xml" element="group-cfg:group"/>
+							<representation mediaType="application/json" element="group-cfg:group"/>
+							<representation mediaType="application/yang.data+xml" element="group-cfg:group"/>
+							<representation mediaType="application/yang.data+json" element="group-cfg:group"/>
+						</request>
+					</method>
+					<method name="POST">
+						<request>
+							<representation mediaType="application/xml" element="group-cfg:buckets"/>
+							<representation mediaType="text/xml" element="group-cfg:buckets"/>
+							<representation mediaType="application/json" element="group-cfg:buckets"/>
+							<representation mediaType="application/yang.data+xml" element="group-cfg:buckets"/>
+							<representation mediaType="application/yang.data+json" element="group-cfg:buckets"/>
+						</request>
+					</method>
+					<resource path="buckets">
+						<method name="GET">
+							<response>
+								<representation mediaType="application/xml" element="group-cfg:buckets"/>
+								<representation mediaType="text/xml" element="group-cfg:buckets"/>
+								<representation mediaType="application/json" element="group-cfg:buckets"/>
+								<representation mediaType="application/yang.data+xml" element="group-cfg:buckets"/>
+								<representation mediaType="application/yang.data+json" element="group-cfg:buckets"/>
+							</response>
+						</method>
+						<method name="DELETE" />
+						<method name="PUT">
+							<request>
+								<representation mediaType="application/xml" element="group-cfg:buckets"/>
+								<representation mediaType="text/xml" element="group-cfg:buckets"/>
+								<representation mediaType="application/json" element="group-cfg:buckets"/>
+								<representation mediaType="application/yang.data+xml" element="group-cfg:buckets"/>
+								<representation mediaType="application/yang.data+json" element="group-cfg:buckets"/>
+							</request>
+						</method>
+						<method name="POST">
+							<request>
+								<representation mediaType="application/xml" element="group-cfg:bucket"/>
+								<representation mediaType="text/xml" element="group-cfg:bucket"/>
+								<representation mediaType="application/json" element="group-cfg:bucket"/>
+								<representation mediaType="application/yang.data+xml" element="group-cfg:bucket"/>
+								<representation mediaType="application/yang.data+json" element="group-cfg:bucket"/>
+							</request>
+						</method>
+						<resource path="bucket/{bucket-id}">
+							<param required="true" style="template" name="bucket-id" type="group-cfg:bucket-id"/>
+							<method name="GET">
+								<response>
+									<representation mediaType="application/xml" element="group-cfg:bucket"/>
+									<representation mediaType="text/xml" element="group-cfg:bucket"/>
+									<representation mediaType="application/json" element="group-cfg:bucket"/>
+									<representation mediaType="application/yang.data+xml" element="group-cfg:bucket"/>
+									<representation mediaType="application/yang.data+json" element="group-cfg:bucket"/>
+								</response>
+							</method>
+							<method name="DELETE" />
+							<method name="PUT">
+								<request>
+									<representation mediaType="application/xml" element="group-cfg:bucket"/>
+									<representation mediaType="text/xml" element="group-cfg:bucket"/>
+									<representation mediaType="application/json" element="group-cfg:bucket"/>
+									<representation mediaType="application/yang.data+xml" element="group-cfg:bucket"/>
+									<representation mediaType="application/yang.data+json" element="group-cfg:bucket"/>
+								</request>
+							</method>
+							<method name="POST">
+								<request>
+									<representation mediaType="application/xml" element="group-cfg:action"/>
+									<representation mediaType="text/xml" element="group-cfg:action"/>
+									<representation mediaType="application/json" element="group-cfg:action"/>
+									<representation mediaType="application/yang.data+xml" element="group-cfg:action"/>
+									<representation mediaType="application/yang.data+json" element="group-cfg:action"/>
+								</request>
+							</method>
+							<resource path="action/{order}">
+								<param required="true" style="template" name="order" type="int32"/>
+								<method name="GET">
+									<response>
+										<representation mediaType="application/xml" element="group-cfg:action"/>
+										<representation mediaType="text/xml" element="group-cfg:action"/>
+										<representation mediaType="application/json" element="group-cfg:action"/>
+										<representation mediaType="application/yang.data+xml" element="group-cfg:action"/>
+										<representation mediaType="application/yang.data+json" element="group-cfg:action"/>
+									</response>
+								</method>
+								<method name="DELETE" />
+								<method name="PUT">
+									<request>
+										<representation mediaType="application/xml" element="group-cfg:action"/>
+										<representation mediaType="text/xml" element="group-cfg:action"/>
+										<representation mediaType="application/json" element="group-cfg:action"/>
+										<representation mediaType="application/yang.data+xml" element="group-cfg:action"/>
+										<representation mediaType="application/yang.data+json" element="group-cfg:action"/>
+									</request>
+								</method>
+							</resource>
+						</resource>
+					</resource>
+				</resource>
+			</resource>
+		</resource>
+	</resources>
+</application>

@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: org.opendaylight.controller.md.sal.dom.store.impl.InMemoryDataStoreTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 1.165 sec - in org.opendaylight.controller.md.sal.dom.store.impl.InMemoryDataStoreTest

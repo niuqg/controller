@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="5.6">
+<file name="/home/bctx/odl/controller/opendaylight/web/root/src/main/java/org/opendaylight/controller/web/ControllerUISessionManager.java">
+</file>
+<file name="/home/bctx/odl/controller/opendaylight/web/root/src/main/java/org/opendaylight/controller/web/ClusterNodeBean.java">
+</file>
+<file name="/home/bctx/odl/controller/opendaylight/web/root/src/main/java/org/opendaylight/controller/web/QosWeb_sys.java">
+</file>
+<file name="/home/bctx/odl/controller/opendaylight/web/root/src/main/java/org/opendaylight/controller/web/NodeBean.java">
+</file>
+<file name="/home/bctx/odl/controller/opendaylight/web/root/src/main/java/org/opendaylight/controller/web/UserBean.java">
+</file>
+<file name="/home/bctx/odl/controller/opendaylight/web/root/src/main/java/org/opendaylight/controller/web/DaylightWebUtil.java">
+</file>
+<file name="/home/bctx/odl/controller/opendaylight/web/root/src/main/java/org/opendaylight/controller/web/QosWeb.java">
+</file>
+<file name="/home/bctx/odl/controller/opendaylight/web/root/src/main/java/org/opendaylight/controller/web/IDaylightWeb.java">
+</file>
+<file name="/home/bctx/odl/controller/opendaylight/web/root/src/main/java/org/opendaylight/controller/web/QosWeb_qos.java">
+</file>
+<file name="/home/bctx/odl/controller/opendaylight/web/root/src/main/java/org/opendaylight/controller/web/QosWeb_route.java">
+</file>
+<file name="/home/bctx/odl/controller/opendaylight/web/root/src/main/java/org/opendaylight/controller/web/DaylightWebAdmin.java">
+</file>
+<file name="/home/bctx/odl/controller/opendaylight/web/root/src/main/java/org/opendaylight/controller/web/DaylightWeb.java">
+</file>
+<file name="/home/bctx/odl/controller/opendaylight/web/root/src/main/resources/WEB-INF/jsp/topo.xml">
+</file>
+<file name="/home/bctx/odl/controller/opendaylight/web/root/src/main/resources/WEB-INF/spring/servlet/security.xml">
+</file>
+<file name="/home/bctx/odl/controller/opendaylight/web/root/src/main/resources/WEB-INF/RootGUI-servlet.xml">
+</file>
+<file name="/home/bctx/odl/controller/opendaylight/web/root/src/main/resources/WEB-INF/web.xml">
+</file>
+<file name="/home/bctx/odl/controller/opendaylight/web/root/pom.xml">
+</file>
+</checkstyle>

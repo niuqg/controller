@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>opendaylight-sal-dom-broker-impl</title>
+  </head>
+  <body>
+    <h1>opendaylight-sal-dom-broker-impl</h1>
+    
+    <h2>Base Information</h2>
+    <table>
+        <tr>
+            <td><strong>prefix</strong></td>
+            <td>binding-impl</td>
+        </tr>
+        <tr>
+            <td><strong>namespace</strong></td>
+            <td>urn:opendaylight:params:xml:ns:yang:controller:md:sal:dom:impl</td>
+        </tr>
+        <tr>
+            <td><strong>revision</strong></td>
+            <td>2013-10-28</td>
+        </tr>
+        <tr>
+            <td><strong>description</strong></td>
+            <td>Service definition for Binding Aware MD-SAL.</td>
+        </tr>
+        <tr>
+            <td><strong>yang-version</strong></td>
+            <td>1</td>
+        </tr>
+        <tr>
+    <td><strong>imports</strong></td><td>        sal:opendaylight-md-sal-dom;
+            common:opendaylight-md-sal-common;
+            config:config 2013-04-05;
+    </td>    </tr>
+    </table>
+    
+    <h3>Identities Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#dom-broker-impl"><strong>dom-broker-impl</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#dom-inmemory-data-broker"><strong>dom-inmemory-data-broker</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#hash-map-data-store"><strong>hash-map-data-store</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#schema-service-singleton"><strong>schema-service-singleton</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    <h3>Augmentations Summary</h3>
+    <table>
+        <tr>
+            <th>Target</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#/config:modules/config:module/config:configuration/(case)dom-inmemory-data-broker"><strong>/config:modules/config:module/config:configuration/(case)dom-inmemory-data-broker</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#/config:modules/config:module/config:state/(case)dom-broker-impl"><strong>/config:modules/config:module/config:state/(case)dom-broker-impl</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#/config:modules/config:module/config:configuration/(case)dom-broker-impl"><strong>/config:modules/config:module/config:configuration/(case)dom-broker-impl</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#/config:modules/config:module/config:state/(case)schema-service-singleton"><strong>/config:modules/config:module/config:state/(case)schema-service-singleton</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#/config:modules/config:module/config:state/(case)hash-map-data-store"><strong>/config:modules/config:module/config:state/(case)hash-map-data-store</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    
+    
+    <h2>Identities</h2>
+    <ul>
+    <li>
+        <h3 id="dom-broker-impl">dom-broker-impl</h3>
+        <ul>
+        <li>
+            base: module-type
+        </li>
+        </ul>
+    </li>
+    <li>
+        <h3 id="dom-inmemory-data-broker">dom-inmemory-data-broker</h3>
+        <ul>
+        <li>
+            base: module-type
+        </li>
+        </ul>
+    </li>
+    <li>
+        <h3 id="hash-map-data-store">hash-map-data-store</h3>
+        <ul>
+        <li>
+            base: module-type
+        </li>
+        </ul>
+    </li>
+    <li>
+        <h3 id="schema-service-singleton">schema-service-singleton</h3>
+        <ul>
+        <li>
+            base: module-type
+        </li>
+        </ul>
+    </li>
+    </ul>
+    
+    
+    
+    
+    
+    <h2>Augmentations</h2>
+    
+    <ul>
+    <li>
+        <h3 id="/config:modules/config:module/config:configuration/(case)dom-inmemory-data-broker">
+        Target [config:/config:modules/config:module/config:configuration/(case)dom-inmemory-data-broker]</h3>
+        <ul>
+        <strong>
+        <li id="modules/module/configuration/dom-inmemory-data-broker">
+            case: dom-inmemory-data-broker
+        </li>
+        </strong>
+        <ul>
+        <li>
+            when condition: /config:modules/config:module/config:type = 'dom-inmemory-data-broker'
+        </li>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong>
+        <li id="modules/module/configuration/dom-inmemory-data-broker/schema-service">
+            container: schema-service
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        <strong><li>
+            uses: config:service-ref
+        </li>
+        </strong>
+        <ul>
+        <li>refines:
+            <ul>
+            <li>
+                node name: type
+            </li>
+            </ul>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: name
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: leafref
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: type
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Type of the service being referenced. Users of this grouping
+                             should refine this leaf with required-identity pointing to
+                             the actual service-type which is actually required.
+        </li>
+        <li>
+            type: config:service-type-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+    </li>
+    <li>
+        <h3 id="/config:modules/config:module/config:state/(case)dom-broker-impl">
+        Target [config:/config:modules/config:module/config:state/(case)dom-broker-impl]</h3>
+        <ul>
+        <strong>
+        <li id="modules/module/state/dom-broker-impl">
+            case: dom-broker-impl
+        </li>
+        </strong>
+        <ul>
+        <li>
+            when condition: /config:modules/config:module/config:type = 'dom-broker-impl'
+        </li>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong>
+        <li id="modules/module/state/dom-broker-impl/data">
+            container: data
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        <strong><li>
+            uses: data-state
+        </li>
+        </strong>
+        <ul>
+        <li>refines:
+            <ul>
+            </ul>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong>
+        <li id="modules/module/state/dom-broker-impl/data/transactions">
+            container: transactions
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: created
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: failed
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: submitted
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: successful
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+    </li>
+    <li>
+        <h3 id="/config:modules/config:module/config:configuration/(case)dom-broker-impl">
+        Target [config:/config:modules/config:module/config:configuration/(case)dom-broker-impl]</h3>
+        <ul>
+        <strong>
+        <li id="modules/module/configuration/dom-broker-impl">
+            case: dom-broker-impl
+        </li>
+        </strong>
+        <ul>
+        <li>
+            when condition: /config:modules/config:module/config:type = 'dom-broker-impl'
+        </li>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong>
+        <li id="modules/module/configuration/dom-broker-impl/async-data-broker">
+            container: async-data-broker
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        <strong><li>
+            uses: config:service-ref
+        </li>
+        </strong>
+        <ul>
+        <li>refines:
+            <ul>
+            <li>
+                node name: type
+            </li>
+            </ul>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: name
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: leafref
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: type
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Type of the service being referenced. Users of this grouping
+                             should refine this leaf with required-identity pointing to
+                             the actual service-type which is actually required.
+        </li>
+        <li>
+            type: config:service-type-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="modules/module/configuration/dom-broker-impl/data-store">
+            container: data-store
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        <strong><li>
+            uses: config:service-ref
+        </li>
+        </strong>
+        <ul>
+        <li>refines:
+            <ul>
+            <li>
+                node name: type
+            </li>
+            </ul>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: name
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: leafref
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: type
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Type of the service being referenced. Users of this grouping
+                             should refine this leaf with required-identity pointing to
+                             the actual service-type which is actually required.
+        </li>
+        <li>
+            type: config:service-type-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+    </li>
+    <li>
+        <h3 id="/config:modules/config:module/config:state/(case)schema-service-singleton">
+        Target [config:/config:modules/config:module/config:state/(case)schema-service-singleton]</h3>
+        <ul>
+        <strong>
+        <li id="modules/module/state/schema-service-singleton">
+            case: schema-service-singleton
+        </li>
+        </strong>
+        <ul>
+        <li>
+            when condition: /config:modules/config:module/config:type = 'schema-service-singleton'
+        </li>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        </ul>
+    </li>
+    <li>
+        <h3 id="/config:modules/config:module/config:state/(case)hash-map-data-store">
+        Target [config:/config:modules/config:module/config:state/(case)hash-map-data-store]</h3>
+        <ul>
+        <strong>
+        <li id="modules/module/state/hash-map-data-store">
+            case: hash-map-data-store
+        </li>
+        </strong>
+        <ul>
+        <li>
+            when condition: /config:modules/config:module/config:type = 'hash-map-data-store'
+        </li>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        </ul>
+    </li>
+    </ul>
+    
+    
+    
+    
+  </body>
+</html>

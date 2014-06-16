@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>meter-management</title>
+  </head>
+  <body>
+    <h1>meter-management</h1>
+    
+    <h2>Base Information</h2>
+    <table>
+        <tr>
+            <td><strong>prefix</strong></td>
+            <td>meter-cfg</td>
+        </tr>
+        <tr>
+            <td><strong>namespace</strong></td>
+            <td>urn:opendaylight:meter:config</td>
+        </tr>
+        <tr>
+            <td><strong>revision</strong></td>
+            <td>2013-10-24</td>
+        </tr>
+        <tr>
+            <td><strong>description</strong></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><strong>yang-version</strong></td>
+            <td>1</td>
+        </tr>
+        <tr>
+    <td><strong>imports</strong></td><td>        meter:opendaylight-meter-types;
+            inv:opendaylight-inventory 2013-08-19;
+    </td>    </tr>
+    </table>
+    
+    <h3>Groupings Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#meter-entry"><strong>meter-entry</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    <h3>Child Nodes Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#meters"><strong>meters</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    
+    
+    
+    <h2>Groupings</h2>
+    <ul>
+    <li>
+        <h3 id="meter-entry">meter-entry</h3>
+        <ul>
+            <ul>
+            <strong><li>
+                leaf: barrier
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: If true, barrier message is sent
+            </li>
+            <li>
+                type: boolean
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: container-name
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Name of container
+            </li>
+            <li>
+                type: string
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: flags
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Meter configuration flags
+            </li>
+            <li>
+                type: meter:meter-flags
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="meter-entry/meter-band-headers">
+                container: meter-band-headers
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong>
+            <li id="meter-entry/meter-band-headers/meter-band-header">
+                list: meter-band-header
+            </li>
+            </strong>
+            <ul>
+            <li>
+                key definition: band-id
+            </li>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: meter:band-type
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: band-burst-size
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Size of bursts
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: band-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Meter band id
+            </li>
+            <li>
+                type: meter:band-id
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: band-rate
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Rate for this band
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="meter-entry/meter-band-headers/meter-band-header/band-type">
+                choice: band-type
+            </li>
+            </strong>
+            <ul>
+            <ul>
+            <strong>
+            <li id="meter-entry/meter-band-headers/meter-band-header/band-type/drop">
+                case: drop
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: drop-burst-size
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Size of bursts
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: drop-rate
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Rate for dropping packets
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="meter-entry/meter-band-headers/meter-band-header/band-type/dscp-remark">
+                case: dscp-remark
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: dscp-remark-burst-size
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Size of bursts
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: dscp-remark-rate
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Rate for remarking packets
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: perc_level
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Number of drop precedence level to add
+            </li>
+            <li>
+                type: uint8
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="meter-entry/meter-band-headers/meter-band-header/band-type/experimenter">
+                case: experimenter
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: experimenter
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Experimenter id
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: experimenter-burst-size
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Size of bursts
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: experimenter-rate
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Rate for remarking packets
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="meter-entry/meter-band-headers/meter-band-header/meter-band-types">
+                container: meter-band-types
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: flags
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Meter band flags
+            </li>
+            <li>
+                type: meter:meter-band-type
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: meter-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Meter instance
+            </li>
+            <li>
+                type: meter:meter-id
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: meter-name
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Name of meter instance
+            </li>
+            <li>
+                type: string
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: node
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: inv:node-ref
+            </li>
+            </ul>
+            </ul>
+        </ul>
+    </li>
+    </ul>
+    
+    <h2>Datastore Structure</h2>
+    <strong>meter-management</strong>
+    <ul>
+    <li>
+        <a href="#meters"><strong>meters</strong>
+        </a>
+        <ul>
+        <li>
+            <a href="#meters/meter"><strong>meter</strong> [id node]
+            </a>
+            <ul>
+            <li>
+                <i>barrier</i>(U)
+            </li>
+            <li>
+                <i>container-name</i>(U)
+            </li>
+            <li>
+                <i>flags</i>(U)
+            </li>
+            <li>
+                id
+            </li>
+            <li>
+                <a href="#meters/meter/meter-band-headers"><strong><i>meter-band-headers</i></strong>(U)
+                </a>
+                <ul>
+                <li>
+                    <a href="#meters/meter/meter-band-headers/meter-band-header"><strong><i>meter-band-header</i></strong> [band-id]
+                    (U)
+                    </a>
+                    <ul>
+                    <li>
+                        <i>band-burst-size</i>(U)
+                    </li>
+                    <li>
+                        <i>band-id</i>(U)
+                    </li>
+                    <li>
+                        <i>band-rate</i>(U)
+                    </li>
+                    <li>
+                        <i>band-type</i>(U)
+                         (choice)
+                        <ul>
+                        <li>
+                        <i>drop</i>(U)
+                        <ul>
+                        <li>
+                            <i>drop-burst-size</i>(U)
+                        </li>
+                        <li>
+                            <i>drop-rate</i>(U)
+                        </li>
+                        </ul>
+                        </li>
+                        <li>
+                        <i>dscp-remark</i>(U)
+                        <ul>
+                        <li>
+                            <i>dscp-remark-burst-size</i>(U)
+                        </li>
+                        <li>
+                            <i>dscp-remark-rate</i>(U)
+                        </li>
+                        <li>
+                            <i>perc_level</i>(U)
+                        </li>
+                        </ul>
+                        </li>
+                        <li>
+                        <i>experimenter</i>(U)
+                        <ul>
+                        <li>
+                            <i>experimenter</i>(U)
+                        </li>
+                        <li>
+                            <i>experimenter-burst-size</i>(U)
+                        </li>
+                        <li>
+                            <i>experimenter-rate</i>(U)
+                        </li>
+                        </ul>
+                        </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#meters/meter/meter-band-headers/meter-band-header/meter-band-types"><strong><i>meter-band-types</i></strong>(U)
+                        </a>
+                        <ul>
+                        <li>
+                            <i>flags</i>(U)
+                        </li>
+                        </ul>
+                    </li>
+                    </ul>
+                </li>
+                </ul>
+            </li>
+            <li>
+                <i>meter-id</i>(U)
+            </li>
+            <li>
+                <i>meter-name</i>(U)
+            </li>
+            <li>
+                <i>node</i>(U)
+            </li>
+            </ul>
+        </li>
+        </ul>
+    </li>
+    </ul>
+    
+    <h2>Child nodes</h2>
+    
+    <h3>Direct children</h3>
+    <ul>
+    <li><strong><a href="#meters">meters</a>
+    </strong> (container)</li>
+    </ul>
+    
+    <h3 id="meters">
+        meters
+    </h3>
+    <dl>
+      <dt>XML Path</dt>
+      <dd></dd>
+      <dt>Restconf path</dt>
+      <dd><code>meter-management:meters</code></dd>
+    </dl>
+    <h3>Direct children</h3>
+    <ul>
+    <li><strong><a href="#meters/meter">meter</a>
+    </strong> (list)</li>
+    </ul>
+    
+    <h3>XML example</h3>
+    <pre>
+        &lt;meters xmlns="urn:opendaylight:meter:config"&gt;<!-- Child nodes -->
+        <!-- meter -->
+            &lt!-- See <a href="#meters/meter">definition</a>
+             for child nodes.  --&gt
+            &lt!-- This node could appear multiple times --&gt
+            &lt;meter xmlns="urn:opendaylight:meter:config"&gt;...&lt;/meter&gt;
+        
+        &lt;/meters&gt;
+    </pre>
+    </h3>
+    <h3 id="meters/meter">
+        meters/meter
+    </h3>
+    <dl>
+      <dt>XML Path</dt>
+      <dd></dd>
+      <dt>Restconf path</dt>
+      <dd><code>meter-management:meters/meter/{id}/{node}</code></dd>
+    </dl>
+    <h3>Direct children</h3>
+    <ul>
+    <li><strong>barrier</strong> (leaf)</li>
+    <li><strong>container-name</strong> (leaf)</li>
+    <li><strong>flags</strong> (leaf)</li>
+    <li><strong>id</strong> (leaf)</li>
+    <li><strong>meter-id</strong> (leaf)</li>
+    <li><strong>meter-name</strong> (leaf)</li>
+    <li><strong>node</strong> (leaf)</li>
+    <li><strong><a href="#meters/meter/meter-band-headers">meter-band-headers</a>
+    </strong> (container)</li>
+    </ul>
+    
+    <h3>XML example</h3>
+    <pre>
+        &lt;meter xmlns="urn:opendaylight:meter:config"&gt;<!-- Child nodes -->
+        <!-- barrier -->
+            &lt;barrier xmlns="urn:opendaylight:meter:config"&gt;...&lt;/barrier&gt;
+        <!-- container-name -->
+            &lt;container-name xmlns="urn:opendaylight:meter:config"&gt;...&lt;/container-name&gt;
+        <!-- flags -->
+            &lt;flags xmlns="urn:opendaylight:meter:config"&gt;...&lt;/flags&gt;
+        <!-- id -->
+            &lt;id xmlns="urn:opendaylight:meter:config"&gt;...&lt;/id&gt;
+        <!-- meter-band-headers -->
+            &lt!-- See <a href="#meters/meter/meter-band-headers">definition</a>
+             for child nodes.  --&gt
+            &lt;meter-band-headers xmlns="urn:opendaylight:meter:config"&gt;...&lt;/meter-band-headers&gt;
+        <!-- meter-id -->
+            &lt;meter-id xmlns="urn:opendaylight:meter:config"&gt;...&lt;/meter-id&gt;
+        <!-- meter-name -->
+            &lt;meter-name xmlns="urn:opendaylight:meter:config"&gt;...&lt;/meter-name&gt;
+        <!-- node -->
+            &lt;node xmlns="urn:opendaylight:meter:config"&gt;...&lt;/node&gt;
+        
+        &lt;/meter&gt;
+    </pre>
+    </h3>
+    <h3 id="meters/meter/meter-band-headers">
+        meters/meter/meter-band-headers
+    </h3>
+    <dl>
+      <dt>XML Path</dt>
+      <dd></dd>
+      <dt>Restconf path</dt>
+      <dd><code>meter-management:meters/meter/{id}/{node}/meter-band-headers</code></dd>
+    </dl>
+    <h3>Direct children</h3>
+    <ul>
+    <li><strong><a href="#meters/meter/meter-band-headers/meter-band-header">meter-band-header</a>
+    </strong> (list)</li>
+    </ul>
+    
+    <h3>XML example</h3>
+    <pre>
+        &lt;meter-band-headers xmlns="urn:opendaylight:meter:config"&gt;<!-- Child nodes -->
+        <!-- meter-band-header -->
+            &lt!-- See <a href="#meters/meter/meter-band-headers/meter-band-header">definition</a>
+             for child nodes.  --&gt
+            &lt!-- This node could appear multiple times --&gt
+            &lt;meter-band-header xmlns="urn:opendaylight:meter:config"&gt;...&lt;/meter-band-header&gt;
+        
+        &lt;/meter-band-headers&gt;
+    </pre>
+    </h3>
+    <h3 id="meters/meter/meter-band-headers/meter-band-header">
+        meters/meter/meter-band-headers/meter-band-header
+    </h3>
+    <dl>
+      <dt>XML Path</dt>
+      <dd></dd>
+      <dt>Restconf path</dt>
+      <dd><code>meter-management:meters/meter/{id}/{node}/meter-band-headers/meter-band-header/{band-id}</code></dd>
+    </dl>
+    <h3>Direct children</h3>
+    <ul>
+    <li><strong>band-burst-size</strong> (leaf)</li>
+    <li><strong>band-id</strong> (leaf)</li>
+    <li><strong>band-rate</strong> (leaf)</li>
+    <li><strong><a href="#meters/meter/meter-band-headers/meter-band-header/meter-band-types">meter-band-types</a>
+    </strong> (container)</li>
+    </ul>
+    
+    <h3>XML example</h3>
+    <pre>
+        &lt;meter-band-header xmlns="urn:opendaylight:meter:config"&gt;<!-- Child nodes -->
+        <!-- band-burst-size -->
+            &lt;band-burst-size xmlns="urn:opendaylight:meter:config"&gt;...&lt;/band-burst-size&gt;
+        <!-- band-id -->
+            &lt;band-id xmlns="urn:opendaylight:meter:config"&gt;...&lt;/band-id&gt;
+        <!-- band-rate -->
+            &lt;band-rate xmlns="urn:opendaylight:meter:config"&gt;...&lt;/band-rate&gt;
+        <!-- band-type -->
+            <!-- noop -->
+        <!-- meter-band-types -->
+            &lt!-- See <a href="#meters/meter/meter-band-headers/meter-band-header/meter-band-types">definition</a>
+             for child nodes.  --&gt
+            &lt;meter-band-types xmlns="urn:opendaylight:meter:config"&gt;...&lt;/meter-band-types&gt;
+        
+        &lt;/meter-band-header&gt;
+    </pre>
+    </h3>
+    <h3 id="meters/meter/meter-band-headers/meter-band-header/meter-band-types">
+        meters/meter/meter-band-headers/meter-band-header/meter-band-types
+    </h3>
+    <dl>
+      <dt>XML Path</dt>
+      <dd></dd>
+      <dt>Restconf path</dt>
+      <dd><code>meter-management:meters/meter/{id}/{node}/meter-band-headers/meter-band-header/{band-id}/meter-band-types</code></dd>
+    </dl>
+    <h3>Direct children</h3>
+    <ul>
+    <li><strong>flags</strong> (leaf)</li>
+    </ul>
+    
+    <h3>XML example</h3>
+    <pre>
+        &lt;meter-band-types xmlns="urn:opendaylight:meter:config"&gt;<!-- Child nodes -->
+        <!-- flags -->
+            &lt;flags xmlns="urn:opendaylight:meter:config"&gt;...&lt;/flags&gt;
+        
+        &lt;/meter-band-types&gt;
+    </pre>
+    </h3>
+    
+    <h3>XML example</h3>
+    <pre>
+        &lt;meter-band-header xmlns="urn:opendaylight:meter:config"&gt;<!-- Child nodes -->
+        <!-- drop -->
+            <!-- noop -->
+        <!-- dscp-remark -->
+            <!-- noop -->
+        <!-- experimenter -->
+            <!-- noop -->
+        
+        &lt;/meter-band-header&gt;
+    </pre>
+    </h3>
+    <h3>Direct children</h3>
+    <ul>
+    <li><strong>drop-burst-size</strong> (leaf)</li>
+    <li><strong>drop-rate</strong> (leaf)</li>
+    </ul>
+    
+    <h3>XML example</h3>
+    <pre>
+        &lt;meter-band-header xmlns="urn:opendaylight:meter:config"&gt;<!-- Child nodes -->
+        <!-- drop-burst-size -->
+            &lt;drop-burst-size xmlns="urn:opendaylight:meter:config"&gt;...&lt;/drop-burst-size&gt;
+        <!-- drop-rate -->
+            &lt;drop-rate xmlns="urn:opendaylight:meter:config"&gt;...&lt;/drop-rate&gt;
+        
+        &lt;/meter-band-header&gt;
+    </pre>
+    </h3>
+    <h3>Direct children</h3>
+    <ul>
+    <li><strong>dscp-remark-burst-size</strong> (leaf)</li>
+    <li><strong>dscp-remark-rate</strong> (leaf)</li>
+    <li><strong>perc_level</strong> (leaf)</li>
+    </ul>
+    
+    <h3>XML example</h3>
+    <pre>
+        &lt;meter-band-header xmlns="urn:opendaylight:meter:config"&gt;<!-- Child nodes -->
+        <!-- dscp-remark-burst-size -->
+            &lt;dscp-remark-burst-size xmlns="urn:opendaylight:meter:config"&gt;...&lt;/dscp-remark-burst-size&gt;
+        <!-- dscp-remark-rate -->
+            &lt;dscp-remark-rate xmlns="urn:opendaylight:meter:config"&gt;...&lt;/dscp-remark-rate&gt;
+        <!-- perc_level -->
+            &lt;perc_level xmlns="urn:opendaylight:meter:config"&gt;...&lt;/perc_level&gt;
+        
+        &lt;/meter-band-header&gt;
+    </pre>
+    </h3>
+    <h3>Direct children</h3>
+    <ul>
+    <li><strong>experimenter</strong> (leaf)</li>
+    <li><strong>experimenter-burst-size</strong> (leaf)</li>
+    <li><strong>experimenter-rate</strong> (leaf)</li>
+    </ul>
+    
+    <h3>XML example</h3>
+    <pre>
+        &lt;meter-band-header xmlns="urn:opendaylight:meter:config"&gt;<!-- Child nodes -->
+        <!-- experimenter -->
+            &lt;experimenter xmlns="urn:opendaylight:meter:config"&gt;...&lt;/experimenter&gt;
+        <!-- experimenter-burst-size -->
+            &lt;experimenter-burst-size xmlns="urn:opendaylight:meter:config"&gt;...&lt;/experimenter-burst-size&gt;
+        <!-- experimenter-rate -->
+            &lt;experimenter-rate xmlns="urn:opendaylight:meter:config"&gt;...&lt;/experimenter-rate&gt;
+        
+        &lt;/meter-band-header&gt;
+    </pre>
+    </h3>
+    
+    
+    
+    
+    
+    
+  </body>
+</html>

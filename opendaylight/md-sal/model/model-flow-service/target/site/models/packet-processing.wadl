@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<application xmlns="http://wadl.dev.java.net/2009/02" xmlns:table-type="urn:opendaylight:table:types"
+xmlns:match-type="urn:opendaylight:model:match:types"
+xmlns:inv="urn:opendaylight:inventory"
+xmlns:yang="urn:ietf:params:xml:ns:yang:ietf-yang-types"
+xmlns:ext="urn:opendaylight:yang:extension:yang-ext"
+xmlns:flow-type="urn:opendaylight:flow:types"
+xmlns:types="urn:opendaylight:l2:types"
+xmlns:action-type="urn:opendaylight:action:types"
+ xmlns:flow="urn:opendaylight:packet:service">
+
+	<grammars>
+		<include href="packet-processing.yang"/>
+		<include href="opendaylight-table-types.yang"/>
+		<include href="opendaylight-match-types.yang"/>
+		<include href="opendaylight-inventory.yang"/>
+		<include href="ietf-yang-types.yang"/>
+		<include href="yang-ext.yang"/>
+		<include href="opendaylight-flow-types.yang"/>
+		<include href="opendaylight-l2-types.yang"/>
+		<include href="opendaylight-action-types.yang"/>
+	</grammars>
+	
+	<resources base="http://localhost:9998/restconf">
+		<resource path="operations">
+			<resource path="packet-processing:transmit-packet">
+				<method name="POST">
+					<request>
+						<representation mediaType="application/xml" element="input"/>
+						<representation mediaType="text/xml" element="input"/>
+						<representation mediaType="application/json" element="input"/>
+						<representation mediaType="application/yang.data+xml" element="input"/>
+						<representation mediaType="application/yang.data+json" element="input"/>
+					</request>
+				</method>
+			</resource>
+		</resource>
+	</resources>
+</application>

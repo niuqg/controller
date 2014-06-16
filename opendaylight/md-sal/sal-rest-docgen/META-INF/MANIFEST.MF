@@ -1,0 +1,35 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1402892724734
+Build-Jdk: 1.7.0_51
+Built-By: niu
+Bundle-Activator: org.opendaylight.controller.sal.rest.doc.DocProvider
+Bundle-ManifestVersion: 2
+Bundle-Name: MD SAL Rest Api Doc Generator
+Bundle-SymbolicName: org.opendaylight.controller.sal-rest-docgen
+Bundle-Version: 1.1.0.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Export-Package: org.opendaylight.controller.sal.rest.doc.jaxrs;uses:="co
+ m.fasterxml.jackson.databind,javax.ws.rs,javax.ws.rs.core,javax.ws.rs.e
+ xt";version="1.1.0.SNAPSHOT",org.opendaylight.controller.sal.rest.doc.m
+ odel.builder;uses:="org.opendaylight.controller.sal.rest.doc.swagger,or
+ g.opendaylight.yangtools.yang.model.api";version="1.1.0.SNAPSHOT",org.o
+ pendaylight.controller.sal.rest.doc.api;uses:="javax.ws.rs,javax.ws.rs.
+ core";version="1.1.0.SNAPSHOT",org.opendaylight.controller.sal.rest.doc
+ .swagger;uses:="org.json";version="1.1.0.SNAPSHOT",org.opendaylight.con
+ troller.sal.rest.doc;uses:="org.opendaylight.controller.sal.core.api,or
+ g.osgi.framework,org.osgi.util.tracker";version="1.1.0.SNAPSHOT"
+Import-Package: com.fasterxml.jackson.annotation;version="[2.3,3)",com.f
+ asterxml.jackson.databind;version="[2.3,3)",com.fasterxml.jackson.datat
+ ype.jsonorg;version="[2.3,3)",com.google.common.base;version="[14.0,15)
+ ",javax.ws.rs,javax.ws.rs.core,javax.ws.rs.ext,org.json,org.opendayligh
+ t.controller.sal.core.api,org.opendaylight.controller.sal.core.api.mode
+ l,org.opendaylight.controller.sal.rest.doc.api,org.opendaylight.control
+ ler.sal.rest.doc.model.builder,org.opendaylight.controller.sal.rest.doc
+ .swagger,org.opendaylight.yangtools.yang.common;version="[0.6,1)",org.o
+ pendaylight.yangtools.yang.model.api;version="[0.6,1)",org.opendaylight
+ .yangtools.yang.model.api.type;version="[0.6,1)",org.opendaylight.yangt
+ ools.yang.model.util;version="[0.6,1)",org.osgi.framework;version="[1.7
+ ,2)",org.osgi.util.tracker;version="[1.5,2)",org.slf4j;version="[1.7,2)
+ ",com.sun.jersey.spi.container.servlet
+Tool: Bnd-2.1.0.20130426-122213
+Web-ContextPath: /apidoc

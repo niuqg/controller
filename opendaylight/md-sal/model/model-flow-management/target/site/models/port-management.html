@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>port-management</title>
+  </head>
+  <body>
+    <h1>port-management</h1>
+    
+    <h2>Base Information</h2>
+    <table>
+        <tr>
+            <td><strong>prefix</strong></td>
+            <td>port-cfg</td>
+        </tr>
+        <tr>
+            <td><strong>namespace</strong></td>
+            <td>urn:opendaylight:port:config</td>
+        </tr>
+        <tr>
+            <td><strong>revision</strong></td>
+            <td>2013-10-24</td>
+        </tr>
+        <tr>
+            <td><strong>description</strong></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><strong>yang-version</strong></td>
+            <td>1</td>
+        </tr>
+        <tr>
+    <td><strong>imports</strong></td><td>        inv:opendaylight-inventory 2013-08-19;
+            port:opendaylight-port-types;
+    </td>    </tr>
+    </table>
+    
+    <h3>Groupings Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#port-entry"><strong>port-entry</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    <h3>Child Nodes Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#ports"><strong>ports</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    
+    
+    
+    <h2>Groupings</h2>
+    <ul>
+    <li>
+        <h3 id="port-entry">port-entry</h3>
+        <ul>
+            <ul>
+            <strong><li>
+                leaf: node
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: inv:node-ref
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="port-entry/port">
+                container: port
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong>
+            <li id="port-entry/port/port">
+                list: port
+            </li>
+            </strong>
+            <ul>
+            <li>
+                key definition: port-mod-order
+            </li>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: common-port
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: advertised-features
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Features being advertised by the port
+            </li>
+            <li>
+                type: port-features
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: barrier
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: boolean
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: configuration
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Bit map of OFPPC-* flags
+            </li>
+            <li>
+                type: port-config
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: container-name
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: string
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: hardware-address
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: MAC Address of the port
+            </li>
+            <li>
+                type: mac-address
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: mask
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Bitmap of OFPPC-* flags to be changed
+            </li>
+            <li>
+                type: port-config
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: port-mod-order
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: port-name
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: string
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: port-number
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+        </ul>
+    </li>
+    </ul>
+    
+    <h2>Datastore Structure</h2>
+    <strong>port-management</strong>
+    <ul>
+    <li>
+        <a href="#ports"><strong>ports</strong>
+        </a>
+        <ul>
+        <li>
+            <a href="#ports/port"><strong>port</strong> [id node]
+            </a>
+            <ul>
+            <li>
+                id
+            </li>
+            <li>
+                <i>node</i>(U)
+            </li>
+            <li>
+                <a href="#ports/port/port"><strong><i>port</i></strong>(U)
+                </a>
+                <ul>
+                <li>
+                    <a href="#ports/port/port/port"><strong><i>port</i></strong> [port-mod-order]
+                    (U)
+                    </a>
+                    <ul>
+                    <li>
+                        <i>advertised-features</i>(U)
+                    </li>
+                    <li>
+                        <i>barrier</i>(U)
+                    </li>
+                    <li>
+                        <i>configuration</i>(U)
+                    </li>
+                    <li>
+                        <i>container-name</i>(U)
+                    </li>
+                    <li>
+                        <i>hardware-address</i>(U)
+                    </li>
+                    <li>
+                        <i>mask</i>(U)
+                    </li>
+                    <li>
+                        <i>port-mod-order</i>(U)
+                    </li>
+                    <li>
+                        <i>port-name</i>(U)
+                    </li>
+                    <li>
+                        <i>port-number</i>(U)
+                    </li>
+                    </ul>
+                </li>
+                </ul>
+            </li>
+            </ul>
+        </li>
+        </ul>
+    </li>
+    </ul>
+    
+    <h2>Child nodes</h2>
+    
+    <h3>Direct children</h3>
+    <ul>
+    <li><strong><a href="#ports">ports</a>
+    </strong> (container)</li>
+    </ul>
+    
+    <h3 id="ports">
+        ports
+    </h3>
+    <dl>
+      <dt>XML Path</dt>
+      <dd></dd>
+      <dt>Restconf path</dt>
+      <dd><code>port-management:ports</code></dd>
+    </dl>
+    <h3>Direct children</h3>
+    <ul>
+    <li><strong><a href="#ports/port">port</a>
+    </strong> (list)</li>
+    </ul>
+    
+    <h3>XML example</h3>
+    <pre>
+        &lt;ports xmlns="urn:opendaylight:port:config"&gt;<!-- Child nodes -->
+        <!-- port -->
+            &lt!-- See <a href="#ports/port">definition</a>
+             for child nodes.  --&gt
+            &lt!-- This node could appear multiple times --&gt
+            &lt;port xmlns="urn:opendaylight:port:config"&gt;...&lt;/port&gt;
+        
+        &lt;/ports&gt;
+    </pre>
+    </h3>
+    <h3 id="ports/port">
+        ports/port
+    </h3>
+    <dl>
+      <dt>XML Path</dt>
+      <dd></dd>
+      <dt>Restconf path</dt>
+      <dd><code>port-management:ports/port/{id}/{node}</code></dd>
+    </dl>
+    <h3>Direct children</h3>
+    <ul>
+    <li><strong>id</strong> (leaf)</li>
+    <li><strong>node</strong> (leaf)</li>
+    <li><strong><a href="#ports/port/port">port</a>
+    </strong> (container)</li>
+    </ul>
+    
+    <h3>XML example</h3>
+    <pre>
+        &lt;port xmlns="urn:opendaylight:port:config"&gt;<!-- Child nodes -->
+        <!-- id -->
+            &lt;id xmlns="urn:opendaylight:port:config"&gt;...&lt;/id&gt;
+        <!-- node -->
+            &lt;node xmlns="urn:opendaylight:port:config"&gt;...&lt;/node&gt;
+        <!-- port -->
+            &lt!-- See <a href="#ports/port/port">definition</a>
+             for child nodes.  --&gt
+            &lt;port xmlns="urn:opendaylight:port:config"&gt;...&lt;/port&gt;
+        
+        &lt;/port&gt;
+    </pre>
+    </h3>
+    <h3 id="ports/port/port">
+        ports/port/port
+    </h3>
+    <dl>
+      <dt>XML Path</dt>
+      <dd></dd>
+      <dt>Restconf path</dt>
+      <dd><code>port-management:ports/port/{id}/{node}/port</code></dd>
+    </dl>
+    <h3>Direct children</h3>
+    <ul>
+    <li><strong><a href="#ports/port/port/port">port</a>
+    </strong> (list)</li>
+    </ul>
+    
+    <h3>XML example</h3>
+    <pre>
+        &lt;port xmlns="urn:opendaylight:port:config"&gt;<!-- Child nodes -->
+        <!-- port -->
+            &lt!-- See <a href="#ports/port/port/port">definition</a>
+             for child nodes.  --&gt
+            &lt!-- This node could appear multiple times --&gt
+            &lt;port xmlns="urn:opendaylight:port:config"&gt;...&lt;/port&gt;
+        
+        &lt;/port&gt;
+    </pre>
+    </h3>
+    <h3 id="ports/port/port/port">
+        ports/port/port/port
+    </h3>
+    <dl>
+      <dt>XML Path</dt>
+      <dd></dd>
+      <dt>Restconf path</dt>
+      <dd><code>port-management:ports/port/{id}/{node}/port/port/{port-mod-order}</code></dd>
+    </dl>
+    <h3>Direct children</h3>
+    <ul>
+    <li><strong>advertised-features</strong> (leaf)</li>
+    <li><strong>barrier</strong> (leaf)</li>
+    <li><strong>configuration</strong> (leaf)</li>
+    <li><strong>container-name</strong> (leaf)</li>
+    <li><strong>hardware-address</strong> (leaf)</li>
+    <li><strong>mask</strong> (leaf)</li>
+    <li><strong>port-mod-order</strong> (leaf)</li>
+    <li><strong>port-name</strong> (leaf)</li>
+    <li><strong>port-number</strong> (leaf)</li>
+    </ul>
+    
+    <h3>XML example</h3>
+    <pre>
+        &lt;port xmlns="urn:opendaylight:port:config"&gt;<!-- Child nodes -->
+        <!-- advertised-features -->
+            &lt;advertised-features xmlns="urn:opendaylight:port:config"&gt;...&lt;/advertised-features&gt;
+        <!-- barrier -->
+            &lt;barrier xmlns="urn:opendaylight:port:config"&gt;...&lt;/barrier&gt;
+        <!-- configuration -->
+            &lt;configuration xmlns="urn:opendaylight:port:config"&gt;...&lt;/configuration&gt;
+        <!-- container-name -->
+            &lt;container-name xmlns="urn:opendaylight:port:config"&gt;...&lt;/container-name&gt;
+        <!-- hardware-address -->
+            &lt;hardware-address xmlns="urn:opendaylight:port:config"&gt;...&lt;/hardware-address&gt;
+        <!-- mask -->
+            &lt;mask xmlns="urn:opendaylight:port:config"&gt;...&lt;/mask&gt;
+        <!-- port-mod-order -->
+            &lt;port-mod-order xmlns="urn:opendaylight:port:config"&gt;...&lt;/port-mod-order&gt;
+        <!-- port-name -->
+            &lt;port-name xmlns="urn:opendaylight:port:config"&gt;...&lt;/port-name&gt;
+        <!-- port-number -->
+            &lt;port-number xmlns="urn:opendaylight:port:config"&gt;...&lt;/port-number&gt;
+        
+        &lt;/port&gt;
+    </pre>
+    </h3>
+    
+    
+    
+    
+    
+    
+  </body>
+</html>

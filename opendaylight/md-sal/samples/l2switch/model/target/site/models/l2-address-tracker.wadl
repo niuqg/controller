@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<application xmlns="http://wadl.dev.java.net/2009/02" xmlns:yang="urn:ietf:params:xml:ns:yang:ietf-yang-types"
+xmlns:inv="urn:opendaylight:inventory"
+ xmlns:l2-address-tracker="urn:opendaylight:l2-address-tracker">
+
+	<grammars>
+		<include href="l2-address-tracker.yang"/>
+		<include href="ietf-yang-types.yang"/>
+		<include href="opendaylight-inventory.yang"/>
+	</grammars>
+	
+	<resources base="http://localhost:9998/restconf">
+		<resource path="operational">
+			<resource path="l2-address-tracker:l2-addresses">
+				<method name="GET">
+					<response>
+						<representation mediaType="application/xml" element="l2-address-tracker:l2-addresses"/>
+						<representation mediaType="text/xml" element="l2-address-tracker:l2-addresses"/>
+						<representation mediaType="application/json" element="l2-address-tracker:l2-addresses"/>
+						<representation mediaType="application/yang.data+xml" element="l2-address-tracker:l2-addresses"/>
+						<representation mediaType="application/yang.data+json" element="l2-address-tracker:l2-addresses"/>
+					</response>
+				</method>
+				<resource path="l2-address/{mac}">
+					<param required="true" style="template" name="mac" type="l2-address-tracker:mac-address"/>
+					<method name="GET">
+						<response>
+							<representation mediaType="application/xml" element="l2-address-tracker:l2-address"/>
+							<representation mediaType="text/xml" element="l2-address-tracker:l2-address"/>
+							<representation mediaType="application/json" element="l2-address-tracker:l2-address"/>
+							<representation mediaType="application/yang.data+xml" element="l2-address-tracker:l2-address"/>
+							<representation mediaType="application/yang.data+json" element="l2-address-tracker:l2-address"/>
+						</response>
+					</method>
+				</resource>
+			</resource>
+		</resource>
+	</resources>
+</application>

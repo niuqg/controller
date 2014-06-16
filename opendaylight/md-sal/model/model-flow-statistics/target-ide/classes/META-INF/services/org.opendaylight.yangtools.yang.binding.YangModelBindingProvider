@@ -1,0 +1,7 @@
+org.opendaylight.yang.gen.v1.urn.opendaylight.model.statistics.types.rev130925.$YangModelBindingProvider
+org.opendaylight.yang.gen.v1.urn.opendaylight.group.statistics.rev131111.$YangModelBindingProvider
+org.opendaylight.yang.gen.v1.urn.opendaylight.meter.statistics.rev131111.$YangModelBindingProvider
+org.opendaylight.yang.gen.v1.urn.opendaylight.queue.statistics.rev131216.$YangModelBindingProvider
+org.opendaylight.yang.gen.v1.urn.opendaylight.flow.statistics.rev130819.$YangModelBindingProvider
+org.opendaylight.yang.gen.v1.urn.opendaylight.port.statistics.rev131214.$YangModelBindingProvider
+org.opendaylight.yang.gen.v1.urn.opendaylight.flow.table.statistics.rev131215.$YangModelBindingProvider

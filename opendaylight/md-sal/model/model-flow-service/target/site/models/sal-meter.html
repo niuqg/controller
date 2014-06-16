@@ -1,0 +1,4370 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>sal-meter</title>
+  </head>
+  <body>
+    <h1>sal-meter</h1>
+    
+    <h2>Base Information</h2>
+    <table>
+        <tr>
+            <td><strong>prefix</strong></td>
+            <td>meter</td>
+        </tr>
+        <tr>
+            <td><strong>namespace</strong></td>
+            <td>urn:opendaylight:meter:service</td>
+        </tr>
+        <tr>
+            <td><strong>revision</strong></td>
+            <td>2013-09-18</td>
+        </tr>
+        <tr>
+            <td><strong>description</strong></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><strong>yang-version</strong></td>
+            <td>1</td>
+        </tr>
+        <tr>
+    <td><strong>imports</strong></td><td>        inv:opendaylight-inventory 2013-08-19;
+            tr:flow-capable-transaction;
+            meter-type:opendaylight-meter-types 2013-09-18;
+    </td>    </tr>
+    </table>
+    
+    <h3>Groupings Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#meter-update"><strong>meter-update</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#node-meter"><strong>node-meter</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    <h3>Notifications Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#meter-added"><strong>meter-added</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#meter-removed"><strong>meter-removed</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#meter-updated"><strong>meter-updated</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    <h3>RPCs Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#add-meter"><strong>add-meter</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#remove-meter"><strong>remove-meter</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#update-meter"><strong>update-meter</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    
+    
+    
+    <h2>Groupings</h2>
+    <ul>
+    <li>
+        <h3 id="meter-update">meter-update</h3>
+        <ul>
+            <ul>
+            <strong><li>
+                leaf: node
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: inv:node-ref
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="meter-update/original-meter">
+                container: original-meter
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: <a href="#meter">meter</a>
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: barrier
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: If true, barrier message is sent
+            </li>
+            <li>
+                type: boolean
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: container-name
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Name of container
+            </li>
+            <li>
+                type: string
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: flags
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Meter configuration flags
+            </li>
+            <li>
+                type: <a href="#meter-flags">meter-flags</a>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="meter-update/original-meter/meter-band-headers">
+                container: meter-band-headers
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong>
+            <li id="meter-update/original-meter/meter-band-headers/meter-band-header">
+                list: meter-band-header
+            </li>
+            </strong>
+            <ul>
+            <li>
+                key definition: band-id
+            </li>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: <a href="#band-type">band-type</a>
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: band-burst-size
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Size of bursts
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: band-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Meter band id
+            </li>
+            <li>
+                type: <a href="#band-id">band-id</a>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: band-rate
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Rate for this band
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="meter-update/original-meter/meter-band-headers/meter-band-header/band-type">
+                choice: band-type
+            </li>
+            </strong>
+            <ul>
+            <ul>
+            <strong>
+            <li id="meter-update/original-meter/meter-band-headers/meter-band-header/band-type/drop">
+                case: drop
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: drop-burst-size
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Size of bursts
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: drop-rate
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Rate for dropping packets
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="meter-update/original-meter/meter-band-headers/meter-band-header/band-type/dscp-remark">
+                case: dscp-remark
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: dscp-remark-burst-size
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Size of bursts
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: dscp-remark-rate
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Rate for remarking packets
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: perc_level
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Number of drop precedence level to add
+            </li>
+            <li>
+                type: uint8
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="meter-update/original-meter/meter-band-headers/meter-band-header/band-type/experimenter">
+                case: experimenter
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: experimenter
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Experimenter id
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: experimenter-burst-size
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Size of bursts
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: experimenter-rate
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Rate for remarking packets
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="meter-update/original-meter/meter-band-headers/meter-band-header/meter-band-types">
+                container: meter-band-types
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: flags
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Meter band flags
+            </li>
+            <li>
+                type: <a href="#meter-band-type">meter-band-type</a>
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: meter-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Meter instance
+            </li>
+            <li>
+                type: <a href="#meter-id">meter-id</a>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: meter-name
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Name of meter instance
+            </li>
+            <li>
+                type: string
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="meter-update/updated-meter">
+                container: updated-meter
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: <a href="#meter">meter</a>
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: barrier
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: If true, barrier message is sent
+            </li>
+            <li>
+                type: boolean
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: container-name
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Name of container
+            </li>
+            <li>
+                type: string
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: flags
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Meter configuration flags
+            </li>
+            <li>
+                type: <a href="#meter-flags">meter-flags</a>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="meter-update/updated-meter/meter-band-headers">
+                container: meter-band-headers
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong>
+            <li id="meter-update/updated-meter/meter-band-headers/meter-band-header">
+                list: meter-band-header
+            </li>
+            </strong>
+            <ul>
+            <li>
+                key definition: band-id
+            </li>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: <a href="#band-type">band-type</a>
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: band-burst-size
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Size of bursts
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: band-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Meter band id
+            </li>
+            <li>
+                type: <a href="#band-id">band-id</a>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: band-rate
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Rate for this band
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="meter-update/updated-meter/meter-band-headers/meter-band-header/band-type">
+                choice: band-type
+            </li>
+            </strong>
+            <ul>
+            <ul>
+            <strong>
+            <li id="meter-update/updated-meter/meter-band-headers/meter-band-header/band-type/drop">
+                case: drop
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: drop-burst-size
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Size of bursts
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: drop-rate
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Rate for dropping packets
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="meter-update/updated-meter/meter-band-headers/meter-band-header/band-type/dscp-remark">
+                case: dscp-remark
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: dscp-remark-burst-size
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Size of bursts
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: dscp-remark-rate
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Rate for remarking packets
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: perc_level
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Number of drop precedence level to add
+            </li>
+            <li>
+                type: uint8
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="meter-update/updated-meter/meter-band-headers/meter-band-header/band-type/experimenter">
+                case: experimenter
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: experimenter
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Experimenter id
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: experimenter-burst-size
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Size of bursts
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: experimenter-rate
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Rate for remarking packets
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="meter-update/updated-meter/meter-band-headers/meter-band-header/meter-band-types">
+                container: meter-band-types
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: flags
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Meter band flags
+            </li>
+            <li>
+                type: <a href="#meter-band-type">meter-band-type</a>
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: meter-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Meter instance
+            </li>
+            <li>
+                type: <a href="#meter-id">meter-id</a>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: meter-name
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Name of meter instance
+            </li>
+            <li>
+                type: string
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+        </ul>
+    </li>
+    <li>
+        <h3 id="node-meter">node-meter</h3>
+        <ul>
+            <ul>
+            <strong><li>
+                leaf: barrier
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: If true, barrier message is sent
+            </li>
+            <li>
+                type: boolean
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: container-name
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Name of container
+            </li>
+            <li>
+                type: string
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: flags
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Meter configuration flags
+            </li>
+            <li>
+                type: <a href="#meter-flags">meter-flags</a>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="node-meter/meter-band-headers">
+                container: meter-band-headers
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong>
+            <li id="node-meter/meter-band-headers/meter-band-header">
+                list: meter-band-header
+            </li>
+            </strong>
+            <ul>
+            <li>
+                key definition: band-id
+            </li>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: <a href="#band-type">band-type</a>
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: band-burst-size
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Size of bursts
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: band-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Meter band id
+            </li>
+            <li>
+                type: <a href="#band-id">band-id</a>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: band-rate
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Rate for this band
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="node-meter/meter-band-headers/meter-band-header/band-type">
+                choice: band-type
+            </li>
+            </strong>
+            <ul>
+            <ul>
+            <strong>
+            <li id="node-meter/meter-band-headers/meter-band-header/band-type/drop">
+                case: drop
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: drop-burst-size
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Size of bursts
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: drop-rate
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Rate for dropping packets
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="node-meter/meter-band-headers/meter-band-header/band-type/dscp-remark">
+                case: dscp-remark
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: dscp-remark-burst-size
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Size of bursts
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: dscp-remark-rate
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Rate for remarking packets
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: perc_level
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Number of drop precedence level to add
+            </li>
+            <li>
+                type: uint8
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="node-meter/meter-band-headers/meter-band-header/band-type/experimenter">
+                case: experimenter
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: experimenter
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Experimenter id
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: experimenter-burst-size
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Size of bursts
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: experimenter-rate
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Rate for remarking packets
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="node-meter/meter-band-headers/meter-band-header/meter-band-types">
+                container: meter-band-types
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: flags
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Meter band flags
+            </li>
+            <li>
+                type: <a href="#meter-band-type">meter-band-type</a>
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: meter-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Meter instance
+            </li>
+            <li>
+                type: <a href="#meter-id">meter-id</a>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: meter-name
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Name of meter instance
+            </li>
+            <li>
+                type: string
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: node
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: inv:node-ref
+            </li>
+            </ul>
+            </ul>
+        </ul>
+    </li>
+    </ul>
+    
+    
+    
+    <h2>Notifications</h2>
+    
+    <h3 id="meter-added">meter-added
+    </h3>
+        <ul>
+        <strong><li>
+            leaf: barrier
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: If true, barrier message is sent
+        </li>
+        <li>
+            type: boolean
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: container-name
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Name of container
+        </li>
+        <li>
+            type: string
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: flags
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Meter configuration flags
+        </li>
+        <li>
+            type: <a href="#meter-flags">meter-flags</a>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="meter-added/meter-band-headers">
+            container: meter-band-headers
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong>
+        <li id="meter-added/meter-band-headers/meter-band-header">
+            list: meter-band-header
+        </li>
+        </strong>
+        <ul>
+        <li>
+            key definition: band-id
+        </li>
+        </ul>
+        <ul>
+        <strong><li>
+            uses: <a href="#band-type">band-type</a>
+        </li>
+        </strong>
+        <ul>
+        <li>refines:
+            <ul>
+            </ul>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: band-burst-size
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Size of bursts
+        </li>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: band-id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Meter band id
+        </li>
+        <li>
+            type: <a href="#band-id">band-id</a>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: band-rate
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Rate for this band
+        </li>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="meter-added/meter-band-headers/meter-band-header/band-type">
+            choice: band-type
+        </li>
+        </strong>
+        <ul>
+        <ul>
+        <strong>
+        <li id="meter-added/meter-band-headers/meter-band-header/band-type/drop">
+            case: drop
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: drop-burst-size
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Size of bursts
+        </li>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: drop-rate
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Rate for dropping packets
+        </li>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="meter-added/meter-band-headers/meter-band-header/band-type/dscp-remark">
+            case: dscp-remark
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: dscp-remark-burst-size
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Size of bursts
+        </li>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: dscp-remark-rate
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Rate for remarking packets
+        </li>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: perc_level
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Number of drop precedence level to add
+        </li>
+        <li>
+            type: uint8
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="meter-added/meter-band-headers/meter-band-header/band-type/experimenter">
+            case: experimenter
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: experimenter
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Experimenter id
+        </li>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: experimenter-burst-size
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Size of bursts
+        </li>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: experimenter-rate
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Rate for remarking packets
+        </li>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="meter-added/meter-band-headers/meter-band-header/meter-band-types">
+            container: meter-band-types
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: flags
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Meter band flags
+        </li>
+        <li>
+            type: <a href="#meter-band-type">meter-band-type</a>
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: meter-id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Meter instance
+        </li>
+        <li>
+            type: <a href="#meter-id">meter-id</a>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: meter-name
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Name of meter instance
+        </li>
+        <li>
+            type: string
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: meter-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: <a href="#meter-ref">meter-ref</a>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: node
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inv:node-ref
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transaction-id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: transaction-id
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transaction-uri
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inet:uri
+        </li>
+        </ul>
+        </ul>
+    
+    <h3 id="meter-removed">meter-removed
+    </h3>
+        <ul>
+        <strong><li>
+            leaf: barrier
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: If true, barrier message is sent
+        </li>
+        <li>
+            type: boolean
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: container-name
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Name of container
+        </li>
+        <li>
+            type: string
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: flags
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Meter configuration flags
+        </li>
+        <li>
+            type: <a href="#meter-flags">meter-flags</a>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="meter-removed/meter-band-headers">
+            container: meter-band-headers
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong>
+        <li id="meter-removed/meter-band-headers/meter-band-header">
+            list: meter-band-header
+        </li>
+        </strong>
+        <ul>
+        <li>
+            key definition: band-id
+        </li>
+        </ul>
+        <ul>
+        <strong><li>
+            uses: <a href="#band-type">band-type</a>
+        </li>
+        </strong>
+        <ul>
+        <li>refines:
+            <ul>
+            </ul>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: band-burst-size
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Size of bursts
+        </li>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: band-id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Meter band id
+        </li>
+        <li>
+            type: <a href="#band-id">band-id</a>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: band-rate
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Rate for this band
+        </li>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="meter-removed/meter-band-headers/meter-band-header/band-type">
+            choice: band-type
+        </li>
+        </strong>
+        <ul>
+        <ul>
+        <strong>
+        <li id="meter-removed/meter-band-headers/meter-band-header/band-type/drop">
+            case: drop
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: drop-burst-size
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Size of bursts
+        </li>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: drop-rate
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Rate for dropping packets
+        </li>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="meter-removed/meter-band-headers/meter-band-header/band-type/dscp-remark">
+            case: dscp-remark
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: dscp-remark-burst-size
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Size of bursts
+        </li>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: dscp-remark-rate
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Rate for remarking packets
+        </li>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: perc_level
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Number of drop precedence level to add
+        </li>
+        <li>
+            type: uint8
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="meter-removed/meter-band-headers/meter-band-header/band-type/experimenter">
+            case: experimenter
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: experimenter
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Experimenter id
+        </li>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: experimenter-burst-size
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Size of bursts
+        </li>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: experimenter-rate
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Rate for remarking packets
+        </li>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="meter-removed/meter-band-headers/meter-band-header/meter-band-types">
+            container: meter-band-types
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: flags
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Meter band flags
+        </li>
+        <li>
+            type: <a href="#meter-band-type">meter-band-type</a>
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: meter-id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Meter instance
+        </li>
+        <li>
+            type: <a href="#meter-id">meter-id</a>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: meter-name
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Name of meter instance
+        </li>
+        <li>
+            type: string
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: meter-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: <a href="#meter-ref">meter-ref</a>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: node
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inv:node-ref
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transaction-id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: transaction-id
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transaction-uri
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inet:uri
+        </li>
+        </ul>
+        </ul>
+    
+    <h3 id="meter-updated">meter-updated
+    </h3>
+        <ul>
+        <strong><li>
+            leaf: barrier
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: If true, barrier message is sent
+        </li>
+        <li>
+            type: boolean
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: container-name
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Name of container
+        </li>
+        <li>
+            type: string
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: flags
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Meter configuration flags
+        </li>
+        <li>
+            type: <a href="#meter-flags">meter-flags</a>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="meter-updated/meter-band-headers">
+            container: meter-band-headers
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong>
+        <li id="meter-updated/meter-band-headers/meter-band-header">
+            list: meter-band-header
+        </li>
+        </strong>
+        <ul>
+        <li>
+            key definition: band-id
+        </li>
+        </ul>
+        <ul>
+        <strong><li>
+            uses: <a href="#band-type">band-type</a>
+        </li>
+        </strong>
+        <ul>
+        <li>refines:
+            <ul>
+            </ul>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: band-burst-size
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Size of bursts
+        </li>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: band-id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Meter band id
+        </li>
+        <li>
+            type: <a href="#band-id">band-id</a>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: band-rate
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Rate for this band
+        </li>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="meter-updated/meter-band-headers/meter-band-header/band-type">
+            choice: band-type
+        </li>
+        </strong>
+        <ul>
+        <ul>
+        <strong>
+        <li id="meter-updated/meter-band-headers/meter-band-header/band-type/drop">
+            case: drop
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: drop-burst-size
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Size of bursts
+        </li>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: drop-rate
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Rate for dropping packets
+        </li>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="meter-updated/meter-band-headers/meter-band-header/band-type/dscp-remark">
+            case: dscp-remark
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: dscp-remark-burst-size
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Size of bursts
+        </li>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: dscp-remark-rate
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Rate for remarking packets
+        </li>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: perc_level
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Number of drop precedence level to add
+        </li>
+        <li>
+            type: uint8
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="meter-updated/meter-band-headers/meter-band-header/band-type/experimenter">
+            case: experimenter
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: experimenter
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Experimenter id
+        </li>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: experimenter-burst-size
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Size of bursts
+        </li>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: experimenter-rate
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Rate for remarking packets
+        </li>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="meter-updated/meter-band-headers/meter-band-header/meter-band-types">
+            container: meter-band-types
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: flags
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Meter band flags
+        </li>
+        <li>
+            type: <a href="#meter-band-type">meter-band-type</a>
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: meter-id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Meter instance
+        </li>
+        <li>
+            type: <a href="#meter-id">meter-id</a>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: meter-name
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Name of meter instance
+        </li>
+        <li>
+            type: string
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: meter-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: <a href="#meter-ref">meter-ref</a>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: node
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inv:node-ref
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transaction-id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: transaction-id
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transaction-uri
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inet:uri
+        </li>
+        </ul>
+        </ul>
+    
+    
+    <h2>RPC Definitions</h2>
+    <h3 id="add-meter">add-meter
+    </h3>
+        <ul>
+            <ul>
+            <strong>
+            <li id="add-meter/input">
+                container: input
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: <a href="#node-meter">node-meter</a>
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            <strong><li>
+                uses: transaction-metadata
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: barrier
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: If true, barrier message is sent
+            </li>
+            <li>
+                type: boolean
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: container-name
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Name of container
+            </li>
+            <li>
+                type: string
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: flags
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Meter configuration flags
+            </li>
+            <li>
+                type: <a href="#meter-flags">meter-flags</a>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="add-meter/input/meter-band-headers">
+                container: meter-band-headers
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong>
+            <li id="add-meter/input/meter-band-headers/meter-band-header">
+                list: meter-band-header
+            </li>
+            </strong>
+            <ul>
+            <li>
+                key definition: band-id
+            </li>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: <a href="#band-type">band-type</a>
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: band-burst-size
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Size of bursts
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: band-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Meter band id
+            </li>
+            <li>
+                type: <a href="#band-id">band-id</a>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: band-rate
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Rate for this band
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="add-meter/input/meter-band-headers/meter-band-header/band-type">
+                choice: band-type
+            </li>
+            </strong>
+            <ul>
+            <ul>
+            <strong>
+            <li id="add-meter/input/meter-band-headers/meter-band-header/band-type/drop">
+                case: drop
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: drop-burst-size
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Size of bursts
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: drop-rate
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Rate for dropping packets
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="add-meter/input/meter-band-headers/meter-band-header/band-type/dscp-remark">
+                case: dscp-remark
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: dscp-remark-burst-size
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Size of bursts
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: dscp-remark-rate
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Rate for remarking packets
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: perc_level
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Number of drop precedence level to add
+            </li>
+            <li>
+                type: uint8
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="add-meter/input/meter-band-headers/meter-band-header/band-type/experimenter">
+                case: experimenter
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: experimenter
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Experimenter id
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: experimenter-burst-size
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Size of bursts
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: experimenter-rate
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Rate for remarking packets
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="add-meter/input/meter-band-headers/meter-band-header/meter-band-types">
+                container: meter-band-types
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: flags
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Meter band flags
+            </li>
+            <li>
+                type: <a href="#meter-band-type">meter-band-type</a>
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: meter-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Meter instance
+            </li>
+            <li>
+                type: <a href="#meter-id">meter-id</a>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: meter-name
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Name of meter instance
+            </li>
+            <li>
+                type: string
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: meter-ref
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: <a href="#meter-ref">meter-ref</a>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: node
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: inv:node-ref
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transaction-uri
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: inet:uri
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="add-meter/output">
+                container: output
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: transaction-aware
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: transaction-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: transaction-id
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+        </ul>
+    <h3 id="remove-meter">remove-meter
+    </h3>
+        <ul>
+            <ul>
+            <strong>
+            <li id="remove-meter/input">
+                container: input
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: <a href="#node-meter">node-meter</a>
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            <strong><li>
+                uses: transaction-metadata
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: barrier
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: If true, barrier message is sent
+            </li>
+            <li>
+                type: boolean
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: container-name
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Name of container
+            </li>
+            <li>
+                type: string
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: flags
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Meter configuration flags
+            </li>
+            <li>
+                type: <a href="#meter-flags">meter-flags</a>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="remove-meter/input/meter-band-headers">
+                container: meter-band-headers
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong>
+            <li id="remove-meter/input/meter-band-headers/meter-band-header">
+                list: meter-band-header
+            </li>
+            </strong>
+            <ul>
+            <li>
+                key definition: band-id
+            </li>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: <a href="#band-type">band-type</a>
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: band-burst-size
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Size of bursts
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: band-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Meter band id
+            </li>
+            <li>
+                type: <a href="#band-id">band-id</a>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: band-rate
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Rate for this band
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="remove-meter/input/meter-band-headers/meter-band-header/band-type">
+                choice: band-type
+            </li>
+            </strong>
+            <ul>
+            <ul>
+            <strong>
+            <li id="remove-meter/input/meter-band-headers/meter-band-header/band-type/drop">
+                case: drop
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: drop-burst-size
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Size of bursts
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: drop-rate
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Rate for dropping packets
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="remove-meter/input/meter-band-headers/meter-band-header/band-type/dscp-remark">
+                case: dscp-remark
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: dscp-remark-burst-size
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Size of bursts
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: dscp-remark-rate
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Rate for remarking packets
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: perc_level
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Number of drop precedence level to add
+            </li>
+            <li>
+                type: uint8
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="remove-meter/input/meter-band-headers/meter-band-header/band-type/experimenter">
+                case: experimenter
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: experimenter
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Experimenter id
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: experimenter-burst-size
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Size of bursts
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: experimenter-rate
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Rate for remarking packets
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="remove-meter/input/meter-band-headers/meter-band-header/meter-band-types">
+                container: meter-band-types
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: flags
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Meter band flags
+            </li>
+            <li>
+                type: <a href="#meter-band-type">meter-band-type</a>
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: meter-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Meter instance
+            </li>
+            <li>
+                type: <a href="#meter-id">meter-id</a>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: meter-name
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Name of meter instance
+            </li>
+            <li>
+                type: string
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: meter-ref
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: <a href="#meter-ref">meter-ref</a>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: node
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: inv:node-ref
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transaction-uri
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: inet:uri
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="remove-meter/output">
+                container: output
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: transaction-aware
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: transaction-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: transaction-id
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+        </ul>
+    <h3 id="update-meter">update-meter
+    </h3>
+        <ul>
+            <ul>
+            <strong>
+            <li id="update-meter/input">
+                container: input
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: <a href="#meter-update">meter-update</a>
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            <strong><li>
+                uses: transaction-metadata
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: meter-ref
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: <a href="#meter-ref">meter-ref</a>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: node
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: inv:node-ref
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="update-meter/input/original-meter">
+                container: original-meter
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: <a href="#meter">meter</a>
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: barrier
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: If true, barrier message is sent
+            </li>
+            <li>
+                type: boolean
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: container-name
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Name of container
+            </li>
+            <li>
+                type: string
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: flags
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Meter configuration flags
+            </li>
+            <li>
+                type: <a href="#meter-flags">meter-flags</a>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="update-meter/input/original-meter/meter-band-headers">
+                container: meter-band-headers
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong>
+            <li id="update-meter/input/original-meter/meter-band-headers/meter-band-header">
+                list: meter-band-header
+            </li>
+            </strong>
+            <ul>
+            <li>
+                key definition: band-id
+            </li>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: <a href="#band-type">band-type</a>
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: band-burst-size
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Size of bursts
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: band-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Meter band id
+            </li>
+            <li>
+                type: <a href="#band-id">band-id</a>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: band-rate
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Rate for this band
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="update-meter/input/original-meter/meter-band-headers/meter-band-header/band-type">
+                choice: band-type
+            </li>
+            </strong>
+            <ul>
+            <ul>
+            <strong>
+            <li id="update-meter/input/original-meter/meter-band-headers/meter-band-header/band-type/drop">
+                case: drop
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: drop-burst-size
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Size of bursts
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: drop-rate
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Rate for dropping packets
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="update-meter/input/original-meter/meter-band-headers/meter-band-header/band-type/dscp-remark">
+                case: dscp-remark
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: dscp-remark-burst-size
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Size of bursts
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: dscp-remark-rate
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Rate for remarking packets
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: perc_level
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Number of drop precedence level to add
+            </li>
+            <li>
+                type: uint8
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="update-meter/input/original-meter/meter-band-headers/meter-band-header/band-type/experimenter">
+                case: experimenter
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: experimenter
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Experimenter id
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: experimenter-burst-size
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Size of bursts
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: experimenter-rate
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Rate for remarking packets
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="update-meter/input/original-meter/meter-band-headers/meter-band-header/meter-band-types">
+                container: meter-band-types
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: flags
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Meter band flags
+            </li>
+            <li>
+                type: <a href="#meter-band-type">meter-band-type</a>
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: meter-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Meter instance
+            </li>
+            <li>
+                type: <a href="#meter-id">meter-id</a>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: meter-name
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Name of meter instance
+            </li>
+            <li>
+                type: string
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transaction-uri
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: inet:uri
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="update-meter/input/updated-meter">
+                container: updated-meter
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: <a href="#meter">meter</a>
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: barrier
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: If true, barrier message is sent
+            </li>
+            <li>
+                type: boolean
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: container-name
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Name of container
+            </li>
+            <li>
+                type: string
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: flags
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Meter configuration flags
+            </li>
+            <li>
+                type: <a href="#meter-flags">meter-flags</a>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="update-meter/input/updated-meter/meter-band-headers">
+                container: meter-band-headers
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong>
+            <li id="update-meter/input/updated-meter/meter-band-headers/meter-band-header">
+                list: meter-band-header
+            </li>
+            </strong>
+            <ul>
+            <li>
+                key definition: band-id
+            </li>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: <a href="#band-type">band-type</a>
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: band-burst-size
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Size of bursts
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: band-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Meter band id
+            </li>
+            <li>
+                type: <a href="#band-id">band-id</a>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: band-rate
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Rate for this band
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="update-meter/input/updated-meter/meter-band-headers/meter-band-header/band-type">
+                choice: band-type
+            </li>
+            </strong>
+            <ul>
+            <ul>
+            <strong>
+            <li id="update-meter/input/updated-meter/meter-band-headers/meter-band-header/band-type/drop">
+                case: drop
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: drop-burst-size
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Size of bursts
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: drop-rate
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Rate for dropping packets
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="update-meter/input/updated-meter/meter-band-headers/meter-band-header/band-type/dscp-remark">
+                case: dscp-remark
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: dscp-remark-burst-size
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Size of bursts
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: dscp-remark-rate
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Rate for remarking packets
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: perc_level
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Number of drop precedence level to add
+            </li>
+            <li>
+                type: uint8
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="update-meter/input/updated-meter/meter-band-headers/meter-band-header/band-type/experimenter">
+                case: experimenter
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: experimenter
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Experimenter id
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: experimenter-burst-size
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Size of bursts
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: experimenter-rate
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Rate for remarking packets
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="update-meter/input/updated-meter/meter-band-headers/meter-band-header/meter-band-types">
+                container: meter-band-types
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: flags
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Meter band flags
+            </li>
+            <li>
+                type: <a href="#meter-band-type">meter-band-type</a>
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: meter-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Meter instance
+            </li>
+            <li>
+                type: <a href="#meter-id">meter-id</a>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: meter-name
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Name of meter instance
+            </li>
+            <li>
+                type: string
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="update-meter/output">
+                container: output
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: transaction-aware
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: transaction-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: transaction-id
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+        </ul>
+    </ul>
+    
+    
+    
+  </body>
+</html>

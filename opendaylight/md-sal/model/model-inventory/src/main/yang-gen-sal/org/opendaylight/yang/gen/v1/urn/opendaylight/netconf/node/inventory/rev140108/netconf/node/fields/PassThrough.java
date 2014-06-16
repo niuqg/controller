@@ -1,0 +1,26 @@
+package org.opendaylight.yang.gen.v1.urn.opendaylight.netconf.node.inventory.rev140108.netconf.node.fields;
+import org.opendaylight.yangtools.yang.binding.ChildOf;
+import org.opendaylight.yang.gen.v1.urn.opendaylight.netconf.node.inventory.rev140108.NetconfNodeFields;
+import org.opendaylight.yangtools.yang.binding.Augmentable;
+import org.opendaylight.yangtools.yang.common.QName;
+
+
+/**
+  When the underlying node is connected, its NETCONF context
+                  is available verbatim under this container through the
+                  mount extension.
+**/
+public interface PassThrough
+    extends
+    ChildOf<NetconfNodeFields>,
+    Augmentable<org.opendaylight.yang.gen.v1.urn.opendaylight.netconf.node.inventory.rev140108.netconf.node.fields.PassThrough>
+{
+
+
+
+    public static final QName QNAME = org.opendaylight.yangtools.yang.common.QName.create("urn:opendaylight:netconf-node-inventory","2014-01-08","pass-through")
+    ;
+
+
+}
+

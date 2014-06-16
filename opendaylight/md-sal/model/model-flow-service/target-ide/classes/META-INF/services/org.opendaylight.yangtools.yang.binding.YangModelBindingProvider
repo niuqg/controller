@@ -1,0 +1,12 @@
+org.opendaylight.yang.gen.v1.urn.opendaylight.flow.transaction.rev131103.$YangModelBindingProvider
+org.opendaylight.yang.gen.v1.urn.opendaylight.queue.service.rev131107.$YangModelBindingProvider
+org.opendaylight.yang.gen.v1.urn.opendaylight.flow.errors.rev131116.$YangModelBindingProvider
+org.opendaylight.yang.gen.v1.urn.opendaylight.flow.topology.discovery.rev130819.$YangModelBindingProvider
+org.opendaylight.yang.gen.v1.urn.opendaylight.packet.service.rev130709.$YangModelBindingProvider
+org.opendaylight.yang.gen.v1.urn.opendaylight.node.error.service.rev140410.$YangModelBindingProvider
+org.opendaylight.yang.gen.v1.urn.opendaylight.group.service.rev130918.$YangModelBindingProvider
+org.opendaylight.yang.gen.v1.urn.opendaylight.meter.service.rev130918.$YangModelBindingProvider
+org.opendaylight.yang.gen.v1.urn.opendaylight.flow.service.rev130819.$YangModelBindingProvider
+org.opendaylight.yang.gen.v1.urn.opendaylight.port.service.rev131107.$YangModelBindingProvider
+org.opendaylight.yang.gen.v1.urn.opendaylight.table.service.rev131026.$YangModelBindingProvider
+org.opendaylight.yang.gen.v1.urn.opendaylight.flow.inventory.rev130819.$YangModelBindingProvider

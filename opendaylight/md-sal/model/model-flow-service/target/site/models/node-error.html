@@ -1,0 +1,2628 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>node-error</title>
+  </head>
+  <body>
+    <h1>node-error</h1>
+    
+    <h2>Base Information</h2>
+    <table>
+        <tr>
+            <td><strong>prefix</strong></td>
+            <td>node-error</td>
+        </tr>
+        <tr>
+            <td><strong>namespace</strong></td>
+            <td>urn:opendaylight:node:error:service</td>
+        </tr>
+        <tr>
+            <td><strong>revision</strong></td>
+            <td>2014-04-10</td>
+        </tr>
+        <tr>
+            <td><strong>description</strong></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><strong>yang-version</strong></td>
+            <td>1</td>
+        </tr>
+        <tr>
+    <td><strong>imports</strong></td><td>        types:opendaylight-flow-types 2013-10-26;
+            group-type:opendaylight-group-types 2013-10-18;
+            tr:flow-capable-transaction;
+            inv:opendaylight-inventory 2013-08-19;
+            error:flow-errors;
+            ext:yang-ext 2013-07-09;
+            meter-type:opendaylight-meter-types 2013-09-18;
+            flow:sal-flow 2013-08-19;
+    </td>    </tr>
+    </table>
+    
+    <h3>Notifications Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#bad-action-error-notification"><strong>bad-action-error-notification</strong></a>
+            </td>
+            <td>
+            Model for ofp_error-Type=2, Error in action description.
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#bad-instruction-error-notification"><strong>bad-instruction-error-notification</strong></a>
+            </td>
+            <td>
+            Model for ofp_error-Type=3, Error in instruction list.
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#bad-match-error-notification"><strong>bad-match-error-notification</strong></a>
+            </td>
+            <td>
+            Model for ofp_error-Type=4, Error in match.
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#bad-request-error-notification"><strong>bad-request-error-notification</strong></a>
+            </td>
+            <td>
+            Model for ofp_error-Type=1, Request was not understood.
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#experimenter-error-notification"><strong>experimenter-error-notification</strong></a>
+            </td>
+            <td>
+            Model for ofp_error-Type=65535  - Experimenter Error Messages
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#flow-mod-error-notification"><strong>flow-mod-error-notification</strong></a>
+            </td>
+            <td>
+            Model for ofp_error-Type=5 - Problem modifying flow entry.
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#group-mod-error-notification"><strong>group-mod-error-notification</strong></a>
+            </td>
+            <td>
+            Model for ofp_error-Type=6 - Problem modifying group entry.
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#hello-failed-error-notification"><strong>hello-failed-error-notification</strong></a>
+            </td>
+            <td>
+            Model for ofp_error-Type=0, Hello protocol failed
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#meter-mod-error-notification"><strong>meter-mod-error-notification</strong></a>
+            </td>
+            <td>
+            Model for ofp_error-Type=12 - Error in meter.
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#port-mod-error-notification"><strong>port-mod-error-notification</strong></a>
+            </td>
+            <td>
+            Model for ofp_error-Type=7 - Port mod request failed.
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#queue-op-error-notification"><strong>queue-op-error-notification</strong></a>
+            </td>
+            <td>
+            Model for ofp_error-Type=9 - Queue operation failed.
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#role-request-error-notification"><strong>role-request-error-notification</strong></a>
+            </td>
+            <td>
+            Model for ofp_error-Type=11 - Controller Role request failed.
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#switch-config-error-notification"><strong>switch-config-error-notification</strong></a>
+            </td>
+            <td>
+            Model for ofp_error-Type=10 - Switch Config request failed.
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#table-features-error-notification"><strong>table-features-error-notification</strong></a>
+            </td>
+            <td>
+            Model for ofp_error-Type=13 - Setting table features failed.
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#table-mod-error-notification"><strong>table-mod-error-notification</strong></a>
+            </td>
+            <td>
+            Model for ofp_error-Type=8 - Table mod request failed.
+            </td>
+        </tr>
+    </table>
+    
+    
+    
+    
+    
+    
+    <h2>Notifications</h2>
+    
+    <h3 id="bad-action-error-notification">bad-action-error-notification
+    </h3>
+        Model for ofp_error-Type=2, Error in action description.
+        <ul>
+        <strong><li>
+            leaf: code
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint16
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: data
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: string
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: node
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inv:node-ref
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="bad-action-error-notification/object-reference">
+            choice: object-reference
+        </li>
+        </strong>
+        <ul>
+        <ul>
+        <strong>
+        <li id="bad-action-error-notification/object-reference/flow-ref">
+            case: flow-ref
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: flow-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: flow:flow-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="bad-action-error-notification/object-reference/group-ref">
+            case: group-ref
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: group-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: group-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="bad-action-error-notification/object-reference/meter-ref">
+            case: meter-ref
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: meter-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: meter-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transaction-id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: transaction-id
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transaction-uri
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inet:uri
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: type
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: error:error-type
+        </li>
+        </ul>
+        </ul>
+    
+    <h3 id="bad-instruction-error-notification">bad-instruction-error-notification
+    </h3>
+        Model for ofp_error-Type=3, Error in instruction list.
+        <ul>
+        <strong><li>
+            leaf: code
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint16
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: data
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: string
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: node
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inv:node-ref
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="bad-instruction-error-notification/object-reference">
+            choice: object-reference
+        </li>
+        </strong>
+        <ul>
+        <ul>
+        <strong>
+        <li id="bad-instruction-error-notification/object-reference/flow-ref">
+            case: flow-ref
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: flow-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: flow:flow-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="bad-instruction-error-notification/object-reference/group-ref">
+            case: group-ref
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: group-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: group-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="bad-instruction-error-notification/object-reference/meter-ref">
+            case: meter-ref
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: meter-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: meter-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transaction-id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: transaction-id
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transaction-uri
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inet:uri
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: type
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: error:error-type
+        </li>
+        </ul>
+        </ul>
+    
+    <h3 id="bad-match-error-notification">bad-match-error-notification
+    </h3>
+        Model for ofp_error-Type=4, Error in match.
+        <ul>
+        <strong><li>
+            leaf: code
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint16
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: data
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: string
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: node
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inv:node-ref
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="bad-match-error-notification/object-reference">
+            choice: object-reference
+        </li>
+        </strong>
+        <ul>
+        <ul>
+        <strong>
+        <li id="bad-match-error-notification/object-reference/flow-ref">
+            case: flow-ref
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: flow-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: flow:flow-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="bad-match-error-notification/object-reference/group-ref">
+            case: group-ref
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: group-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: group-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="bad-match-error-notification/object-reference/meter-ref">
+            case: meter-ref
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: meter-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: meter-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transaction-id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: transaction-id
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transaction-uri
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inet:uri
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: type
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: error:error-type
+        </li>
+        </ul>
+        </ul>
+    
+    <h3 id="bad-request-error-notification">bad-request-error-notification
+    </h3>
+        Model for ofp_error-Type=1, Request was not understood.
+        <ul>
+        <strong><li>
+            leaf: code
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint16
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: data
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: string
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: node
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inv:node-ref
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="bad-request-error-notification/object-reference">
+            choice: object-reference
+        </li>
+        </strong>
+        <ul>
+        <ul>
+        <strong>
+        <li id="bad-request-error-notification/object-reference/flow-ref">
+            case: flow-ref
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: flow-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: flow:flow-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="bad-request-error-notification/object-reference/group-ref">
+            case: group-ref
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: group-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: group-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="bad-request-error-notification/object-reference/meter-ref">
+            case: meter-ref
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: meter-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: meter-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transaction-id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: transaction-id
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transaction-uri
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inet:uri
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: type
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: error:error-type
+        </li>
+        </ul>
+        </ul>
+    
+    <h3 id="experimenter-error-notification">experimenter-error-notification
+    </h3>
+        Model for ofp_error-Type=65535  - Experimenter Error Messages
+        <ul>
+        <strong><li>
+            leaf: code
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint16
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: data
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: string
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: node
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inv:node-ref
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="experimenter-error-notification/object-reference">
+            choice: object-reference
+        </li>
+        </strong>
+        <ul>
+        <ul>
+        <strong>
+        <li id="experimenter-error-notification/object-reference/flow-ref">
+            case: flow-ref
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: flow-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: flow:flow-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="experimenter-error-notification/object-reference/group-ref">
+            case: group-ref
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: group-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: group-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="experimenter-error-notification/object-reference/meter-ref">
+            case: meter-ref
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: meter-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: meter-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transaction-id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: transaction-id
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transaction-uri
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inet:uri
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: type
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: error:error-type
+        </li>
+        </ul>
+        </ul>
+    
+    <h3 id="flow-mod-error-notification">flow-mod-error-notification
+    </h3>
+        Model for ofp_error-Type=5 - Problem modifying flow entry.
+        <ul>
+        <strong><li>
+            leaf: code
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint16
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: data
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: string
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: node
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inv:node-ref
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="flow-mod-error-notification/object-reference">
+            choice: object-reference
+        </li>
+        </strong>
+        <ul>
+        <ul>
+        <strong>
+        <li id="flow-mod-error-notification/object-reference/flow-ref">
+            case: flow-ref
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: flow-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: flow:flow-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="flow-mod-error-notification/object-reference/group-ref">
+            case: group-ref
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: group-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: group-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="flow-mod-error-notification/object-reference/meter-ref">
+            case: meter-ref
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: meter-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: meter-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transaction-id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: transaction-id
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transaction-uri
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inet:uri
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: type
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: error:error-type
+        </li>
+        </ul>
+        </ul>
+    
+    <h3 id="group-mod-error-notification">group-mod-error-notification
+    </h3>
+        Model for ofp_error-Type=6 - Problem modifying group entry.
+        <ul>
+        <strong><li>
+            leaf: code
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint16
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: data
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: string
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: node
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inv:node-ref
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="group-mod-error-notification/object-reference">
+            choice: object-reference
+        </li>
+        </strong>
+        <ul>
+        <ul>
+        <strong>
+        <li id="group-mod-error-notification/object-reference/flow-ref">
+            case: flow-ref
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: flow-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: flow:flow-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="group-mod-error-notification/object-reference/group-ref">
+            case: group-ref
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: group-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: group-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="group-mod-error-notification/object-reference/meter-ref">
+            case: meter-ref
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: meter-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: meter-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transaction-id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: transaction-id
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transaction-uri
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inet:uri
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: type
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: error:error-type
+        </li>
+        </ul>
+        </ul>
+    
+    <h3 id="hello-failed-error-notification">hello-failed-error-notification
+    </h3>
+        Model for ofp_error-Type=0, Hello protocol failed
+        <ul>
+        <strong><li>
+            leaf: code
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint16
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: data
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: string
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: node
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inv:node-ref
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="hello-failed-error-notification/object-reference">
+            choice: object-reference
+        </li>
+        </strong>
+        <ul>
+        <ul>
+        <strong>
+        <li id="hello-failed-error-notification/object-reference/flow-ref">
+            case: flow-ref
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: flow-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: flow:flow-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="hello-failed-error-notification/object-reference/group-ref">
+            case: group-ref
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: group-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: group-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="hello-failed-error-notification/object-reference/meter-ref">
+            case: meter-ref
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: meter-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: meter-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transaction-id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: transaction-id
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transaction-uri
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inet:uri
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: type
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: error:error-type
+        </li>
+        </ul>
+        </ul>
+    
+    <h3 id="meter-mod-error-notification">meter-mod-error-notification
+    </h3>
+        Model for ofp_error-Type=12 - Error in meter.
+        <ul>
+        <strong><li>
+            leaf: code
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint16
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: data
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: string
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: node
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inv:node-ref
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="meter-mod-error-notification/object-reference">
+            choice: object-reference
+        </li>
+        </strong>
+        <ul>
+        <ul>
+        <strong>
+        <li id="meter-mod-error-notification/object-reference/flow-ref">
+            case: flow-ref
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: flow-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: flow:flow-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="meter-mod-error-notification/object-reference/group-ref">
+            case: group-ref
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: group-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: group-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="meter-mod-error-notification/object-reference/meter-ref">
+            case: meter-ref
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: meter-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: meter-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transaction-id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: transaction-id
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transaction-uri
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inet:uri
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: type
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: error:error-type
+        </li>
+        </ul>
+        </ul>
+    
+    <h3 id="port-mod-error-notification">port-mod-error-notification
+    </h3>
+        Model for ofp_error-Type=7 - Port mod request failed.
+        <ul>
+        <strong><li>
+            leaf: code
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint16
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: data
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: string
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: node
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inv:node-ref
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="port-mod-error-notification/object-reference">
+            choice: object-reference
+        </li>
+        </strong>
+        <ul>
+        <ul>
+        <strong>
+        <li id="port-mod-error-notification/object-reference/flow-ref">
+            case: flow-ref
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: flow-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: flow:flow-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="port-mod-error-notification/object-reference/group-ref">
+            case: group-ref
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: group-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: group-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="port-mod-error-notification/object-reference/meter-ref">
+            case: meter-ref
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: meter-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: meter-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transaction-id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: transaction-id
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transaction-uri
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inet:uri
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: type
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: error:error-type
+        </li>
+        </ul>
+        </ul>
+    
+    <h3 id="queue-op-error-notification">queue-op-error-notification
+    </h3>
+        Model for ofp_error-Type=9 - Queue operation failed.
+        <ul>
+        <strong><li>
+            leaf: code
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint16
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: data
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: string
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: node
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inv:node-ref
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="queue-op-error-notification/object-reference">
+            choice: object-reference
+        </li>
+        </strong>
+        <ul>
+        <ul>
+        <strong>
+        <li id="queue-op-error-notification/object-reference/flow-ref">
+            case: flow-ref
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: flow-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: flow:flow-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="queue-op-error-notification/object-reference/group-ref">
+            case: group-ref
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: group-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: group-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="queue-op-error-notification/object-reference/meter-ref">
+            case: meter-ref
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: meter-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: meter-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transaction-id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: transaction-id
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transaction-uri
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inet:uri
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: type
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: error:error-type
+        </li>
+        </ul>
+        </ul>
+    
+    <h3 id="role-request-error-notification">role-request-error-notification
+    </h3>
+        Model for ofp_error-Type=11 - Controller Role request failed.
+        <ul>
+        <strong><li>
+            leaf: code
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint16
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: data
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: string
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: node
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inv:node-ref
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="role-request-error-notification/object-reference">
+            choice: object-reference
+        </li>
+        </strong>
+        <ul>
+        <ul>
+        <strong>
+        <li id="role-request-error-notification/object-reference/flow-ref">
+            case: flow-ref
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: flow-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: flow:flow-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="role-request-error-notification/object-reference/group-ref">
+            case: group-ref
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: group-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: group-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="role-request-error-notification/object-reference/meter-ref">
+            case: meter-ref
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: meter-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: meter-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transaction-id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: transaction-id
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transaction-uri
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inet:uri
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: type
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: error:error-type
+        </li>
+        </ul>
+        </ul>
+    
+    <h3 id="switch-config-error-notification">switch-config-error-notification
+    </h3>
+        Model for ofp_error-Type=10 - Switch Config request failed.
+        <ul>
+        <strong><li>
+            leaf: code
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint16
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: data
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: string
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: node
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inv:node-ref
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="switch-config-error-notification/object-reference">
+            choice: object-reference
+        </li>
+        </strong>
+        <ul>
+        <ul>
+        <strong>
+        <li id="switch-config-error-notification/object-reference/flow-ref">
+            case: flow-ref
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: flow-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: flow:flow-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="switch-config-error-notification/object-reference/group-ref">
+            case: group-ref
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: group-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: group-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="switch-config-error-notification/object-reference/meter-ref">
+            case: meter-ref
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: meter-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: meter-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transaction-id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: transaction-id
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transaction-uri
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inet:uri
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: type
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: error:error-type
+        </li>
+        </ul>
+        </ul>
+    
+    <h3 id="table-features-error-notification">table-features-error-notification
+    </h3>
+        Model for ofp_error-Type=13 - Setting table features failed.
+        <ul>
+        <strong><li>
+            leaf: code
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint16
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: data
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: string
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: node
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inv:node-ref
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="table-features-error-notification/object-reference">
+            choice: object-reference
+        </li>
+        </strong>
+        <ul>
+        <ul>
+        <strong>
+        <li id="table-features-error-notification/object-reference/flow-ref">
+            case: flow-ref
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: flow-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: flow:flow-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="table-features-error-notification/object-reference/group-ref">
+            case: group-ref
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: group-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: group-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="table-features-error-notification/object-reference/meter-ref">
+            case: meter-ref
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: meter-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: meter-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transaction-id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: transaction-id
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transaction-uri
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inet:uri
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: type
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: error:error-type
+        </li>
+        </ul>
+        </ul>
+    
+    <h3 id="table-mod-error-notification">table-mod-error-notification
+    </h3>
+        Model for ofp_error-Type=8 - Table mod request failed.
+        <ul>
+        <strong><li>
+            leaf: code
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint16
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: data
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: string
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: node
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inv:node-ref
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="table-mod-error-notification/object-reference">
+            choice: object-reference
+        </li>
+        </strong>
+        <ul>
+        <ul>
+        <strong>
+        <li id="table-mod-error-notification/object-reference/flow-ref">
+            case: flow-ref
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: flow-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: flow:flow-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="table-mod-error-notification/object-reference/group-ref">
+            case: group-ref
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: group-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: group-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="table-mod-error-notification/object-reference/meter-ref">
+            case: meter-ref
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: meter-ref
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: meter-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transaction-id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: transaction-id
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transaction-uri
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inet:uri
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: type
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: error:error-type
+        </li>
+        </ul>
+        </ul>
+    
+    
+    
+    
+    
+  </body>
+</html>

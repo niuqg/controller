@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+<application xmlns="http://wadl.dev.java.net/2009/02" xmlns:inv="urn:opendaylight:inventory"
+xmlns:port="urn:opendaylight:flow:types:port"
+ xmlns:port-cfg="urn:opendaylight:port:config">
+
+	<grammars>
+		<include href="port-management.yang"/>
+		<include href="opendaylight-inventory.yang"/>
+		<include href="opendaylight-port-types.yang"/>
+	</grammars>
+	
+	<resources base="http://localhost:9998/restconf">
+		<resource path="config">
+			<method name="POST">
+				<request>
+					<representation mediaType="application/xml" element="port-cfg:ports"/>
+					<representation mediaType="text/xml" element="port-cfg:ports"/>
+					<representation mediaType="application/json" element="port-cfg:ports"/>
+					<representation mediaType="application/yang.data+xml" element="port-cfg:ports"/>
+					<representation mediaType="application/yang.data+json" element="port-cfg:ports"/>
+				</request>
+			</method>
+			<resource path="port-management:ports">
+				<method name="GET">
+					<response>
+						<representation mediaType="application/xml" element="port-cfg:ports"/>
+						<representation mediaType="text/xml" element="port-cfg:ports"/>
+						<representation mediaType="application/json" element="port-cfg:ports"/>
+						<representation mediaType="application/yang.data+xml" element="port-cfg:ports"/>
+						<representation mediaType="application/yang.data+json" element="port-cfg:ports"/>
+					</response>
+				</method>
+				<method name="DELETE" />
+				<method name="PUT">
+					<request>
+						<representation mediaType="application/xml" element="port-cfg:ports"/>
+						<representation mediaType="text/xml" element="port-cfg:ports"/>
+						<representation mediaType="application/json" element="port-cfg:ports"/>
+						<representation mediaType="application/yang.data+xml" element="port-cfg:ports"/>
+						<representation mediaType="application/yang.data+json" element="port-cfg:ports"/>
+					</request>
+				</method>
+				<method name="POST">
+					<request>
+						<representation mediaType="application/xml" element="port-cfg:port"/>
+						<representation mediaType="text/xml" element="port-cfg:port"/>
+						<representation mediaType="application/json" element="port-cfg:port"/>
+						<representation mediaType="application/yang.data+xml" element="port-cfg:port"/>
+						<representation mediaType="application/yang.data+json" element="port-cfg:port"/>
+					</request>
+				</method>
+				<resource path="port/{id}/{node}">
+					<param required="true" style="template" name="id" type="uint32"/>
+					<param required="true" style="template" name="node" type="port-cfg:node-ref"/>
+					<method name="GET">
+						<response>
+							<representation mediaType="application/xml" element="port-cfg:port"/>
+							<representation mediaType="text/xml" element="port-cfg:port"/>
+							<representation mediaType="application/json" element="port-cfg:port"/>
+							<representation mediaType="application/yang.data+xml" element="port-cfg:port"/>
+							<representation mediaType="application/yang.data+json" element="port-cfg:port"/>
+						</response>
+					</method>
+					<method name="DELETE" />
+					<method name="PUT">
+						<request>
+							<representation mediaType="application/xml" element="port-cfg:port"/>
+							<representation mediaType="text/xml" element="port-cfg:port"/>
+							<representation mediaType="application/json" element="port-cfg:port"/>
+							<representation mediaType="application/yang.data+xml" element="port-cfg:port"/>
+							<representation mediaType="application/yang.data+json" element="port-cfg:port"/>
+						</request>
+					</method>
+					<method name="POST">
+						<request>
+							<representation mediaType="application/xml" element="port-cfg:port"/>
+							<representation mediaType="text/xml" element="port-cfg:port"/>
+							<representation mediaType="application/json" element="port-cfg:port"/>
+							<representation mediaType="application/yang.data+xml" element="port-cfg:port"/>
+							<representation mediaType="application/yang.data+json" element="port-cfg:port"/>
+						</request>
+					</method>
+					<resource path="port">
+						<method name="GET">
+							<response>
+								<representation mediaType="application/xml" element="port-cfg:port"/>
+								<representation mediaType="text/xml" element="port-cfg:port"/>
+								<representation mediaType="application/json" element="port-cfg:port"/>
+								<representation mediaType="application/yang.data+xml" element="port-cfg:port"/>
+								<representation mediaType="application/yang.data+json" element="port-cfg:port"/>
+							</response>
+						</method>
+						<method name="DELETE" />
+						<method name="PUT">
+							<request>
+								<representation mediaType="application/xml" element="port-cfg:port"/>
+								<representation mediaType="text/xml" element="port-cfg:port"/>
+								<representation mediaType="application/json" element="port-cfg:port"/>
+								<representation mediaType="application/yang.data+xml" element="port-cfg:port"/>
+								<representation mediaType="application/yang.data+json" element="port-cfg:port"/>
+							</request>
+						</method>
+						<method name="POST">
+							<request>
+								<representation mediaType="application/xml" element="port-cfg:port"/>
+								<representation mediaType="text/xml" element="port-cfg:port"/>
+								<representation mediaType="application/json" element="port-cfg:port"/>
+								<representation mediaType="application/yang.data+xml" element="port-cfg:port"/>
+								<representation mediaType="application/yang.data+json" element="port-cfg:port"/>
+							</request>
+						</method>
+						<resource path="port/{port-mod-order}">
+							<param required="true" style="template" name="port-mod-order" type="uint32"/>
+							<method name="GET">
+								<response>
+									<representation mediaType="application/xml" element="port-cfg:port"/>
+									<representation mediaType="text/xml" element="port-cfg:port"/>
+									<representation mediaType="application/json" element="port-cfg:port"/>
+									<representation mediaType="application/yang.data+xml" element="port-cfg:port"/>
+									<representation mediaType="application/yang.data+json" element="port-cfg:port"/>
+								</response>
+							</method>
+							<method name="DELETE" />
+							<method name="PUT">
+								<request>
+									<representation mediaType="application/xml" element="port-cfg:port"/>
+									<representation mediaType="text/xml" element="port-cfg:port"/>
+									<representation mediaType="application/json" element="port-cfg:port"/>
+									<representation mediaType="application/yang.data+xml" element="port-cfg:port"/>
+									<representation mediaType="application/yang.data+json" element="port-cfg:port"/>
+								</request>
+							</method>
+						</resource>
+					</resource>
+				</resource>
+			</resource>
+		</resource>
+	</resources>
+</application>

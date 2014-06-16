@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<application xmlns="http://wadl.dev.java.net/2009/02" xmlns:stat-types="urn:opendaylight:model:statistics:types"
+xmlns:tr="urn:opendaylight:flow:transaction"
+xmlns:inv="urn:opendaylight:inventory"
+xmlns:ext="urn:opendaylight:yang:extension:yang-ext"
+xmlns:flow-node="urn:opendaylight:flow:inventory"
+xmlns:queue-types="urn:opendaylight:flow:types:queue"
+ xmlns:queuestat="urn:opendaylight:queue:statistics">
+
+	<grammars>
+		<include href="opendaylight-queue-statistics.yang"/>
+		<include href="opendaylight-statistics-types.yang"/>
+		<include href="flow-capable-transaction.yang"/>
+		<include href="opendaylight-inventory.yang"/>
+		<include href="yang-ext.yang"/>
+		<include href="flow-node-inventory.yang"/>
+		<include href="opendaylight-queue-types.yang"/>
+	</grammars>
+	
+	<resources base="http://localhost:9998/restconf">
+		<resource path="operations">
+			<resource path="opendaylight-queue-statistics:get-all-queues-statistics-from-all-ports">
+				<method name="POST">
+					<request>
+						<representation mediaType="application/xml" element="input"/>
+						<representation mediaType="text/xml" element="input"/>
+						<representation mediaType="application/json" element="input"/>
+						<representation mediaType="application/yang.data+xml" element="input"/>
+						<representation mediaType="application/yang.data+json" element="input"/>
+					</request>
+					<response>
+						<representation mediaType="application/xml" element="output"/>
+						<representation mediaType="text/xml" element="output"/>
+						<representation mediaType="application/json" element="output"/>
+						<representation mediaType="application/yang.data+xml" element="output"/>
+						<representation mediaType="application/yang.data+json" element="output"/>
+					</response>
+				</method>
+			</resource>
+			<resource path="opendaylight-queue-statistics:get-all-queues-statistics-from-given-port">
+				<method name="POST">
+					<request>
+						<representation mediaType="application/xml" element="input"/>
+						<representation mediaType="text/xml" element="input"/>
+						<representation mediaType="application/json" element="input"/>
+						<representation mediaType="application/yang.data+xml" element="input"/>
+						<representation mediaType="application/yang.data+json" element="input"/>
+					</request>
+					<response>
+						<representation mediaType="application/xml" element="output"/>
+						<representation mediaType="text/xml" element="output"/>
+						<representation mediaType="application/json" element="output"/>
+						<representation mediaType="application/yang.data+xml" element="output"/>
+						<representation mediaType="application/yang.data+json" element="output"/>
+					</response>
+				</method>
+			</resource>
+			<resource path="opendaylight-queue-statistics:get-queue-statistics-from-given-port">
+				<method name="POST">
+					<request>
+						<representation mediaType="application/xml" element="input"/>
+						<representation mediaType="text/xml" element="input"/>
+						<representation mediaType="application/json" element="input"/>
+						<representation mediaType="application/yang.data+xml" element="input"/>
+						<representation mediaType="application/yang.data+json" element="input"/>
+					</request>
+					<response>
+						<representation mediaType="application/xml" element="output"/>
+						<representation mediaType="text/xml" element="output"/>
+						<representation mediaType="application/json" element="output"/>
+						<representation mediaType="application/yang.data+xml" element="output"/>
+						<representation mediaType="application/yang.data+json" element="output"/>
+					</response>
+				</method>
+			</resource>
+		</resource>
+	</resources>
+</application>

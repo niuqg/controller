@@ -1,0 +1,2867 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>opendaylight-meter-statistics</title>
+  </head>
+  <body>
+    <h1>opendaylight-meter-statistics</h1>
+    
+    <h2>Base Information</h2>
+    <table>
+        <tr>
+            <td><strong>prefix</strong></td>
+            <td>meterstat</td>
+        </tr>
+        <tr>
+            <td><strong>namespace</strong></td>
+            <td>urn:opendaylight:meter:statistics</td>
+        </tr>
+        <tr>
+            <td><strong>revision</strong></td>
+            <td>2013-11-11</td>
+        </tr>
+        <tr>
+            <td><strong>description</strong></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><strong>yang-version</strong></td>
+            <td>1</td>
+        </tr>
+        <tr>
+    <td><strong>imports</strong></td><td>        inv:opendaylight-inventory 2013-08-19;
+            tr:flow-capable-transaction;
+            ext:yang-ext 2013-07-09;
+            flow-node:flow-node-inventory 2013-08-19;
+            meter-types:opendaylight-meter-types 2013-09-18;
+    </td>    </tr>
+    </table>
+    
+    <h3>Augmentations Summary</h3>
+    <table>
+        <tr>
+            <th>Target</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#/opendaylight-inventory:nodes/opendaylight-inventory:node/flow-node-inventory:meter/"><strong>/opendaylight-inventory:nodes/opendaylight-inventory:node/flow-node-inventory:meter/</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#/opendaylight-inventory:nodes/opendaylight-inventory:node/flow-node-inventory:meter/"><strong>/opendaylight-inventory:nodes/opendaylight-inventory:node/flow-node-inventory:meter/</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#/opendaylight-inventory:nodes/opendaylight-inventory:node/"><strong>/opendaylight-inventory:nodes/opendaylight-inventory:node/</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    <h3>Notifications Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#meter-config-stats-updated"><strong>meter-config-stats-updated</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#meter-features-updated"><strong>meter-features-updated</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#meter-statistics-updated"><strong>meter-statistics-updated</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    <h3>RPCs Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#get-all-meter-config-statistics"><strong>get-all-meter-config-statistics</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#get-all-meter-statistics"><strong>get-all-meter-statistics</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#get-meter-features"><strong>get-meter-features</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#get-meter-statistics"><strong>get-meter-statistics</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    
+    
+    
+    
+    
+    
+    <h2>Notifications</h2>
+    
+    <h3 id="meter-config-stats-updated">meter-config-stats-updated
+    </h3>
+        <ul>
+        <strong><li>
+            leaf: id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inv:node-id
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="meter-config-stats-updated/meter-config-stats">
+            list: meter-config-stats
+        </li>
+        </strong>
+        <ul>
+        <li>
+            key definition: meter-id
+        </li>
+        </ul>
+        <ul>
+        <strong><li>
+            uses: meter
+        </li>
+        </strong>
+        <ul>
+        <li>refines:
+            <ul>
+            </ul>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: barrier
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: If true, barrier message is sent
+        </li>
+        <li>
+            type: boolean
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: container-name
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Name of container
+        </li>
+        <li>
+            type: string
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: flags
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Meter configuration flags
+        </li>
+        <li>
+            type: meter-flags
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="meter-config-stats-updated/meter-config-stats/meter-band-headers">
+            container: meter-band-headers
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong>
+        <li id="meter-config-stats-updated/meter-config-stats/meter-band-headers/meter-band-header">
+            list: meter-band-header
+        </li>
+        </strong>
+        <ul>
+        <li>
+            key definition: band-id
+        </li>
+        </ul>
+        <ul>
+        <strong><li>
+            uses: band-type
+        </li>
+        </strong>
+        <ul>
+        <li>refines:
+            <ul>
+            </ul>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: band-burst-size
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Size of bursts
+        </li>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: band-id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Meter band id
+        </li>
+        <li>
+            type: band-id
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: band-rate
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Rate for this band
+        </li>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="meter-config-stats-updated/meter-config-stats/meter-band-headers/meter-band-header/band-type">
+            choice: band-type
+        </li>
+        </strong>
+        <ul>
+        <ul>
+        <strong>
+        <li id="meter-config-stats-updated/meter-config-stats/meter-band-headers/meter-band-header/band-type/drop">
+            case: drop
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: drop-burst-size
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Size of bursts
+        </li>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: drop-rate
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Rate for dropping packets
+        </li>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="meter-config-stats-updated/meter-config-stats/meter-band-headers/meter-band-header/band-type/dscp-remark">
+            case: dscp-remark
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: dscp-remark-burst-size
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Size of bursts
+        </li>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: dscp-remark-rate
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Rate for remarking packets
+        </li>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: perc_level
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Number of drop precedence level to add
+        </li>
+        <li>
+            type: uint8
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="meter-config-stats-updated/meter-config-stats/meter-band-headers/meter-band-header/band-type/experimenter">
+            case: experimenter
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: experimenter
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Experimenter id
+        </li>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: experimenter-burst-size
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Size of bursts
+        </li>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: experimenter-rate
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Rate for remarking packets
+        </li>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="meter-config-stats-updated/meter-config-stats/meter-band-headers/meter-band-header/meter-band-types">
+            container: meter-band-types
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: flags
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Meter band flags
+        </li>
+        <li>
+            type: meter-band-type
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: meter-id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Meter instance
+        </li>
+        <li>
+            type: meter-id
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: meter-name
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Name of meter instance
+        </li>
+        <li>
+            type: string
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: moreReplies
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: boolean
+        </li>
+        <li>
+            default: false
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="meter-config-stats-updated/node-connector">
+            list: node-connector
+        </li>
+        </strong>
+        <ul>
+        <li>
+            key definition: id
+        </li>
+        </ul>
+        <ul>
+        <strong><li>
+            uses: inv:node-connector
+        </li>
+        </strong>
+        <ul>
+        <li>refines:
+            <ul>
+            </ul>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inv:node-connector-id
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transaction-id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: transaction-id
+        </li>
+        </ul>
+        </ul>
+    
+    <h3 id="meter-features-updated">meter-features-updated
+    </h3>
+        <ul>
+        <strong><li>
+            leaf: id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inv:node-id
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: max_bands
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint8
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: max_color
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint8
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: max_meter
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: yang:counter32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf-list: meter-band-supported
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: identityref
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf-list: meter-capabilities-supported
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: identityref
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: moreReplies
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: boolean
+        </li>
+        <li>
+            default: false
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="meter-features-updated/node-connector">
+            list: node-connector
+        </li>
+        </strong>
+        <ul>
+        <li>
+            key definition: id
+        </li>
+        </ul>
+        <ul>
+        <strong><li>
+            uses: inv:node-connector
+        </li>
+        </strong>
+        <ul>
+        <li>refines:
+            <ul>
+            </ul>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inv:node-connector-id
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transaction-id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: transaction-id
+        </li>
+        </ul>
+        </ul>
+    
+    <h3 id="meter-statistics-updated">meter-statistics-updated
+    </h3>
+        <ul>
+        <strong><li>
+            leaf: id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inv:node-id
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="meter-statistics-updated/meter-stats">
+            list: meter-stats
+        </li>
+        </strong>
+        <ul>
+        <li>
+            key definition: meter-id
+        </li>
+        </ul>
+        <ul>
+        <strong><li>
+            uses: meter-statistics
+        </li>
+        </strong>
+        <ul>
+        <li>refines:
+            <ul>
+            </ul>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: byte-in-count
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: yang:counter64
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="meter-statistics-updated/meter-stats/duration">
+            container: duration
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: nanosecond
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: yang:counter32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: second
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: yang:counter32
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: flow-count
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: yang:counter32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="meter-statistics-updated/meter-stats/meter-band-stats">
+            container: meter-band-stats
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong>
+        <li id="meter-statistics-updated/meter-stats/meter-band-stats/band-stat">
+            list: band-stat
+        </li>
+        </strong>
+        <ul>
+        <li>
+            key definition: band-id
+        </li>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: band-id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: band-id
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: byte-band-count
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: yang:counter64
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: packet-band-count
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: yang:counter64
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: meter-id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: meter-id
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: packet-in-count
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: yang:counter64
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: moreReplies
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: boolean
+        </li>
+        <li>
+            default: false
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="meter-statistics-updated/node-connector">
+            list: node-connector
+        </li>
+        </strong>
+        <ul>
+        <li>
+            key definition: id
+        </li>
+        </ul>
+        <ul>
+        <strong><li>
+            uses: inv:node-connector
+        </li>
+        </strong>
+        <ul>
+        <li>refines:
+            <ul>
+            </ul>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inv:node-connector-id
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transaction-id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: transaction-id
+        </li>
+        </ul>
+        </ul>
+    
+    <h2>Augmentations</h2>
+    
+    <ul>
+    <li>
+        <h3 id="/opendaylight-inventory:nodes/opendaylight-inventory:node/flow-node-inventory:meter/">
+        Target [flow-node:/opendaylight-inventory:nodes/opendaylight-inventory:node/flow-node-inventory:meter/]</h3>
+        <ul>
+        <strong>
+        <li id="nodes/node/meter/meter-config-stats">
+            container: meter-config-stats
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        <strong><li>
+            uses: meter
+        </li>
+        </strong>
+        <ul>
+        <li>refines:
+            <ul>
+            </ul>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: barrier
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: If true, barrier message is sent
+        </li>
+        <li>
+            type: boolean
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: container-name
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Name of container
+        </li>
+        <li>
+            type: string
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: flags
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Meter configuration flags
+        </li>
+        <li>
+            type: meter-flags
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="nodes/node/meter/meter-config-stats/meter-band-headers">
+            container: meter-band-headers
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong>
+        <li id="nodes/node/meter/meter-config-stats/meter-band-headers/meter-band-header">
+            list: meter-band-header
+        </li>
+        </strong>
+        <ul>
+        <li>
+            key definition: band-id
+        </li>
+        </ul>
+        <ul>
+        <strong><li>
+            uses: band-type
+        </li>
+        </strong>
+        <ul>
+        <li>refines:
+            <ul>
+            </ul>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: band-burst-size
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Size of bursts
+        </li>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: band-id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Meter band id
+        </li>
+        <li>
+            type: band-id
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: band-rate
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Rate for this band
+        </li>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="nodes/node/meter/meter-config-stats/meter-band-headers/meter-band-header/band-type">
+            choice: band-type
+        </li>
+        </strong>
+        <ul>
+        <ul>
+        <strong>
+        <li id="nodes/node/meter/meter-config-stats/meter-band-headers/meter-band-header/band-type/drop">
+            case: drop
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: drop-burst-size
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Size of bursts
+        </li>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: drop-rate
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Rate for dropping packets
+        </li>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="nodes/node/meter/meter-config-stats/meter-band-headers/meter-band-header/band-type/dscp-remark">
+            case: dscp-remark
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: dscp-remark-burst-size
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Size of bursts
+        </li>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: dscp-remark-rate
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Rate for remarking packets
+        </li>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: perc_level
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Number of drop precedence level to add
+        </li>
+        <li>
+            type: uint8
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="nodes/node/meter/meter-config-stats/meter-band-headers/meter-band-header/band-type/experimenter">
+            case: experimenter
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: experimenter
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Experimenter id
+        </li>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: experimenter-burst-size
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Size of bursts
+        </li>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: experimenter-rate
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Rate for remarking packets
+        </li>
+        <li>
+            type: uint32
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="nodes/node/meter/meter-config-stats/meter-band-headers/meter-band-header/meter-band-types">
+            container: meter-band-types
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: flags
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Meter band flags
+        </li>
+        <li>
+            type: meter-band-type
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: meter-id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Meter instance
+        </li>
+        <li>
+            type: meter-id
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: meter-name
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Name of meter instance
+        </li>
+        <li>
+            type: string
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+    </li>
+    <li>
+        <h3 id="/opendaylight-inventory:nodes/opendaylight-inventory:node/flow-node-inventory:meter/">
+        Target [flow-node:/opendaylight-inventory:nodes/opendaylight-inventory:node/flow-node-inventory:meter/]</h3>
+        <ul>
+        <strong>
+        <li id="nodes/node/meter/meter-statistics">
+            container: meter-statistics
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        <strong><li>
+            uses: meter-statistics
+        </li>
+        </strong>
+        <ul>
+        <li>refines:
+            <ul>
+            </ul>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: byte-in-count
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: yang:counter64
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="nodes/node/meter/meter-statistics/duration">
+            container: duration
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: nanosecond
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: yang:counter32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: second
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: yang:counter32
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: flow-count
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: yang:counter32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="nodes/node/meter/meter-statistics/meter-band-stats">
+            container: meter-band-stats
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong>
+        <li id="nodes/node/meter/meter-statistics/meter-band-stats/band-stat">
+            list: band-stat
+        </li>
+        </strong>
+        <ul>
+        <li>
+            key definition: band-id
+        </li>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: band-id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: band-id
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: byte-band-count
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: yang:counter64
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: packet-band-count
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: yang:counter64
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: meter-id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: meter-id
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: packet-in-count
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: yang:counter64
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+    </li>
+    <li>
+        <h3 id="/opendaylight-inventory:nodes/opendaylight-inventory:node/">
+        Target [inv:/opendaylight-inventory:nodes/opendaylight-inventory:node/]</h3>
+        <ul>
+        <strong>
+        <li id="nodes/node/meter-features">
+            container: meter-features
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        <strong><li>
+            uses: meter-features-reply
+        </li>
+        </strong>
+        <ul>
+        <li>refines:
+            <ul>
+            </ul>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: max_bands
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint8
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: max_color
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint8
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: max_meter
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: yang:counter32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf-list: meter-band-supported
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: identityref
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf-list: meter-capabilities-supported
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: identityref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+    </li>
+    </ul>
+    
+    <h2>RPC Definitions</h2>
+    <h3 id="get-all-meter-config-statistics">get-all-meter-config-statistics
+    </h3>
+        <ul>
+            <ul>
+            <strong>
+            <li id="get-all-meter-config-statistics/input">
+                container: input
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: inv:node-context-ref
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: node
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: inv:node-ref
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="get-all-meter-config-statistics/output">
+                container: output
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: transaction-aware
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            <strong><li>
+                uses: meter-config-stats-reply
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong>
+            <li id="get-all-meter-config-statistics/output/meter-config-stats">
+                list: meter-config-stats
+            </li>
+            </strong>
+            <ul>
+            <li>
+                key definition: meter-id
+            </li>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: meter
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: barrier
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: If true, barrier message is sent
+            </li>
+            <li>
+                type: boolean
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: container-name
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Name of container
+            </li>
+            <li>
+                type: string
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: flags
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Meter configuration flags
+            </li>
+            <li>
+                type: meter-flags
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="get-all-meter-config-statistics/output/meter-config-stats/meter-band-headers">
+                container: meter-band-headers
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong>
+            <li id="get-all-meter-config-statistics/output/meter-config-stats/meter-band-headers/meter-band-header">
+                list: meter-band-header
+            </li>
+            </strong>
+            <ul>
+            <li>
+                key definition: band-id
+            </li>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: band-type
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: band-burst-size
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Size of bursts
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: band-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Meter band id
+            </li>
+            <li>
+                type: band-id
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: band-rate
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Rate for this band
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="get-all-meter-config-statistics/output/meter-config-stats/meter-band-headers/meter-band-header/band-type">
+                choice: band-type
+            </li>
+            </strong>
+            <ul>
+            <ul>
+            <strong>
+            <li id="get-all-meter-config-statistics/output/meter-config-stats/meter-band-headers/meter-band-header/band-type/drop">
+                case: drop
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: drop-burst-size
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Size of bursts
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: drop-rate
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Rate for dropping packets
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="get-all-meter-config-statistics/output/meter-config-stats/meter-band-headers/meter-band-header/band-type/dscp-remark">
+                case: dscp-remark
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: dscp-remark-burst-size
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Size of bursts
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: dscp-remark-rate
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Rate for remarking packets
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: perc_level
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Number of drop precedence level to add
+            </li>
+            <li>
+                type: uint8
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="get-all-meter-config-statistics/output/meter-config-stats/meter-band-headers/meter-band-header/band-type/experimenter">
+                case: experimenter
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: experimenter
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Experimenter id
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: experimenter-burst-size
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Size of bursts
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: experimenter-rate
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Rate for remarking packets
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="get-all-meter-config-statistics/output/meter-config-stats/meter-band-headers/meter-band-header/meter-band-types">
+                container: meter-band-types
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: flags
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Meter band flags
+            </li>
+            <li>
+                type: meter-band-type
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: meter-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Meter instance
+            </li>
+            <li>
+                type: meter-id
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: meter-name
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Name of meter instance
+            </li>
+            <li>
+                type: string
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transaction-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: transaction-id
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+        </ul>
+    <h3 id="get-all-meter-statistics">get-all-meter-statistics
+    </h3>
+        <ul>
+            <ul>
+            <strong>
+            <li id="get-all-meter-statistics/input">
+                container: input
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: inv:node-context-ref
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: node
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: inv:node-ref
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="get-all-meter-statistics/output">
+                container: output
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: transaction-aware
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            <strong><li>
+                uses: meter-statistics-reply
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong>
+            <li id="get-all-meter-statistics/output/meter-stats">
+                list: meter-stats
+            </li>
+            </strong>
+            <ul>
+            <li>
+                key definition: meter-id
+            </li>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: meter-statistics
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: byte-in-count
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="get-all-meter-statistics/output/meter-stats/duration">
+                container: duration
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: nanosecond
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: second
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter32
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: flow-count
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="get-all-meter-statistics/output/meter-stats/meter-band-stats">
+                container: meter-band-stats
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong>
+            <li id="get-all-meter-statistics/output/meter-stats/meter-band-stats/band-stat">
+                list: band-stat
+            </li>
+            </strong>
+            <ul>
+            <li>
+                key definition: band-id
+            </li>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: band-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: band-id
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: byte-band-count
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: packet-band-count
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter64
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: meter-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: meter-id
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: packet-in-count
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter64
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transaction-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: transaction-id
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+        </ul>
+    <h3 id="get-meter-features">get-meter-features
+    </h3>
+        <ul>
+            <ul>
+            <strong>
+            <li id="get-meter-features/input">
+                container: input
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: inv:node-context-ref
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: node
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: inv:node-ref
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="get-meter-features/output">
+                container: output
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: transaction-aware
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            <strong><li>
+                uses: meter-features-reply
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: max_bands
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint8
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: max_color
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: uint8
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: max_meter
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf-list: meter-band-supported
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: identityref
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf-list: meter-capabilities-supported
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: identityref
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transaction-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: transaction-id
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+        </ul>
+    <h3 id="get-meter-statistics">get-meter-statistics
+    </h3>
+        <ul>
+            <ul>
+            <strong>
+            <li id="get-meter-statistics/input">
+                container: input
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: inv:node-context-ref
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: meter-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: meter-id
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: node
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: inv:node-ref
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="get-meter-statistics/output">
+                container: output
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: transaction-aware
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            <strong><li>
+                uses: meter-statistics-reply
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong>
+            <li id="get-meter-statistics/output/meter-stats">
+                list: meter-stats
+            </li>
+            </strong>
+            <ul>
+            <li>
+                key definition: meter-id
+            </li>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: meter-statistics
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: byte-in-count
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="get-meter-statistics/output/meter-stats/duration">
+                container: duration
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: nanosecond
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: second
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter32
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: flow-count
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="get-meter-statistics/output/meter-stats/meter-band-stats">
+                container: meter-band-stats
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong>
+            <li id="get-meter-statistics/output/meter-stats/meter-band-stats/band-stat">
+                list: band-stat
+            </li>
+            </strong>
+            <ul>
+            <li>
+                key definition: band-id
+            </li>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: band-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: band-id
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: byte-band-count
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: packet-band-count
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter64
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: meter-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: meter-id
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: packet-in-count
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter64
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transaction-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: transaction-id
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+        </ul>
+    </ul>
+    
+    
+    
+  </body>
+</html>

@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1402895452201
+Build-Jdk: 1.7.0_51
+Built-By: niu
+Bundle-Activator: edu.ustc.qos.statusmanager.Activator
+Bundle-ManifestVersion: 2
+Bundle-Name: statusmanager
+Bundle-SymbolicName: edu.ustc.qos.statusmanager
+Bundle-Version: 0.0.1.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Import-Package: org.opendaylight.controller.sal.core;version="[0.8,1)",o
+ rg.opendaylight.controller.switchmanager;version="[0.7,1)",org.opendayl
+ ight.controller.statisticsmanager;version="[0.5,1)",org.opendaylight.co
+ ntroller.topologymanager,org.opendaylight.controller.sal.reader;version
+ ="[0.8,1)",org.slf4j;version="[1.7,2)",org.apache.felix.dm;version="[3.
+ 0,4)",org.eclipse.osgi.framework.console;version="[1.1,2)",edu.ustc.qos
+ .databasemanager,edu.ustc.qos.dao,org.apache.commons.lang3.tuple;versio
+ n="[3.1,4)",org.osgi.service.component;version="[1.2,2)",org.osgi.frame
+ work;version="[1.7,2)",org.opendaylight.controller.sal.flowprogrammer;v
+ ersion="[0.8,1)",org.opendaylight.controller.sal.match;version="[0.8,1)
+ ",org.opendaylight.controller.sal.packet.address;version="[0.8,1)",java
+ x.xml.bind.annotation,org.apache.commons.lang3.builder;version="[3.1,4)
+ "
+Tool: Bnd-2.1.0.20130426-122213

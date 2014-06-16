@@ -1,0 +1,169 @@
+<?xml version="1.0"?>
+<application xmlns="http://wadl.dev.java.net/2009/02" xmlns:meter="urn:opendaylight:meter:types"
+xmlns:inv="urn:opendaylight:inventory"
+ xmlns:meter-cfg="urn:opendaylight:meter:config">
+
+	<grammars>
+		<include href="meter-management.yang"/>
+		<include href="opendaylight-meter-types.yang"/>
+		<include href="opendaylight-inventory.yang"/>
+	</grammars>
+	
+	<resources base="http://localhost:9998/restconf">
+		<resource path="config">
+			<method name="POST">
+				<request>
+					<representation mediaType="application/xml" element="meter-cfg:meters"/>
+					<representation mediaType="text/xml" element="meter-cfg:meters"/>
+					<representation mediaType="application/json" element="meter-cfg:meters"/>
+					<representation mediaType="application/yang.data+xml" element="meter-cfg:meters"/>
+					<representation mediaType="application/yang.data+json" element="meter-cfg:meters"/>
+				</request>
+			</method>
+			<resource path="meter-management:meters">
+				<method name="GET">
+					<response>
+						<representation mediaType="application/xml" element="meter-cfg:meters"/>
+						<representation mediaType="text/xml" element="meter-cfg:meters"/>
+						<representation mediaType="application/json" element="meter-cfg:meters"/>
+						<representation mediaType="application/yang.data+xml" element="meter-cfg:meters"/>
+						<representation mediaType="application/yang.data+json" element="meter-cfg:meters"/>
+					</response>
+				</method>
+				<method name="DELETE" />
+				<method name="PUT">
+					<request>
+						<representation mediaType="application/xml" element="meter-cfg:meters"/>
+						<representation mediaType="text/xml" element="meter-cfg:meters"/>
+						<representation mediaType="application/json" element="meter-cfg:meters"/>
+						<representation mediaType="application/yang.data+xml" element="meter-cfg:meters"/>
+						<representation mediaType="application/yang.data+json" element="meter-cfg:meters"/>
+					</request>
+				</method>
+				<method name="POST">
+					<request>
+						<representation mediaType="application/xml" element="meter-cfg:meter"/>
+						<representation mediaType="text/xml" element="meter-cfg:meter"/>
+						<representation mediaType="application/json" element="meter-cfg:meter"/>
+						<representation mediaType="application/yang.data+xml" element="meter-cfg:meter"/>
+						<representation mediaType="application/yang.data+json" element="meter-cfg:meter"/>
+					</request>
+				</method>
+				<resource path="meter/{id}/{node}">
+					<param required="true" style="template" name="id" type="uint32"/>
+					<param required="true" style="template" name="node" type="meter-cfg:node-ref"/>
+					<method name="GET">
+						<response>
+							<representation mediaType="application/xml" element="meter-cfg:meter"/>
+							<representation mediaType="text/xml" element="meter-cfg:meter"/>
+							<representation mediaType="application/json" element="meter-cfg:meter"/>
+							<representation mediaType="application/yang.data+xml" element="meter-cfg:meter"/>
+							<representation mediaType="application/yang.data+json" element="meter-cfg:meter"/>
+						</response>
+					</method>
+					<method name="DELETE" />
+					<method name="PUT">
+						<request>
+							<representation mediaType="application/xml" element="meter-cfg:meter"/>
+							<representation mediaType="text/xml" element="meter-cfg:meter"/>
+							<representation mediaType="application/json" element="meter-cfg:meter"/>
+							<representation mediaType="application/yang.data+xml" element="meter-cfg:meter"/>
+							<representation mediaType="application/yang.data+json" element="meter-cfg:meter"/>
+						</request>
+					</method>
+					<method name="POST">
+						<request>
+							<representation mediaType="application/xml" element="meter-cfg:meter-band-headers"/>
+							<representation mediaType="text/xml" element="meter-cfg:meter-band-headers"/>
+							<representation mediaType="application/json" element="meter-cfg:meter-band-headers"/>
+							<representation mediaType="application/yang.data+xml" element="meter-cfg:meter-band-headers"/>
+							<representation mediaType="application/yang.data+json" element="meter-cfg:meter-band-headers"/>
+						</request>
+					</method>
+					<resource path="meter-band-headers">
+						<method name="GET">
+							<response>
+								<representation mediaType="application/xml" element="meter-cfg:meter-band-headers"/>
+								<representation mediaType="text/xml" element="meter-cfg:meter-band-headers"/>
+								<representation mediaType="application/json" element="meter-cfg:meter-band-headers"/>
+								<representation mediaType="application/yang.data+xml" element="meter-cfg:meter-band-headers"/>
+								<representation mediaType="application/yang.data+json" element="meter-cfg:meter-band-headers"/>
+							</response>
+						</method>
+						<method name="DELETE" />
+						<method name="PUT">
+							<request>
+								<representation mediaType="application/xml" element="meter-cfg:meter-band-headers"/>
+								<representation mediaType="text/xml" element="meter-cfg:meter-band-headers"/>
+								<representation mediaType="application/json" element="meter-cfg:meter-band-headers"/>
+								<representation mediaType="application/yang.data+xml" element="meter-cfg:meter-band-headers"/>
+								<representation mediaType="application/yang.data+json" element="meter-cfg:meter-band-headers"/>
+							</request>
+						</method>
+						<method name="POST">
+							<request>
+								<representation mediaType="application/xml" element="meter-cfg:meter-band-header"/>
+								<representation mediaType="text/xml" element="meter-cfg:meter-band-header"/>
+								<representation mediaType="application/json" element="meter-cfg:meter-band-header"/>
+								<representation mediaType="application/yang.data+xml" element="meter-cfg:meter-band-header"/>
+								<representation mediaType="application/yang.data+json" element="meter-cfg:meter-band-header"/>
+							</request>
+						</method>
+						<resource path="meter-band-header/{band-id}">
+							<param required="true" style="template" name="band-id" type="meter-cfg:band-id"/>
+							<method name="GET">
+								<response>
+									<representation mediaType="application/xml" element="meter-cfg:meter-band-header"/>
+									<representation mediaType="text/xml" element="meter-cfg:meter-band-header"/>
+									<representation mediaType="application/json" element="meter-cfg:meter-band-header"/>
+									<representation mediaType="application/yang.data+xml" element="meter-cfg:meter-band-header"/>
+									<representation mediaType="application/yang.data+json" element="meter-cfg:meter-band-header"/>
+								</response>
+							</method>
+							<method name="DELETE" />
+							<method name="PUT">
+								<request>
+									<representation mediaType="application/xml" element="meter-cfg:meter-band-header"/>
+									<representation mediaType="text/xml" element="meter-cfg:meter-band-header"/>
+									<representation mediaType="application/json" element="meter-cfg:meter-band-header"/>
+									<representation mediaType="application/yang.data+xml" element="meter-cfg:meter-band-header"/>
+									<representation mediaType="application/yang.data+json" element="meter-cfg:meter-band-header"/>
+								</request>
+							</method>
+							<method name="POST">
+								<request>
+									<representation mediaType="application/xml" element="meter-cfg:meter-band-types"/>
+									<representation mediaType="text/xml" element="meter-cfg:meter-band-types"/>
+									<representation mediaType="application/json" element="meter-cfg:meter-band-types"/>
+									<representation mediaType="application/yang.data+xml" element="meter-cfg:meter-band-types"/>
+									<representation mediaType="application/yang.data+json" element="meter-cfg:meter-band-types"/>
+								</request>
+							</method>
+							<resource path="meter-band-types">
+								<method name="GET">
+									<response>
+										<representation mediaType="application/xml" element="meter-cfg:meter-band-types"/>
+										<representation mediaType="text/xml" element="meter-cfg:meter-band-types"/>
+										<representation mediaType="application/json" element="meter-cfg:meter-band-types"/>
+										<representation mediaType="application/yang.data+xml" element="meter-cfg:meter-band-types"/>
+										<representation mediaType="application/yang.data+json" element="meter-cfg:meter-band-types"/>
+									</response>
+								</method>
+								<method name="DELETE" />
+								<method name="PUT">
+									<request>
+										<representation mediaType="application/xml" element="meter-cfg:meter-band-types"/>
+										<representation mediaType="text/xml" element="meter-cfg:meter-band-types"/>
+										<representation mediaType="application/json" element="meter-cfg:meter-band-types"/>
+										<representation mediaType="application/yang.data+xml" element="meter-cfg:meter-band-types"/>
+										<representation mediaType="application/yang.data+json" element="meter-cfg:meter-band-types"/>
+									</request>
+								</method>
+							</resource>
+						</resource>
+					</resource>
+				</resource>
+			</resource>
+		</resource>
+	</resources>
+</application>

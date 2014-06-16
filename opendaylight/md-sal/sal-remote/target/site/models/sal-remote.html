@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>sal-remote</title>
+  </head>
+  <body>
+    <h1>sal-remote</h1>
+    
+    <h2>Base Information</h2>
+    <table>
+        <tr>
+            <td><strong>prefix</strong></td>
+            <td>sal-remote</td>
+        </tr>
+        <tr>
+            <td><strong>namespace</strong></td>
+            <td>urn:opendaylight:params:xml:ns:yang:controller:md:sal:remote</td>
+        </tr>
+        <tr>
+            <td><strong>revision</strong></td>
+            <td>2014-01-14</td>
+        </tr>
+        <tr>
+            <td><strong>description</strong></td>
+            <td>This module contains the definition of methods related to
+                       sal remote model.
+            
+                       Copyright (c)2013 Cisco Systems, Inc. All rights reserved.
+            
+                       This program and the accompanying materials are made available
+                       under the terms of the Eclipse Public License v1.0 which
+                       accompanies this distribution, and is available at
+                       http://www.eclipse.org/legal/epl-v10.html</td>
+        </tr>
+        <tr>
+            <td><strong>yang-version</strong></td>
+            <td>1</td>
+        </tr>
+        <tr>
+        </tr>
+    </table>
+    
+    <div>
+        <h3>Type Definitions Summary</h3>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>
+                <a href="#q-name"><strong>q-name</strong></a>
+                </td>
+                <td>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <h3>Notifications Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#data-changed-notification"><strong>data-changed-notification</strong></a>
+            </td>
+            <td>
+            Data change notification.
+            </td>
+        </tr>
+    </table>
+    <h3>RPCs Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#begin-transaction"><strong>begin-transaction</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#create-data-change-event-subscription"><strong>create-data-change-event-subscription</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#create-notification-stream"><strong>create-notification-stream</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    
+    <h2>Type Definitions</h2>
+    <ul>
+    <li>
+        <h3 id="q-name">q-name</h3>
+        <ul>
+        <li>
+            Reference: http://www.w3.org/TR/2004/REC-xmlschema-2-20041028/#QName
+        </li>
+        <li>
+            Base type: string
+        </li>
+        </ul>
+    </li>
+    </ul>
+    
+    
+    
+    
+    
+    <h2>Notifications</h2>
+    
+    <h3 id="data-changed-notification">data-changed-notification
+    </h3>
+        Data change notification.
+        <ul>
+        <strong>
+        <li id="data-changed-notification/data-change-event">
+            list: data-change-event
+        </li>
+        </strong>
+        <ul>
+        <li>
+            key definition: path
+        </li>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            anyxml: data
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: DataObject 
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: operation
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: enumeration
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: path
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: instance-identifier
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: store
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: enumeration
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+    
+    
+    <h2>RPC Definitions</h2>
+    <h3 id="begin-transaction">begin-transaction
+    </h3>
+        <ul>
+            <ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="begin-transaction/output">
+                container: output
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                anyxml: data-modification-transaction
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: DataModificationTransaction xml
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+        </ul>
+    <h3 id="create-data-change-event-subscription">create-data-change-event-subscription
+    </h3>
+        <ul>
+            <ul>
+            <strong>
+            <li id="create-data-change-event-subscription/input">
+                container: input
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: path
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Subtree path. 
+            </li>
+            <li>
+                type: instance-identifier
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="create-data-change-event-subscription/output">
+                container: output
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: stream-name
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Notification stream name.
+            </li>
+            <li>
+                type: string
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+        </ul>
+    <h3 id="create-notification-stream">create-notification-stream
+    </h3>
+        <ul>
+            <ul>
+            <strong>
+            <li id="create-notification-stream/input">
+                container: input
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf-list: notifications
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Notification QNames
+            </li>
+            <li>
+                type: q-name
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="create-notification-stream/output">
+                container: output
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: notification-stream-identifier
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Unique notification stream identifier, in which notifications will be propagated
+            </li>
+            <li>
+                type: string
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+        </ul>
+    </ul>
+    
+    
+    
+  </body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>odl-sal-dom-rpc-remote-cfg</title>
+  </head>
+  <body>
+    <h1>odl-sal-dom-rpc-remote-cfg</h1>
+    
+    <h2>Base Information</h2>
+    <table>
+        <tr>
+            <td><strong>prefix</strong></td>
+            <td>rpc-cluster</td>
+        </tr>
+        <tr>
+            <td><strong>namespace</strong></td>
+            <td>urn:opendaylight:params:xml:ns:yang:controller:md:sal:remote:rpc</td>
+        </tr>
+        <tr>
+            <td><strong>revision</strong></td>
+            <td>2013-10-28</td>
+        </tr>
+        <tr>
+            <td><strong>description</strong></td>
+            <td>Service definition for Binding Aware MD-SAL.</td>
+        </tr>
+        <tr>
+            <td><strong>yang-version</strong></td>
+            <td>1</td>
+        </tr>
+        <tr>
+    <td><strong>imports</strong></td><td>        dom:opendaylight-md-sal-dom;
+            config:config 2013-04-05;
+    </td>    </tr>
+    </table>
+    
+    <h3>Identities Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#remote-rpc-client"><strong>remote-rpc-client</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#remote-rpc-server"><strong>remote-rpc-server</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#remote-zeromq-rpc-server"><strong>remote-zeromq-rpc-server</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    <h3>Augmentations Summary</h3>
+    <table>
+        <tr>
+            <th>Target</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#/config:modules/config:module/config:configuration/(case)remote-zeromq-rpc-server"><strong>/config:modules/config:module/config:configuration/(case)remote-zeromq-rpc-server</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    
+    
+    <h2>Identities</h2>
+    <ul>
+    <li>
+        <h3 id="remote-rpc-client">remote-rpc-client</h3>
+        <ul>
+        <li>
+            base: service-type
+        </li>
+        </ul>
+    </li>
+    <li>
+        <h3 id="remote-rpc-server">remote-rpc-server</h3>
+        <ul>
+        <li>
+            base: service-type
+        </li>
+        </ul>
+    </li>
+    <li>
+        <h3 id="remote-zeromq-rpc-server">remote-zeromq-rpc-server</h3>
+        <ul>
+        <li>
+            base: module-type
+        </li>
+        </ul>
+    </li>
+    </ul>
+    
+    
+    
+    
+    
+    <h2>Augmentations</h2>
+    
+    <ul>
+    <li>
+        <h3 id="/config:modules/config:module/config:configuration/(case)remote-zeromq-rpc-server">
+        Target [config:/config:modules/config:module/config:configuration/(case)remote-zeromq-rpc-server]</h3>
+        <ul>
+        <strong>
+        <li id="modules/module/configuration/remote-zeromq-rpc-server">
+            case: remote-zeromq-rpc-server
+        </li>
+        </strong>
+        <ul>
+        <li>
+            when condition: /config:modules/config:module/config:type = 'remote-zeromq-rpc-server'
+        </li>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong>
+        <li id="modules/module/configuration/remote-zeromq-rpc-server/dom-broker">
+            container: dom-broker
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        <strong><li>
+            uses: config:service-ref
+        </li>
+        </strong>
+        <ul>
+        <li>refines:
+            <ul>
+            <li>
+                node name: type
+            </li>
+            </ul>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: name
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: leafref
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: type
+        </li>
+        </strong>
+        <ul>
+        <li>
+            description: Type of the service being referenced. Users of this grouping
+                             should refine this leaf with required-identity pointing to
+                             the actual service-type which is actually required.
+        </li>
+        <li>
+            type: config:service-type-ref
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: port
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: uint16
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+    </li>
+    </ul>
+    
+    
+    
+    
+  </body>
+</html>

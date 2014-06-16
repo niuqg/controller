@@ -1,0 +1,10 @@
+-------------------------------------------------------------------------------
+Test set: org.opendaylight.controller.sal.restconf.impl.test.RestCodecExceptionsTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.017 sec <<< FAILURE! - in org.opendaylight.controller.sal.restconf.impl.test.RestCodecExceptionsTest
+serializeExceptionTest(org.opendaylight.controller.sal.restconf.impl.test.RestCodecExceptionsTest)  Time elapsed: 0.005 sec  <<< ERROR!
+java.lang.NullPointerException: path must not be null
+	at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:208)
+	at org.opendaylight.yangtools.yang.model.util.BitsType.<init>(BitsType.java:50)
+	at org.opendaylight.controller.sal.restconf.impl.test.RestCodecExceptionsTest.serializeExceptionTest(RestCodecExceptionsTest.java:23)
+

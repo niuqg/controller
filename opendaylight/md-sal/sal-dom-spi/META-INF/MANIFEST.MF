@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1402892692468
+Build-Jdk: 1.7.0_51
+Built-By: niu
+Bundle-ManifestVersion: 2
+Bundle-Name: org.opendaylight.controller.sal-core-spi
+Bundle-SymbolicName: org.opendaylight.controller.sal-core-spi
+Bundle-Version: 1.1.0.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Export-Package: org.opendaylight.controller.sal.core.spi.data;uses:="com
+ .google.common.base,com.google.common.util.concurrent,org.opendaylight.
+ controller.md.sal.common.api.data,org.opendaylight.yangtools.concepts,o
+ rg.opendaylight.yangtools.yang.data.api,org.opendaylight.yangtools.yang
+ .data.api.schema";version="1.1.0.SNAPSHOT",org.opendaylight.controller.
+ sal.core.spi;uses:="org.opendaylight.controller.sal.core.api";version="
+ 1.1.0.SNAPSHOT"
+Import-Package: com.google.common.base;version="[14.0,15)",com.google.co
+ mmon.util.concurrent;version="[14.0,15)",org.opendaylight.controller.md
+ .sal.common.api.data,org.opendaylight.controller.sal.core.api,org.opend
+ aylight.yangtools.concepts;version="[0.6,1)",org.opendaylight.yangtools
+ .yang.data.api;version="[0.6,1)",org.opendaylight.yangtools.yang.data.a
+ pi.schema;version="[0.6,1)"
+Tool: Bnd-2.1.0.20130426-122213

@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>opendaylight-queue-statistics</title>
+  </head>
+  <body>
+    <h1>opendaylight-queue-statistics</h1>
+    
+    <h2>Base Information</h2>
+    <table>
+        <tr>
+            <td><strong>prefix</strong></td>
+            <td>queuestat</td>
+        </tr>
+        <tr>
+            <td><strong>namespace</strong></td>
+            <td>urn:opendaylight:queue:statistics</td>
+        </tr>
+        <tr>
+            <td><strong>revision</strong></td>
+            <td>2013-12-16</td>
+        </tr>
+        <tr>
+            <td><strong>description</strong></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><strong>yang-version</strong></td>
+            <td>1</td>
+        </tr>
+        <tr>
+    <td><strong>imports</strong></td><td>        stat-types:opendaylight-statistics-types 2013-09-25;
+            tr:flow-capable-transaction;
+            inv:opendaylight-inventory 2013-08-19;
+            ext:yang-ext 2013-07-09;
+            flow-node:flow-node-inventory 2013-08-19;
+            queue-types:opendaylight-queue-types 2013-09-25;
+    </td>    </tr>
+    </table>
+    
+    <h3>Groupings Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#flow-capable-node-connector-queue-statistics"><strong>flow-capable-node-connector-queue-statistics</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#queue-id-and-statistics-map"><strong>queue-id-and-statistics-map</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    <h3>Augmentations Summary</h3>
+    <table>
+        <tr>
+            <th>Target</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#/opendaylight-inventory:nodes/opendaylight-inventory:node/opendaylight-inventory:node-connector/flow-node-inventory:queue/"><strong>/opendaylight-inventory:nodes/opendaylight-inventory:node/opendaylight-inventory:node-connector/flow-node-inventory:queue/</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    <h3>Notifications Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#queue-statistics-update"><strong>queue-statistics-update</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    <h3>RPCs Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#get-all-queues-statistics-from-all-ports"><strong>get-all-queues-statistics-from-all-ports</strong></a>
+            </td>
+            <td>
+            Get statistics for all the queues attached to all the ports from the node
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#get-all-queues-statistics-from-given-port"><strong>get-all-queues-statistics-from-given-port</strong></a>
+            </td>
+            <td>
+            Get statistics for all queues for given port of the node
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <a href="#get-queue-statistics-from-given-port"><strong>get-queue-statistics-from-given-port</strong></a>
+            </td>
+            <td>
+            Get statistics for given queues from given port of the node
+            </td>
+        </tr>
+    </table>
+    
+    
+    
+    <h2>Groupings</h2>
+    <ul>
+    <li>
+        <h3 id="flow-capable-node-connector-queue-statistics">flow-capable-node-connector-queue-statistics</h3>
+        <ul>
+            <ul>
+            <strong>
+            <li id="flow-capable-node-connector-queue-statistics/flow-capable-node-connector-queue-statistics">
+                container: flow-capable-node-connector-queue-statistics
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: stat-types:generic-queue-statistics
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong>
+            <li id="flow-capable-node-connector-queue-statistics/flow-capable-node-connector-queue-statistics/duration">
+                container: duration
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: nanosecond
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: second
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter32
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transmission-errors
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transmitted-bytes
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transmitted-packets
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter64
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+        </ul>
+    </li>
+    <li>
+        <h3 id="queue-id-and-statistics-map">queue-id-and-statistics-map</h3>
+        <ul>
+            <ul>
+            <strong>
+            <li id="queue-id-and-statistics-map/queue-id-and-statistics-map">
+                list: queue-id-and-statistics-map
+            </li>
+            </strong>
+            <ul>
+            <li>
+                key definition: queue-id
+            </li>
+            <li>
+                key definition: node-connector-id
+            </li>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: stat-types:generic-queue-statistics
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong>
+            <li id="queue-id-and-statistics-map/queue-id-and-statistics-map/duration">
+                container: duration
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: nanosecond
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: second
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter32
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: node-connector-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: inv:node-connector-id
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: queue-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: queue-types:queue-id
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transmission-errors
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transmitted-bytes
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transmitted-packets
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter64
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+        </ul>
+    </li>
+    </ul>
+    
+    
+    
+    <h2>Notifications</h2>
+    
+    <h3 id="queue-statistics-update">queue-statistics-update
+    </h3>
+        <ul>
+        <strong><li>
+            leaf: id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inv:node-id
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: moreReplies
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: boolean
+        </li>
+        <li>
+            default: false
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="queue-statistics-update/node-connector">
+            list: node-connector
+        </li>
+        </strong>
+        <ul>
+        <li>
+            key definition: id
+        </li>
+        </ul>
+        <ul>
+        <strong><li>
+            uses: inv:node-connector
+        </li>
+        </strong>
+        <ul>
+        <li>refines:
+            <ul>
+            </ul>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inv:node-connector-id
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong>
+        <li id="queue-statistics-update/queue-id-and-statistics-map">
+            list: queue-id-and-statistics-map
+        </li>
+        </strong>
+        <ul>
+        <li>
+            key definition: queue-id
+        </li>
+        <li>
+            key definition: node-connector-id
+        </li>
+        </ul>
+        <ul>
+        <strong><li>
+            uses: stat-types:generic-queue-statistics
+        </li>
+        </strong>
+        <ul>
+        <li>refines:
+            <ul>
+            </ul>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong>
+        <li id="queue-statistics-update/queue-id-and-statistics-map/duration">
+            container: duration
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: nanosecond
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: yang:counter32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: second
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: yang:counter32
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: node-connector-id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: inv:node-connector-id
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: queue-id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: queue-types:queue-id
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transmission-errors
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: yang:counter64
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transmitted-bytes
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: yang:counter64
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transmitted-packets
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: yang:counter64
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transaction-id
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: transaction-id
+        </li>
+        </ul>
+        </ul>
+    
+    <h2>Augmentations</h2>
+    
+    <ul>
+    <li>
+        <h3 id="/opendaylight-inventory:nodes/opendaylight-inventory:node/opendaylight-inventory:node-connector/flow-node-inventory:queue/">
+        Target [flow-node:/opendaylight-inventory:nodes/opendaylight-inventory:node/opendaylight-inventory:node-connector/flow-node-inventory:queue/]</h3>
+        <ul>
+        <strong>
+        <li id="nodes/node/node-connector/queue/flow-capable-node-connector-queue-statistics">
+            container: flow-capable-node-connector-queue-statistics
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        <strong><li>
+            uses: stat-types:generic-queue-statistics
+        </li>
+        </strong>
+        <ul>
+        <li>refines:
+            <ul>
+            </ul>
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong>
+        <li id="nodes/node/node-connector/queue/flow-capable-node-connector-queue-statistics/duration">
+            container: duration
+        </li>
+        </strong>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        </ul>
+        <ul>
+        <ul>
+        <strong><li>
+            leaf: nanosecond
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: yang:counter32
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: second
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: yang:counter32
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transmission-errors
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: yang:counter64
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transmitted-bytes
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: yang:counter64
+        </li>
+        </ul>
+        </ul>
+        <ul>
+        <strong><li>
+            leaf: transmitted-packets
+        </li>
+        </strong>
+        <ul>
+        <li>
+            type: yang:counter64
+        </li>
+        </ul>
+        </ul>
+        </ul>
+        </ul>
+    </li>
+    </ul>
+    
+    <h2>RPC Definitions</h2>
+    <h3 id="get-all-queues-statistics-from-all-ports">get-all-queues-statistics-from-all-ports
+    </h3>
+        <ul>
+            <li>
+                Description: Get statistics for all the queues attached to all the ports from the node
+            </li>
+            <ul>
+            <strong>
+            <li id="get-all-queues-statistics-from-all-ports/input">
+                container: input
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: inv:node-context-ref
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: node
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: inv:node-ref
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="get-all-queues-statistics-from-all-ports/output">
+                container: output
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: transaction-aware
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            <strong><li>
+                uses: <a href="#queue-id-and-statistics-map">queue-id-and-statistics-map</a>
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong>
+            <li id="get-all-queues-statistics-from-all-ports/output/queue-id-and-statistics-map">
+                list: queue-id-and-statistics-map
+            </li>
+            </strong>
+            <ul>
+            <li>
+                key definition: queue-id
+            </li>
+            <li>
+                key definition: node-connector-id
+            </li>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: stat-types:generic-queue-statistics
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong>
+            <li id="get-all-queues-statistics-from-all-ports/output/queue-id-and-statistics-map/duration">
+                container: duration
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: nanosecond
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: second
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter32
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: node-connector-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: inv:node-connector-id
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: queue-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: queue-types:queue-id
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transmission-errors
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transmitted-bytes
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transmitted-packets
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter64
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transaction-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: transaction-id
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+        </ul>
+    <h3 id="get-all-queues-statistics-from-given-port">get-all-queues-statistics-from-given-port
+    </h3>
+        <ul>
+            <li>
+                Description: Get statistics for all queues for given port of the node
+            </li>
+            <ul>
+            <strong>
+            <li id="get-all-queues-statistics-from-given-port/input">
+                container: input
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: inv:node-context-ref
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: node
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: inv:node-ref
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: node-connector-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: inv:node-connector-id
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="get-all-queues-statistics-from-given-port/output">
+                container: output
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: transaction-aware
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            <strong><li>
+                uses: <a href="#queue-id-and-statistics-map">queue-id-and-statistics-map</a>
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong>
+            <li id="get-all-queues-statistics-from-given-port/output/queue-id-and-statistics-map">
+                list: queue-id-and-statistics-map
+            </li>
+            </strong>
+            <ul>
+            <li>
+                key definition: queue-id
+            </li>
+            <li>
+                key definition: node-connector-id
+            </li>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: stat-types:generic-queue-statistics
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong>
+            <li id="get-all-queues-statistics-from-given-port/output/queue-id-and-statistics-map/duration">
+                container: duration
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: nanosecond
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: second
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter32
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: node-connector-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: inv:node-connector-id
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: queue-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: queue-types:queue-id
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transmission-errors
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transmitted-bytes
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transmitted-packets
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter64
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transaction-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: transaction-id
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+        </ul>
+    <h3 id="get-queue-statistics-from-given-port">get-queue-statistics-from-given-port
+    </h3>
+        <ul>
+            <li>
+                Description: Get statistics for given queues from given port of the node
+            </li>
+            <ul>
+            <strong>
+            <li id="get-queue-statistics-from-given-port/input">
+                container: input
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: inv:node-context-ref
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: node
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: inv:node-ref
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: node-connector-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: inv:node-connector-id
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: queue-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: queue-types:queue-id
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong>
+            <li id="get-queue-statistics-from-given-port/output">
+                container: output
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: transaction-aware
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            <strong><li>
+                uses: <a href="#queue-id-and-statistics-map">queue-id-and-statistics-map</a>
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong>
+            <li id="get-queue-statistics-from-given-port/output/queue-id-and-statistics-map">
+                list: queue-id-and-statistics-map
+            </li>
+            </strong>
+            <ul>
+            <li>
+                key definition: queue-id
+            </li>
+            <li>
+                key definition: node-connector-id
+            </li>
+            </ul>
+            <ul>
+            <strong><li>
+                uses: stat-types:generic-queue-statistics
+            </li>
+            </strong>
+            <ul>
+            <li>refines:
+                <ul>
+                </ul>
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong>
+            <li id="get-queue-statistics-from-given-port/output/queue-id-and-statistics-map/duration">
+                container: duration
+            </li>
+            </strong>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+            <ul>
+            <ul>
+            <strong><li>
+                leaf: nanosecond
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter32
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: second
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter32
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: node-connector-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: inv:node-connector-id
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: queue-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: queue-types:queue-id
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transmission-errors
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transmitted-bytes
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter64
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transmitted-packets
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: yang:counter64
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: transaction-id
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: transaction-id
+            </li>
+            </ul>
+            </ul>
+            </ul>
+            </ul>
+        </ul>
+    </ul>
+    
+    
+    
+  </body>
+</html>

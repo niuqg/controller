@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: org.opendaylight.controller.md.sal.dom.broker.impl.DOMBrokerPerformanceTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.711 sec - in org.opendaylight.controller.md.sal.dom.broker.impl.DOMBrokerPerformanceTest

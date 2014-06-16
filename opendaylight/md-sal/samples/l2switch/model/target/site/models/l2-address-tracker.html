@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>l2-address-tracker</title>
+  </head>
+  <body>
+    <h1>l2-address-tracker</h1>
+    
+    <h2>Base Information</h2>
+    <table>
+        <tr>
+            <td><strong>prefix</strong></td>
+            <td>l2-address-tracker</td>
+        </tr>
+        <tr>
+            <td><strong>namespace</strong></td>
+            <td>urn:opendaylight:l2-address-tracker</td>
+        </tr>
+        <tr>
+            <td><strong>revision</strong></td>
+            <td>2014-04-02</td>
+        </tr>
+        <tr>
+            <td><strong>description</strong></td>
+            <td>YANG version of the  L2 Address Tracker Data Model</td>
+        </tr>
+        <tr>
+            <td><strong>yang-version</strong></td>
+            <td>1</td>
+        </tr>
+        <tr>
+    <td><strong>imports</strong></td><td>        yang:ietf-yang-types 2010-09-24;
+            inv:opendaylight-inventory 2013-08-19;
+    </td>    </tr>
+    </table>
+    
+    <h3>Groupings Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#l2-address"><strong>l2-address</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    <h3>Child Nodes Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#l2-addresses"><strong>l2-addresses</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    
+    
+    
+    <h2>Groupings</h2>
+    <ul>
+    <li>
+        <h3 id="l2-address">l2-address</h3>
+        <ul>
+            <ul>
+            <strong><li>
+                leaf: mac
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: the mac address of the host.
+            </li>
+            <li>
+                type: yang:mac-address
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: node-connector-ref
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: inv:node-connector-ref
+            </li>
+            </ul>
+            </ul>
+        </ul>
+    </li>
+    </ul>
+    
+    <h2>Datastore Structure</h2>
+    <strong>l2-address-tracker</strong>
+    <ul>
+    <li>
+        <a href="#l2-addresses"><strong>l2-addresses</strong>
+        </a>
+        <ul>
+        <li>
+            <a href="#l2-addresses/l2-address"><strong>l2-address</strong> [mac]
+            </a>
+            <ul>
+            <li>
+                <i>mac</i>(U)
+            </li>
+            <li>
+                <i>node-connector-ref</i>(U)
+            </li>
+            </ul>
+        </li>
+        </ul>
+    </li>
+    </ul>
+    
+    <h2>Child nodes</h2>
+    
+    <h3>Direct children</h3>
+    <ul>
+    <li><strong><a href="#l2-addresses">l2-addresses</a>
+    </strong> (container)</li>
+    </ul>
+    
+    <h3 id="l2-addresses">
+        l2-addresses
+    </h3>
+    <dl>
+      <dt>XML Path</dt>
+      <dd></dd>
+      <dt>Restconf path</dt>
+      <dd><code>l2-address-tracker:l2-addresses</code></dd>
+    </dl>
+    <h3>Direct children</h3>
+    <ul>
+    <li><strong><a href="#l2-addresses/l2-address">l2-address</a>
+    </strong> (list)</li>
+    </ul>
+    
+    <h3>XML example</h3>
+    <pre>
+        &lt;l2-addresses xmlns="urn:opendaylight:l2-address-tracker"&gt;<!-- Child nodes -->
+        <!-- l2-address -->
+            &lt!-- See <a href="#l2-addresses/l2-address">definition</a>
+             for child nodes.  --&gt
+            &lt!-- This node could appear multiple times --&gt
+            &lt;l2-address xmlns="urn:opendaylight:l2-address-tracker"&gt;...&lt;/l2-address&gt;
+        
+        &lt;/l2-addresses&gt;
+    </pre>
+    </h3>
+    <h3 id="l2-addresses/l2-address">
+        l2-addresses/l2-address
+    </h3>
+    <dl>
+      <dt>XML Path</dt>
+      <dd></dd>
+      <dt>Restconf path</dt>
+      <dd><code>l2-address-tracker:l2-addresses/l2-address/{mac}</code></dd>
+    </dl>
+    <h3>Direct children</h3>
+    <ul>
+    <li><strong>mac</strong> (leaf)</li>
+    <li><strong>node-connector-ref</strong> (leaf)</li>
+    </ul>
+    
+    <h3>XML example</h3>
+    <pre>
+        &lt;l2-address xmlns="urn:opendaylight:l2-address-tracker"&gt;<!-- Child nodes -->
+        <!-- mac -->
+            &lt;mac xmlns="urn:opendaylight:l2-address-tracker"&gt;...&lt;/mac&gt;
+        <!-- node-connector-ref -->
+            &lt;node-connector-ref xmlns="urn:opendaylight:l2-address-tracker"&gt;...&lt;/node-connector-ref&gt;
+        
+        &lt;/l2-address&gt;
+    </pre>
+    </h3>
+    
+    
+    
+    
+    
+    
+  </body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>queue-management</title>
+  </head>
+  <body>
+    <h1>queue-management</h1>
+    
+    <h2>Base Information</h2>
+    <table>
+        <tr>
+            <td><strong>prefix</strong></td>
+            <td>queue-cfg</td>
+        </tr>
+        <tr>
+            <td><strong>namespace</strong></td>
+            <td>urn:opendaylight:queue:config</td>
+        </tr>
+        <tr>
+            <td><strong>revision</strong></td>
+            <td>2013-10-24</td>
+        </tr>
+        <tr>
+            <td><strong>description</strong></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><strong>yang-version</strong></td>
+            <td>1</td>
+        </tr>
+        <tr>
+    <td><strong>imports</strong></td><td>        inv:opendaylight-inventory 2013-08-19;
+            queue:opendaylight-queue-types 2013-09-25;
+    </td>    </tr>
+    </table>
+    
+    <h3>Groupings Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#queue-entry"><strong>queue-entry</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    <h3>Child Nodes Summary</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+            <a href="#queues"><strong>queues</strong></a>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    
+    
+    
+    <h2>Groupings</h2>
+    <ul>
+    <li>
+        <h3 id="queue-entry">queue-entry</h3>
+        <ul>
+            <ul>
+            <strong><li>
+                leaf: node
+            </li>
+            </strong>
+            <ul>
+            <li>
+                type: inv:node-connector-ref
+            </li>
+            </ul>
+            </ul>
+            <ul>
+            <strong><li>
+                leaf: port
+            </li>
+            </strong>
+            <ul>
+            <li>
+                description: Port to be queried.
+            </li>
+            <li>
+                type: uint32
+            </li>
+            </ul>
+            </ul>
+        </ul>
+    </li>
+    </ul>
+    
+    <h2>Datastore Structure</h2>
+    <strong>queue-management</strong>
+    <ul>
+    <li>
+        <a href="#queues"><strong>queues</strong>
+        </a>
+        <ul>
+        <li>
+            <a href="#queues/queue"><strong>queue</strong> [id node]
+            </a>
+            <ul>
+            <li>
+                id
+            </li>
+            <li>
+                <i>node</i>(U)
+            </li>
+            <li>
+                <i>port</i>(U)
+            </li>
+            </ul>
+        </li>
+        </ul>
+    </li>
+    </ul>
+    
+    <h2>Child nodes</h2>
+    
+    <h3>Direct children</h3>
+    <ul>
+    <li><strong><a href="#queues">queues</a>
+    </strong> (container)</li>
+    </ul>
+    
+    <h3 id="queues">
+        queues
+    </h3>
+    <dl>
+      <dt>XML Path</dt>
+      <dd></dd>
+      <dt>Restconf path</dt>
+      <dd><code>queue-management:queues</code></dd>
+    </dl>
+    <h3>Direct children</h3>
+    <ul>
+    <li><strong><a href="#queues/queue">queue</a>
+    </strong> (list)</li>
+    </ul>
+    
+    <h3>XML example</h3>
+    <pre>
+        &lt;queues xmlns="urn:opendaylight:queue:config"&gt;<!-- Child nodes -->
+        <!-- queue -->
+            &lt!-- See <a href="#queues/queue">definition</a>
+             for child nodes.  --&gt
+            &lt!-- This node could appear multiple times --&gt
+            &lt;queue xmlns="urn:opendaylight:queue:config"&gt;...&lt;/queue&gt;
+        
+        &lt;/queues&gt;
+    </pre>
+    </h3>
+    <h3 id="queues/queue">
+        queues/queue
+    </h3>
+    <dl>
+      <dt>XML Path</dt>
+      <dd></dd>
+      <dt>Restconf path</dt>
+      <dd><code>queue-management:queues/queue/{id}/{node}</code></dd>
+    </dl>
+    <h3>Direct children</h3>
+    <ul>
+    <li><strong>id</strong> (leaf)</li>
+    <li><strong>node</strong> (leaf)</li>
+    <li><strong>port</strong> (leaf)</li>
+    </ul>
+    
+    <h3>XML example</h3>
+    <pre>
+        &lt;queue xmlns="urn:opendaylight:queue:config"&gt;<!-- Child nodes -->
+        <!-- id -->
+            &lt;id xmlns="urn:opendaylight:queue:config"&gt;...&lt;/id&gt;
+        <!-- node -->
+            &lt;node xmlns="urn:opendaylight:queue:config"&gt;...&lt;/node&gt;
+        <!-- port -->
+            &lt;port xmlns="urn:opendaylight:queue:config"&gt;...&lt;/port&gt;
+        
+        &lt;/queue&gt;
+    </pre>
+    </h3>
+    
+    
+    
+    
+    
+    
+  </body>
+</html>
